@@ -4,7 +4,7 @@
    tiep qua mang nhu binh thuong, dung nguyen hanh vi hien tai cua web. */
 "use strict";
 
-var CACHE = "dory-chu-va-so-v1";
+var CACHE = "dory-chu-va-so-v2";
 var SHELL = [
   "../index.html",
   "../",
