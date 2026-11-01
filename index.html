@@ -48,14 +48,19 @@ h1{font-family:"Baloo 2",cursive;font-size:clamp(30px,6vw,46px);color:var(--navy
 .scope{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0 4px}
 .scope span{background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px 12px;font-weight:900;font-size:14px;color:var(--navy)}
 /* home grid */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;position:relative;z-index:1}
-@media(max-width:640px){.grid{grid-template-columns:1fr}}
-.mode{background:var(--card);border:3px solid var(--line);border-radius:22px;padding:16px 16px 14px;text-align:left;box-shadow:var(--shadow);display:flex;gap:12px;align-items:flex-start;transition:transform .12s ease,border-color .12s ease;width:100%}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto;gap:14px;margin-top:18px;position:relative;z-index:1}
+@media(min-width:641px){.grid{grid-auto-rows:1fr}}
+@media(max-width:640px){.grid{grid-template-columns:minmax(0,1fr)}}
+.mixed-wrap{margin-top:14px;position:relative;z-index:1}
+.mixed-wrap .mode.mixed{height:auto}
+.mode{background:var(--card);border:3px solid var(--line);border-radius:22px;padding:16px 16px 14px;text-align:left;box-shadow:var(--shadow);display:flex;gap:12px;align-items:stretch;transition:transform .12s ease,border-color .12s ease;width:100%;height:100%;min-width:0}
+.mode>span:last-child{flex:1 1 auto;min-width:0;display:flex;flex-direction:column}
+.mode .ic{align-self:flex-start}
 .mode:hover{transform:translateY(-2px);border-color:var(--sky)}
 .mode .ic{font-size:38px;line-height:1.1;flex:0 0 auto}
 .mode h3{margin:0 0 4px;font-family:"Baloo 2",cursive;font-size:21px;color:var(--navy);line-height:1.2}
-.mode p{margin:0;font-size:15px;font-weight:700;color:#40608f;line-height:1.45}
-.mode .tag{display:inline-block;margin-top:8px;background:var(--sky-soft);color:var(--navy2);font-size:13px;font-weight:900;border-radius:999px;padding:3px 10px}
+.mode p{margin:0 0 10px;font-size:15px;font-weight:700;color:#40608f;line-height:1.45;overflow-wrap:break-word}
+.mode .tag{display:inline-block;align-self:flex-start;margin-top:auto;background:var(--sky-soft);color:var(--navy2);font-size:13px;font-weight:900;border-radius:999px;padding:3px 10px;max-width:100%}
 .mode.mixed{grid-column:1/-1;background:linear-gradient(135deg,#123a7d,#1c56b8);border-color:#123a7d;color:#fff}
 .mode.mixed h3{color:#fff}
 .mode.mixed p{color:#d6e9ff}
@@ -293,8 +298,29 @@ img,svg,video{max-width:100%}
   .tenframe{grid-template-columns:repeat(5,40px)}
   .tfcell{width:40px;height:40px}
 }
+@media(min-width:768px) and (max-width:1023px){
+  .wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+  .grid{gap:16px}
+}
+/* man hinh lon: khung rong dan deu, chi chua le vua phai; man sieu rong dung o 1280 va can giua */
 @media(min-width:1024px){
+  body{overflow-x:clip}
+  .wrap{max-width:1280px;padding-left:max(clamp(24px,3.5vw,48px),env(safe-area-inset-left));padding-right:max(clamp(24px,3.5vw,48px),env(safe-area-inset-right))}
   .hero{padding-top:34px}
+  .hero p.sub{max-width:960px}
+  .hero p.note{max-width:920px}
+  .cloud.c1{left:-4px}
+  .cloud.c2{right:-4px}
+  .grid{gap:18px}
+  .mixed-wrap{margin-top:18px}
+  .mode{padding:18px 18px 16px}
+  .installhint{max-width:720px}
+  .foot{max-width:960px;margin-left:auto;margin-right:auto}
+  .qcard{padding:26px 28px}
+  .rcard{padding:28px}
+}
+@media(min-width:1280px){
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -1051,13 +1077,22 @@ var SUBJ_INFO={
 var grid=document.getElementById("mode-grid");
 function renderModes(){
   grid.innerHTML="";
+  var oldWrap=document.getElementById("mode-mixed-wrap");
+  if(oldWrap) oldWrap.remove();
   var list= curSubject==="tv" ? TV_MODES : MODES;
   list.forEach(function(m){
     var b=document.createElement("button"); b.type="button"; b.className="mode"+(m.mixed?" mixed":"");
     b.innerHTML='<span class="ic" aria-hidden="true">'+m.icon+'</span><span><h3>'+m.title+'</h3><p>'+m.desc+'</p><span class="tag"></span></span>';
     b.querySelector(".tag").textContent= m.mixed ? ((m.count||20)+" câu - đủ các dạng") : (m.tag+" - 20 câu");
     b.addEventListener("click",function(){startMode(m);});
-    grid.appendChild(b);
+    if(m.mixed){
+      var wrap=document.createElement("div");
+      wrap.id="mode-mixed-wrap"; wrap.className="mixed-wrap";
+      wrap.appendChild(b);
+      grid.parentNode.insertBefore(wrap,grid.nextSibling);
+    } else {
+      grid.appendChild(b);
+    }
   });
 }
 function setSubject(s){
