@@ -282,6 +282,27 @@ table.sum tfoot td{font-weight:900;color:var(--navy);border-bottom:none;border-t
 .btn-install{display:inline-flex;align-items:center;gap:8px;background:#fff;border:3px solid var(--navy2);border-radius:999px;padding:11px 20px;font-size:16px;font-weight:900;color:var(--navy);box-shadow:var(--shadow);min-height:48px}
 .installhint{display:none;margin:12px auto 0;max-width:560px;background:#fff;border:2px dashed #9fd4f8;border-radius:16px;padding:12px 16px;font-size:15px;font-weight:800;color:var(--ink);line-height:1.55;text-align:center;position:relative;z-index:1}
 .installhint.show{display:block}
+/* cong email + ho so rieng theo tung email */
+.acctbar{display:flex;align-items:center;justify-content:flex-end;gap:8px;position:relative;z-index:2;min-height:38px}
+.acct-email{font-size:14px;font-weight:900;color:var(--navy);background:rgba(255,255,255,.8);border:2px solid var(--line);border-radius:999px;padding:5px 12px;max-width:62vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acctbtn{background:#fff;border:2px solid var(--navy2);color:var(--navy);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:900;min-height:38px;box-shadow:var(--shadow)}
+.acctbtn:hover{background:var(--sky-soft)}
+@media(max-width:640px){.acctbar{justify-content:center}}
+#view-login{position:relative;z-index:1;padding-top:24px}
+.logincard{background:#fff;border:3px solid var(--line);border-radius:26px;box-shadow:var(--shadow);max-width:440px;margin:0 auto;padding:28px 24px 24px;text-align:center}
+.login-bunny{font-size:64px}
+.logincard h2{font-family:"Baloo 2",cursive;color:var(--navy);font-size:32px;margin:4px 0 2px;line-height:1.15}
+.login-sub{font-size:15px;font-weight:800;color:#40608f;line-height:1.5;margin:0 0 16px}
+.lfield{display:block;text-align:left;margin-bottom:12px}
+.lfield span{display:block;font-size:14px;font-weight:900;color:var(--navy);margin-bottom:5px}
+.lfield input{width:100%;border:2px solid var(--line);border-radius:14px;padding:13px 14px;font-size:16px;font-family:inherit;font-weight:700;color:var(--ink);background:#f7fbff;min-height:50px}
+.lfield input:focus{outline:none;border-color:var(--navy2);background:#fff;box-shadow:0 0 0 3px rgba(126,200,247,.35)}
+.btn-login{width:100%;background:var(--navy);color:#fff;border:none;border-radius:16px;padding:15px;font-size:19px;font-weight:900;margin-top:4px;min-height:54px}
+.btn-login:disabled{opacity:.55;cursor:wait}
+.login-err{display:none;background:#ffe1ea;border:2px solid #ffc2d4;color:#9c1039;border-radius:12px;padding:10px 12px;font-size:15px;font-weight:800;line-height:1.45;margin:2px 0 10px;text-align:left}
+.login-err.show{display:block}
+.linkbtn{background:none;border:none;color:var(--navy2);font-size:15px;font-weight:900;text-decoration:underline;padding:4px 2px}
+@media(min-width:1024px){#view-login{padding-top:42px}}
 /* tuong thich da man hinh: vung an toan khi chay dang app, nut du lon de be bam */
 .wrap{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right));padding-bottom:max(40px,env(safe-area-inset-bottom))}
 .btn-back{min-height:44px}
@@ -329,8 +350,26 @@ img,svg,video{max-width:100%}
 <div class="wrap">
   <div class="cloud c1"></div><div class="cloud c2"></div>
 
+  <!-- EMAIL GATE -->
+  <section id="view-login" class="hidden">
+    <div class="logincard">
+      <div class="bunny login-bunny" aria-hidden="true">🐰</div>
+      <h2>Dory, Chữ và Số</h2>
+      <p class="login-sub">Ba mẹ gõ email đã được đăng ký để vào học cùng con nhé. Tiến trình học được lưu riêng cho từng email.</p>
+      <form id="login-form" novalidate>
+        <label class="lfield"><span>Email đã đăng ký</span><input type="email" id="login-email" autocomplete="email" placeholder="me@example.com"></label>
+        <div class="login-err" id="login-err" role="alert"></div>
+        <button type="submit" class="btn-login" id="btn-login-submit">Vào học</button>
+      </form>
+    </div>
+  </section>
+
   <!-- HOME -->
   <section id="view-home">
+    <div class="acctbar" id="acct-bar">
+      <span class="acct-email hidden" id="acct-email"></span>
+      <button type="button" class="acctbtn" id="acct-change">Đổi email</button>
+    </div>
     <div class="hero">
       <div class="bunny" aria-hidden="true">🐰</div>
       <h1 id="hero-title">Dory, Chữ và Số</h1>
@@ -354,7 +393,7 @@ img,svg,video{max-width:100%}
       <h2>📊 Phần con thường sai</h2>
       <p class="hist-concl" id="home-concl"></p>
       <table class="sum"><thead><tr><th>Dạng bài</th><th>Kết quả tích lũy</th><th>Đánh giá</th></tr></thead><tbody id="home-rows"></tbody></table>
-      <p class="hnote">Thống kê cộng dồn qua tất cả các lượt con đã chơi, được lưu trên chính máy này (trình duyệt này) - chơi trên máy khác sẽ tính riêng. Mỗi dạng cần làm đủ 10 câu trở lên web mới xếp hạng phần hay sai, tránh kết luận vội khi mới làm vài câu.</p>
+      <p class="hnote">Thống kê cộng dồn qua tất cả các lượt con đã chơi, được lưu riêng cho email đang dùng, trên chính máy này (trình duyệt này). Mỗi dạng cần làm đủ 10 câu trở lên web mới xếp hạng phần hay sai, tránh kết luận vội khi mới làm vài câu.</p>
       <button class="btn-clear" id="btn-clear-home" type="button">Xóa lịch sử thống kê</button>
     </section>
   </section>
@@ -396,7 +435,7 @@ img,svg,video{max-width:100%}
         <h2 style="font-size:25px">📊 Phần con thường sai</h2>
         <p class="hist-concl" id="res-concl"></p>
         <table class="sum"><thead><tr><th>Dạng bài</th><th>Kết quả tích lũy</th><th>Đánh giá</th></tr></thead><tbody id="res-rows"></tbody></table>
-        <p class="hnote">Thống kê cộng dồn qua tất cả các lượt con đã chơi, được lưu trên chính máy này (trình duyệt này) - chơi trên máy khác sẽ tính riêng. Mỗi dạng cần làm đủ 10 câu trở lên web mới xếp hạng phần hay sai, tránh kết luận vội khi mới làm vài câu.</p>
+        <p class="hnote">Thống kê cộng dồn qua tất cả các lượt con đã chơi, được lưu riêng cho email đang dùng, trên chính máy này (trình duyệt này). Mỗi dạng cần làm đủ 10 câu trở lên web mới xếp hạng phần hay sai, tránh kết luận vội khi mới làm vài câu.</p>
         <button class="btn-clear" id="btn-clear-res" type="button">Xóa lịch sử thống kê</button>
       </div>
     </div>
@@ -959,11 +998,13 @@ function tvGen(g){ return function(){ return dedupTvOpts(g()); }; }
 var GENS={so100:genSo100,tiaso:genTiaSo,thanhphan:genThanhPhan,khongnho:genKhongNho,qua10:genQua10,loivan:genLoiVan,kg:genKg,tvdoc:tvGen(genTvDoc),tvnghe:tvGen(genTvNghe),tvviet:tvGen(genTvViet),tvtu:tvGen(genTvTu)};
 
 /* ---------- thong ke tich luy (luu tren chinh may dang choi) ---------- */
-var LS_KEY="toan2-ghk1-thongke-v1";
+var LS_KEY="toan2-ghk1-thongke-v1"; /* key thong ke chung cu, truoc khi co ho so email */
+var PROFILE_KEY=""; /* key thong ke cua email dang dung; de trong = dung key chung */
+function statsKey(){ return PROFILE_KEY || LS_KEY; }
 var MIN_RANK=10; /* moi dang can lam du 10 cau tich luy moi duoc xep hang phan yeu */
 var CATKEY={}; Object.keys(CAT).forEach(function(k){CATKEY[CAT[k]]=k;});
-function loadHist(){ try{ var raw=localStorage.getItem(LS_KEY); if(!raw) return {}; var h=JSON.parse(raw); return (h && typeof h==="object") ? h : {}; }catch(e){ return {}; } }
-function saveHist(h){ try{ localStorage.setItem(LS_KEY, JSON.stringify(h)); }catch(e){} }
+function loadHist(){ try{ var raw=localStorage.getItem(statsKey()); if(!raw) return {}; var h=JSON.parse(raw); return (h && typeof h==="object") ? h : {}; }catch(e){ return {}; } }
+function saveHist(h){ try{ localStorage.setItem(statsKey(), JSON.stringify(h)); }catch(e){} }
 function addToHistory(roundStats){
   var h=loadHist();
   Object.keys(roundStats).forEach(function(cat){
@@ -1113,7 +1154,7 @@ renderModes();
 
 function $(id){return document.getElementById(id);}
 function show(view){
-  ["view-home","view-game","view-result"].forEach(function(v){$(v).classList.toggle("hidden",v!==view);});
+  ["view-login","view-home","view-game","view-result"].forEach(function(v){$(v).classList.toggle("hidden",v!==view);});
   window.scrollTo({top:0,behavior:"smooth"});
 }
 function buildQueue(mode){
@@ -1477,7 +1518,7 @@ $("btn-clear-res").addEventListener("click",openClear);
 $("btn-clear-no").addEventListener("click",closeClear);
 $("modal-clear").addEventListener("click",function(e){ if(e.target===this) closeClear(); });
 $("btn-clear-yes").addEventListener("click",function(){
-  try{ localStorage.removeItem(LS_KEY); }catch(e){}
+  try{ localStorage.removeItem(statsKey()); }catch(e){}
   closeClear(); renderStatsSections(); updateWeakBtn();
 });
 
@@ -1574,7 +1615,8 @@ renderStatsSections();
   btn.addEventListener("click",function(){
     if(deferred){
       var d=deferred; deferred=null;
-      d.prompt();
+      var showInstallPrompt=d.prompt;
+      if(showInstallPrompt) showInstallPrompt.call(d);
       if(d.userChoice && d.userChoice.then){
         d.userChoice.then(function(c){
           if(c && c.outcome==="accepted") row.classList.remove("show");
@@ -1585,6 +1627,88 @@ renderStatsSections();
     }
     if(hint) hint.classList.toggle("show"); /* iPhone: mo dong huong dan cai */
   });
+})();
+</script>
+<script>
+"use strict";
+/* =====================================================================
+   CONG EMAIL DON GIAN - chi email da dang ky moi vao duoc web.
+   - Danh sach email duoc phep GHIM CUNG trong code (REGISTERED_EMAILS),
+     so khop khong phan biet hoa thuong, tu cat khoang trang thua.
+   - Tien trinh hoc luu RIENG theo tung email tren chinh may nay:
+     key thong ke = LS_KEY + "::" + email viet thuong.
+   - Lan dau mot email vao ma tren may da co thong ke chung cu (LS_KEY)
+     thi SAO CHEP ban cu lam diem bat dau cho email do (chi sao chep,
+     giu nguyen ban cu, chi lam 1 lan khi ho so email con trong).
+   - Email da nhap duoc ghi nho tren may: lan mo sau vao thang trang chu.
+   ===================================================================== */
+var REGISTERED_EMAILS = [
+  "doris.khuenguyen1606@gmail.com",
+  "nguyenthitramanh1712@gmail.com",
+  "kts.nguyentyphu@gmail.com"
+];
+var EMAIL_STORE_KEY = LS_KEY + "-email";
+var currentEmail = "";
+
+function normEmail(v){ return String(v || "").trim().toLowerCase(); }
+function isRegistered(em){ return REGISTERED_EMAILS.indexOf(normEmail(em)) !== -1; }
+function profileKeyFor(em){ return LS_KEY + "::" + normEmail(em); }
+
+function activateProfile(em){
+  em = normEmail(em);
+  currentEmail = em;
+  var key = profileKeyFor(em);
+  try{
+    if(localStorage.getItem(key) === null){
+      var legacy = localStorage.getItem(LS_KEY);
+      if(legacy !== null) localStorage.setItem(key, legacy); /* sao chep thong ke cu lam diem bat dau */
+    }
+  }catch(e){}
+  PROFILE_KEY = key;
+  try{ localStorage.setItem(EMAIL_STORE_KEY, em); }catch(e){}
+  var el = $("acct-email");
+  if(el){ el.textContent = em; el.classList.remove("hidden"); }
+}
+function setGateErr(msg){
+  var e = $("login-err"); if(!e) return;
+  if(!msg){ e.classList.remove("show"); e.textContent = ""; return; }
+  e.textContent = msg; e.classList.add("show");
+}
+function showGate(){
+  show("view-login");
+  var inp = $("login-email");
+  if(inp){ inp.value = ""; setTimeout(function(){ try{ inp.focus(); }catch(e){} }, 80); }
+}
+function enterWithEmail(em){
+  activateProfile(em);
+  renderStatsSections(); updateWeakBtn();
+  show("view-home");
+}
+
+$("login-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  var em = normEmail($("login-email").value);
+  if(!em){ setGateErr("Ba mẹ gõ email đã được đăng ký để vào nhé."); return; }
+  if(!isRegistered(em)){
+    setGateErr("Email này chưa được đăng ký cho Dory, Chữ và Số. Ba mẹ nhắn mẹ Dory để được thêm email nhé.");
+    return;
+  }
+  setGateErr("");
+  enterWithEmail(em);
+});
+$("acct-change").addEventListener("click", function(){
+  stopSpeech();
+  try{ localStorage.removeItem(EMAIL_STORE_KEY); }catch(e){}
+  currentEmail = "";
+  showGate();
+});
+
+/* Khoi dong: email da ghi nho ma con trong danh sach thi vao thang */
+(function(){
+  var saved = "";
+  try{ saved = normEmail(localStorage.getItem(EMAIL_STORE_KEY)); }catch(e){}
+  if(saved && isRegistered(saved)) enterWithEmail(saved);
+  else showGate();
 })();
 </script>
 </body>
