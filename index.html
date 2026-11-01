@@ -1,0 +1,1554 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light" />
+<meta name="referrer" content="no-referrer" />
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAFFElEQVR4nK2WS28j1xGFv6p7m2STo5c1M4mAGSNBDI+9sJBNYGSZRX5PfkhW+QFeeG8Y8C67rLIw4ACxk8AJYo8n8kTyOJrRgyIpkn3rZNEtiXoMEAQuNBrswr1Vt06dOpf2u88XABDCDQeB+MEsZ8OMJrhXcV5YFJKTDLcfKEEvc97wk3X79eP8bBzHcx3N9d1U80KyrpQ212pZtz2Xfrvwt+/sZms9fvEwDRLvbHq7btbwh/3y7zNVDtAEbvhKvhAhKkcryQwWAeCQDDOAHOK9N/zHw2uI1JndbT+YlF5iWXi8ZtOG04WyARSx1bdh5ruJsl+dfR78/L477E80aXReqJw8zPzrLM6L3Loc7TGP5hpkkkG2X/2IvSl/fGFVElAae2+LN4d8tGeO2uhFPBrZ+w+7hGdLPT3VF68i95IFfDu5CWkyBsma0NYo9Z893x7cqwebqWmAepC2T4/7359trT0aT5rkZhDBu1tehIQZ9yp7e9OejpXbGvvpZrskDALbyDCe1V4NRzQB0O9RT+aMZxtbTNzaTtTO5y/jy+OrCE0gyJcg3iaEQcAwC1ShOjEzgDpRIdAwKzvZr2gzLysBjMrJeYXwLU3U8aJNoH5lpORV6mUWbkAv41UipX5l2cluq2y+BgPkaqUCWQJMcZlAkA0e3bdBvzdXlQzoSba9xqiXjco7sr7OriCSWb8cirRIm6aOGzL3Iu5vCGIaLdGiSPcGdm/gp6qS53b1axMkMyRIcbT74jeNr/1157fyUdeFoNDx6611Txdz0HoKVCsQ0eEbYLogfQuRAfL18fD94iPPIw/aQRQMc9fwh4Nr4ALDTHJWaSIsPJnw6Fppf3oV7QaTiruBR8ism53adupOBm5oUes8mPF8prYyIY/Zw+OPTke/nAze9gjM3JAhR2ZUKlnFjIRCetDnMjoXQmYrn4Kdmgd9QnLCzRJle/z7ermH4RaG7M9HzZ3NMXh3PVWvm5IVWwZfnpaV+q6R1t3i9iNivaJyQgK+2jv88JPPtGIffvLZV3uHQEiVs14hur1mmLESzXTjcZOZhhkgQkhPn7/84ONPAaxT4Q8+/vTp85dIEWq7fbnRKU5cBfzbyfltcBppZ1Dd76e2AePp4ptvX+4+2YmTCeAboy/+cfDTx9trw1674HBeDs6X2ez2QGS3uA2ro0YBidmc6fnaG+u7T3YAf/EKYGO0+2QHiZcnDAfU/UYtOHZbLe7MSkJTFS3Mnu2zWGo8iTd3ktnXo5HEW1BCvndgJ2fWq/Szx1OVdDVbNyrgjgowFqUZu6/XA4Wo++52eDT5y9/3gc1Rf3trRN3X5NzqwVixKE3q5vJWpH+end75/0Hgbo96dS+kKt+plLZsFm7PF7MI2ap/JVUnJCGZdbN9UQOK2F9MH/aHw8vNrQiatQumyb6fTxVxcd0KzC9+dXG+mR4Ba7k/L02jaBTGVbNanRzlai31ep6TGVCkRTTjspg0SzrRQiKZF6I9xOUNnyHWcn+7qlVJ4jyak2Y2j6atxx3EpMynZZ7MLxMUhSC1VYtAm9VgI9dnZbGMEmhaFm1BuXLbzDXQHnyYKkz/WYyvNMKoLuS5UYdeMjNQ6zZVZut54Gbrud9uajSYlPlxM8tQDpcnfgG9oBDJZNcpcavJunQKHvQ2kl2TrWxpIw8XWmYzNVreiOV3Uvo1Zmgec27NUxChJvvVJX/zgP+z6ayMz+6+8+1uqfi/7M4z6b+s7pRKkqV2agAAAABJRU5ErkJggg==">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAl9UlEQVR4nO19e5BkV3nf7zvn3Hv7PY+dmZ1Z7Wq1WklIAgchI8uSQBA7wTwSA6bKBpEKJlSqgHKoIuUkrgQKpyrlwqk8ygGTKATHhY0rFYUKkMLIBBKRIAsbRRKSAT0Q2od2dndmdp79vPee8+WPc7unZ6Z7Hn1vz9xu9a+6VqO+t+/5zjnf/d7nHPq3T/kYYYReoeioKRhhoCGOmoARBhuKRiJohBgYqbARYmGkwkaIhZEKGyEWRipshFgYMdAIsaAQg4MIAIEAZnBiJI0wSOhRAtlfhQxtAEAASoAwYqNXHHphICIEBswY92jcgwDWA6w0ODDwJBgjPnoF4cAqTBDqIebydNeMvC5PjgAAw1is81NL5vlV4wgQbbIQAS1Hb6Tphg8Hk0AENEK8dkq8cU4KApqyRhCOZ+mXTsmTefrOvJYEaldzGgwIgiJIATNioiHCAeJAAqhpvHpSvOmEZMAwBG3KLwaY8epJQcD/uqQzCoGGYUxmaCpDjkA54MU6lwN4sj9dGeEocAAJFDKmMnT/CdmSOu2wqsowbp8Ul6v89DU9mxN3zYgzJSGbd1YCfmbZPLVkiKIQeDv78kgyDSDUPu8TBF/j9dNCiUj2dIS1fl43LSohv+WUykgATbOakHfo54/LuZz45sUQgGaEevP5zsiPG0DQ538U7H0TEDJKDn71JiUPYjQxb5UxADME4cU1842LZi6H63JUcMnXWKjxyxUODFwx4qFBwr5UmCBojVMFIWk7T+wCxvY7qSmizo6J9zh0PEvtkmypzo9dMS9X2JMjdTYw2G82XgCzuYN5/N3utt/P5UgQDEcfZkxl6B2n5Q1F8nVXFTlC2rC3FyYAwzCEggOgO18cEAzQVkvcardfPCm//GJYDSFopMsGAHursIZG3sF0jiIGSgg727VOnCvw2inxyCVTcKBHHJR67MZADGjGz06L2yYp37yxr7rFSp2bxsRzK7xUZ1fA9LnFEWKiayqDgNDg/jlxy7hAU+McAghwBd52Wj58QV+rsxo5ZelGZwlEBD/E2TG6ZVwYBtGhigEGMhJvPCG+9pLGSALFQOT2MtD8I/G3sQsDMYjwqnFhBc8hT6ENJx7zaC5HlyocMzLUTvzhCLPDb7EjiBAahDrKOGmGElAi4RBJZxVmAE+h5IIAPhIJwABh3KOLFYbofR7swBmOenkICtGqfiDKH8sj8iUJ8A3GXdw0JqYyRMC1Br+4xtca7IqIPDsm1g3vWTh1kUAA+OjT5nbie2ZgO5djHl4/LZXAE4tmocZOP6OURAg0ZrJ057QIDR5f1GuNw+Da7WQAvsFt4+KuGeE0I30n8nT7BJ5cMs9cM62sUWhgGCBIiljhoKR2tYEaIZbqXHLp8OznLRQAwFKdHQHqdfgNI+fgLSdl3iEAbzkl//S8XvU5cTFuYVXGpEdvOSXttE168usXdD081LgoERoat47TvbMC9iVsyhhJeP20EIQfLBlBIMJcjsY90sxLNSw3WIlNcb/PvGTXQKKU+PEq31hqWmGHZUe38mXnNvhaI0pr9Fg2qXHXjMw7ZEWpI3DPrPjGRY0dOZbEQLhnVjjNmqe8Q3fNyEfmdZ9YtiM0YzKDu49vL5posdGdU+JShTXj3uNiJkutX/10nR9f1KGBFAgNGBDYWwV3TWW4hMUaP3bV2JTWob1CNjx9tcqPXdVOr9YPAaHG8SydKZK1RQSBGTNZOl2gwCTfHQICg9MFmsmSfQFsTOtMkY5nKdSHNICCoA1ePSEkAR1fPAKA+2bFW0/JmSxx0/qRhJvH6G+clFbvlxxMZSir4JtNC7IjugYSGfAknl816z7fNiGOeST7v4qVgWrI5zf42RVjLPv3Kn4McPNYU6tH5iIA3DImzm9oSrpwxL5jt4yJVkOtpm8eo4UaJ95iRxhG3sGpvEAXKWu/m/QIrYGhzd9OZ+j+E1IRjudIEhoaL1fMU0umGnZ13/bIhXkKCzW+WtOePCRF7muEDEfA1i32pmsYyDs4Vdgyjva/x3M04dF6wAeqS9kTmjHh0fFc+4xETZ8qiLxjAtM3vdlqDggZEx5l9qry6hidsSLz+sLm157E2ZI4nqVvvqyrITqO2B65MOaozss0V/D0G9Yd4BixbwIaBtflKCO3P8QakifytLrMjkrMLrH21ok87Sx3sUHRmQydL7PXN3fM2isaqIXISMKOSqztBHf/nrfeYBgFh+49Lr91SQt0yCztwavUpI/okCRQKyDRe2sEANfl2/RXaMAGTtTZE3l6djUmmdshBE7k20gOQpCIPHjCdXk6X+b+FVwKQmBQcug1E3SyQIjhJXQUS7M5ms3SfJUzcntwR1HKdldIhBxXYjrbNEdqDTx9DqHBz5xGKQfgmEc5RX5yOoWBnMIxj6IW16t45jyUwF+7AVkPwHRWuJLRH+/P2u+zOXrjrOjHggXL9vfMykfmzZrPaqtfJqipDofmYxhFB0Un6jyen0e1gSDEc5fIGOscjLtkDEQSzQnAGIy7ZBdVkjF47hKCENUGnp+3DGPpacVFk/3YHt13XHgSpm8r7/IK9xwn0WSptu4f+YQn+rFFRRMeRfVoaxWslOEoKIlyDUvrdjiOZcggsUYNcCxD0UgvraNcg5JwFFbKWKvYOMKER1FML+n+hgZzOcqqKHlCnaY/JiybTno0lSW9tRfDtjuH7Zt1UwFgcX3TVCZgYQ0z4wAmPNhQbPwX1lqHE17z/xfWNueQGYvrGMsDmPToJUrembf9zTmbS1/6ip1+ydAxEEMQxl0AADPWKhAEMBgQAhs1hBpKjrmwUcoEus9wBMZsi6HGRg1CRPErQVirWI9o3IWg3tMy3UAMAWz4IMD0P95bDljSNgYaLg5iwKPIAELdR7UB0fSeBaERUKWOsXxeIqtQSyJLZRhZhbwEAKrU0Qgi58uybLWBuo+sV3Tg9afA0pW4WuPlBk96ZJA8j1oQ4eUKr/lQW2OlQ7VHIgHMyCpk7XRWG9DtvhaBGZU6ACWRVxRf5FuNlFekrPtTqUeJw+gyQRuqNgBkJbKqx8D6njQAeOyquVZnARD15XO5yo8vGim20z9UKswyUF6RFTpU9TvECqsNmxouKF7Y9xq33VssKNg33/LKFjCj6vMxCIG8og2f+yHyFaEW4juXzWyOik7CPMrAagNXa4xmbnVoVRgBTMg7iPpY33mKA6EWrcQtuARiilGtBkRmeMFtDmIt6CDUIjIo7zBTvxIaNs/wcoX7kfYXFGku7OjeftfGDwYIAPKtPjXCrZcZBATRl3lbjBlzuBnU3mIQdnhoY7PFiMg+mSmAK/rCoJYpO1I9bCpMALlWn4Jwi6duMzKhhjEQIqcgk7CBJJCznGEMQr1ldy0wiFosm1Mk+l8h3Md6y05fDpsKE4RsSx5os/11J0AbGIZARsJavjEHQEnYTUiihHP747jZIgAgq5qBviEa86GSQACU2DadW/tHBMOkDZR0BRyBQMeS+cxwJGyZOlnW3NlixLKUkdt94CHAULnxDCgBRxAAYu4szZvfK0GOiBW8tdLNEVDRdn9dWyRmAI6g4VsnOVQqzFYvOft7KQTBE1Sh3v1q+ztP0D6jkZa2sP+VZYeJYVNhLtF+Sg2t4HFlZOb2Butvuc1d2PZ8jCS4RLUjWmnXJwyPCrM9cVqb6hG6VgU3v3eT6P3mQ7qtPSBC0zOz5A3PoKewoCwWODKAAEAISLGjwpQhJJrLAxxJiBHZs/6U05J4UkAI6HB7i/Z726Il73D3GugrhkeF2Y5EBpDVKDKarU3D1SY4m0zmNKuhem6R0GZyCYoSt23JN6BJBgMU3Tw0Y44hY6At0wlAKRhgW5WnapMHlAQDbSamxWbAvwUDqM1wf0yWTSFindaTOlBr6QkDBE81ZREDNgjULK23C8JbNa1xWmyXeY6C4Uh12stgeKp1h6TYLaYMwyaBtoiAjLvjLkbGif4AKYrKontuUWyOIAOEjNMhZdRGhho+CTQ0nYkYqL0/WbeDhZxrFZ9CJmEDbVmw2/bw5k2EbBsDxVOaKcSwqbC2+mcg50XVpREYRMhltv0kpgrbglxma/qWIUSTq5pp+uHioGGTQFtCO1kPGQc1P3K7DOAoFDLN2+FQrGUMNnfbNKIJAAoZOGozpWoYWdcuDbNwh1CFDUtvqLlAIvofu0dGKYdKHVIBDG0wloOrohsQLcyIEwcitLUIwFUoZLBShhIAwWiUctHOIETxW0whhk0Cbcd0CZeXo+vMmCoBWxaOx7eBNmEfO1XC8sbmlenSvugcWAxTVH3rxFgWmSiimIXWMAYZ1y4K65cEsI+dGUfGhTHQGsUsJorbWhwm7sHwqbAt3bFa7KYTePoctMGtc7A7JLbETxIqbHuLjsTZOfzwAqTATSfa9Vf8FlOIoVZhdqLG8/jZs9CMUnbzy11+Fb/FmTFkboIk5DPJtphCDFdRfTfkM3vfkywss74C0C8VRsxMOMyXjbrXU+yy41B8FdYZXVrsoGcHHP1SYUZIYhAOZVczAM3JCjtWjHbppD0NKI4Kaz1kny2G8VpMIfrBQEaTPFb7y4pzY0MdE4e1v62VBwfaHD3+RuaH3GIKoRKXpwRBRK9a/lcXxv7OxdIvS6N5e0VF30AHK9WKbo83AIffYqqQsAQimFDIydozmcYPj1e+dan4y3RYoSabGw/MAdZZBCY6VqbnFokRHERLB4bj5P9TiEQYiFv/CtaAnNv4Csgt1Z8Ya7yw4Z2VHPKWuom+DGAPL3bH3W7bH9h+Z7cWD6qhh0sAxfDCmpVa0boYO46BkHl/dar6vyFKZNbmyl9dzv8mtEA7+3BfliUQANHFiO6CkLndJ4reA44299n5/FbYsJX+IkLIB5B5IQP9Wb5+VOg9DmQHQZkqwSdmx6wps05cni7/H2HWWBSJctOVb59au8OXE6HIa1EKRZ6YQ1nqwy45EUkHMmntktGQ0TqcQBGUhCMgttamhQYGCAxCg7B50rTdj/FA22fvfmzAICKOCmMmcszyrQufyPvPgzwyVXAIEqA8sQZJZTZedfUfgyTINeSC/QsTH315/L0U1cUkCWsDHUgCMTDmYsxFTlJWISPhEHbuodR+vzYIGHWNWoiq5jX/YCpsmy4fAtCjC3FCNaxJ5IKXb7vyT3KNH7KcBNtDKlvPJAaBBLEPUz8/9Q8vjL9fcl9O0iUgZJQcvHZivw/X3Hn7fottmzL09pBt+MEKrwdQQ3SieUwXiRTrmnPy6ev+42r+r1O4ROCtwUMmgEzFQD0792/OT75fse7fGygA3WV9eke01tvsZvR0Irf9J/vnHmZoHq76h/gbjQNCsTYi/6O5f70w/j6wv3XACQjqzskfXve5xeKbXB32b2tzAETQfODT5rtxSbI/ASLaWmb4cHwSyYUJiTAU6tLEB6c3vt4UzwJgJkG6vJL/hZXcqzOhb8hJoLVdYQCd1hSxtoeVDNGyVCQVSCQGwKXaE2TKLMcBkKmCHLACeaX6k642hvpeOkIAM0IDL96+LYlj88iX4VNhyTyGAFCx8UMmQTCkV+rezYayZFaYsln/vKcXEXM/yz1JIBAQGPiHl8A9GHwDe1jiUMWBEuqMUEC+8QLpmhaT81Mfn594f84/d/3S741VHiNezfsv1N3j0pg+5cUI0Tkjp/Jtx6ykBpaYooNTeVypRdvpD4cjRn+5FP+FZUMiE1x57blfWcnfd2H6Y1XvlNJsiABMr//p9Qu/u1b8m8/NfcINQ6bkGYiAkOFJnMnT+M7FqCnDqo+XKtzQR+XMd6+N6gkJMBDBaCGLtR9lggsLY28VDGFChiQYgAIpcv7SROWRhdK7mGTyR40AocG4i7OFuFvWHQIseYHBi2VebR4bcGgHOhPARAwIW+6XRLv0/WtJmQykBZQx2HqGCbE2QjFBmL7EDzVjLoPr84TDOK0mAbSIvFDhy/UDhJHit8xEXrAgTLXq3SDZJGLQJ+gZsdIGtCVvCgAkBRsw92MJkWacztNss+I5/dyDNiKvz5MrcaGS8PG/Xdtl40s1vfbVnP+TZ0/+SwqTGa9Ea6KpG4v0EHXbCwwN3FigKW8wBM9OMDCbgSJ6qcISfesDN4ttCI4JJyrfyfjncv6iryaJdfOt7j02NahRCTPg3ANrkQBTHm4sUJ8iDwxiIVgIFtJ31Fj1yUzjBZjq1Pr/CBzJQpnoau9DmM6Y7W6wPtfpPB1zB5h7LCwPHXOh83S+sv082/iQpiq4JthX4bLg9dnlPwYYlJta+2rNPRuoyVBOapFhcrUo9NiF/7ec1rhbJxAQME5mcSKbwGlfKYHtyHyNX67BSYyHrMl86eylf5pt/BiUgc0NkAswYGBqoCygAzXz4onfqWRfTQepjGuBnhgcBrKyZ9LFjYXh4R4L252flnnZTzA+xIaEF8yfvfRb2frTLCeIdSsOxCRJrwfO3E+v+92N7Ktlrz4yPbGsk6G2zyBAMzISt5bEIbq+hwrNeHbd1HV0rlt8EIwmJU31zOVPlcr/lyLxA4DAQTVz209P/E7dnVU65K4O0B4YGCPantV0piCSGty0gQFJOFMQlFwHGUJyoEXuwvF/xiJvq9+Y7DFX+uLMb9a8WaX9nrkHg8JAVvycyFJux7HTQwNrUOckTtiz2RN9cK7xvDBlJofMOuk1JoDDXOO53uyedgzA9i6WewoKxzPDZvpsg+Wh4xla9bmakCIjw1CUazwPvU4w1yZ+NZSlmeUvwVTy9R8TvZviBelUX0ssEsTJnEgoe5N2EHAyR89vJOTcCIBRqnzXd2+4OPeJ1eJ9IKwW7z91+dOlyvekCZhknHGlJ1fCve86OljP65hLN+TFcIufFmw3z1XMNT+ByBCTkLoytfa1a2N/23eKKvQBaOkK1tPL/221eL/vzBH3ntegp9LNQAAYuK0kvcGw1hJDw+DH6zqhF4a1UIJBJmimmwxDGiGkieuDp3parPUz6ZI3dAf97Q4GPIFJNylrmpQJyC7ZiyAIrEwQ/9GpZiAGBGHaI7wylFcLtrPTHiVVuNhxPWMy5RypNUyt+Ck5lJXJOF/MrA0TkYyRO9wd2jAzS0HxT2FjICupqLAecJpDX+ndZNMSdiyRUwUBZiYiJQmAYRZ9iF4YZhkteouai//MY65YD5KyhPqC9KowA3gCRScB/WWnc61c/8KX/+LRJ88JIpN0GallykefPPeFL//FWrlORByviWYdPnniEPcJPDhSetiK1V9FJ0pcxKHRMIOxuFJ+x0e/8Ph3n0U+8weffuCD777LGBYJ6TL7qP/837//937rT1Cp/4c33Pr1z31oajzPiCXqbHKj6Igl36R2Ob1oW+idrg+B7QKdmGBmIeiTn3n4iWcu/OHvf+iBd931kd9+6Nz8ihBkDrQZTBdY7jk3v/KR337ogXfd9Ye//6Ennrnwyc88LERcIWRRdEBHPRe7fPq1Uj3mB4ASyKsdFdYHnV1mKcSVpY0vfuXxj3/wzR945+sf/NR7sln38w99z16NP8H2IZ9/6HvZrPvgp97zgXe+/uMffPMXv/L4laUNKUScJmzH80qo5kmrKfyk1AYyjIxIYCW9lTHfffKl+mrlvjvO+IEu5LzX3DL38KPPAUjEHbMPefjR515zy1wh5/mBvu+OM/XVyneffKlFQBw4hIygJGRlX5BGBqKmE4uEYgx/9cIVaHPxyorrSG3MynptfmFtZb0W39S15nnrgdoY15EXr6xAm7964Up8yi1xSQUy+oE0GmdWNmaTKBuzJuylq2uikHnwoe/9ws/f/O3HXnjh/GKpkFlcLk+Ushxjl1YgOkdlcbkcavPC+cXPfunRX7zn5gcf+p4oZC5dXWsREBNZSYS+bCwZH2ksqrdvW4LJr1o9EK6aX1y//+9+Lgh1Puv5ofHDxEox/VD7oclnvU985uF//u//J4OFq2r1BBIFFp6IpHIKkUYVBkASHJFIBAgAinnPGOM5iggZTwHwlMhlXMSWEPbnuYzrKQEg4ykieI4yxhTzXouA3p8PAHAEpbaKN41xIBv/kMkFi6+fG2dma+4wQ2s9PVGcnswDiM2iBGB6Mj9Ryl5Z2hBCAbBtXT83HpPsFiSREAhTucNrSlMZiiiRIJ99xp23n1RSWmEgCHVf33J6upjz4uc0iGCYiznvltPT5+ZXPVfZTRqVlHfefhIJWb6CoIh0f/bXjok0BhKZWVAygyWEAHDPHadvODHRCEJBJKXwg/Adb74dSfjYrYe84823+0EopRBEjSC84cTEPXecbhEQEwQIshI0dZ+U2kBJvWpE0NqU8pmPvPfe9eWKlOLaavW2G2fe9/bXMbNMYnalEMz8vre/7rYbZ66tVqUU68uVj7z33lI+o7VJSg+nUPZYpDcSnVgPpTCGP/b+N/zGr9+/Ua7feOrYH336gbFCJqYD3wIRmDFWyPzRpx+48dSxjXL9N379/o+9/w3GsJBJvp9HPimdPz9cqyfYyURgGHlFZ/LJbzb23EsLczOlUj6TVLlFC/aB65X65YX1V52ZSfDJFi9V/EoYZxOEfiGNBWV2u+fEY6/MbKd2jzy8PW2lM2Vd/X4iMoZL+UzpTB+4E9Bs9xZLHdIYSARgAAYnu6OynWMi7FHF0etGzjb9zrzX8w8OBqe2JCilCwuZ2RgkYeNuwR5Ta4Xe4irmr8FVW4KARPBDnDiG6fFdZCMlUMvaAcZYFZlGUzqNEogADYTMRxPlVBKPPIlKA7K1sTVBG+Q8fOCXjoAeIOR+njASDyl14w2zbxj7NNC47YQVjpE+IIAZE0W8+364CjkPWQ9ZDzkPrsI734CJIjhGPLjduuJ9nQpj7/ANJ16DmxTSGEi0BXgNs2+9337sYHc7d7+PMozrZ3D3bag0/dNKHXfejDOz0SlzcR5O7X/v91ENY1rDkrZPSlMZAlTXBvuR236ASg11Hza7riQyLnJZeL3WwwqCYdz3GlxcwPw1EGF2Eve/NjrWsGc0AlR30JnPwt2NTtteXRt7Cl4KJyuNNhAAIjRM961H7AU/wMIKNirRqZPUvARAChRzmJ6A19NGigSQwFvvxhf/DKHG2+6Gkr1oRtt0w8fiCjaqXejMY2YCrtONTgYahtPp6yC9DAQEbOraZHcGc+1Ar1dwaQHaQAoo2byAaBKYsVrGRhUnpjFWODAPWUU2WcSbXouaj+MTMAcXP7bRtTLmF3elcwMbFVw3g1K+I511bQI2qfTAAICeXa8cNQ2doZlnPHfKczqM6kYVF65AUJRH6Ah7yRicmu02N3ug9ZMesh4tLr94BULsg07G9bMo5nY+Y6kRLDT8BItbkoU46lRK148gKmt7AutWhBrzi9Ftu6gVe4kI84sIwl5e4HaDt4ffBiHmF6Pf7k6n7cv8IrYWSdpWy1oLa32n8pNSNx4AEerG1Nt9MTsNK+sIQoj9bdghBEKN5fXNn+8bzDCGjeEDF97b+5fXEep9BUMZEAJBiJXtdNoRSKv0AVIbBwJAgGFeDzSaVkP0Nm9Ud9MI22Bdp3L1oGqIAZv0ED3slGDJK1chDkInETaq0c+bXV4PtEllHVkLaVyV0YIkbITBMVdtWgBaIwgPplOIEITQGmpfHoOdynKl8Wv/6I+vmy45Sv74pYUvffqBEzOlA2RJ49Apo5MzNPNGGNjVTanlofRKIAAC8I3ZCEO0hFA/ud0YNszaGMP8oxevfuMbT52/vLK0Wnnkz37w1HOXmDnUhpkTqWPsCm79g40w9I1J9QylnIEYEEQrQbjpQikJpQ5mzTDDUfa13vUuFoIEkZJCEH3uv/w5DP/999z90ffeC8958L9+j4gcJYloX4vepYRzcDqVsq4+AQysBKFIZw1HG1LNQAAE0NB6LQgARNNWzB7AoLERnUJ2d7PJ6qafXFg6N7+yXq7/iwe/9cWvfP+2O06/7Y23vuF1Z+6+5+avffPpT3724dX12sUrq+fmV/ZY0mrJK2QPkPqw5BWzrW6uBUFD67RPD0DPb5SPmoY9wIAiOp3LRpZQqPHiRWizr7lhQBDOnoTT1QAyzAT6yYWlex74d0JQqZB58YUrU7PjX/3sB++94wYAz7xw+e0f/k8vn1s8c9NspeYLoj//k39ww4nJPXZvCUK8+DLM/pKvzJACZ09ZCaSZz1drYbrNZwsB4pR/BLHPejnwYd9OJTE3vRnm6QZ7yRjMTcFRexpPSoq3339bIefVG+Gv/K07v/0HH773jhusVfQzN8996wsf/rV3/1wQmmzGefPPnY0a3+VxDDgKc1OwYYg96WTG3DSUtOJnOfB91uKoR34/H3q+vLHH0KYDzLg+l80IGSmI9hQBEcBtGYJmDJoETkxhvLj/MPR6ua6NmSjl0Fb52vpjdaNGRGOFzB5PiSgGCFjdwPwS2ETx6J102i5EKRcGUd3oC9VammM/7aAXBoSBDOAJcX02B4BaScqFFZS7JCnzWcxMIrPfZCozG472arF+Vnv5Yvs3ti52X/68bbruY2EZlVpnOgs5zERJX6uxLtSqjdQ7Xy0MDAMREDJPuu60621hiYa/vZzDc5HPItPLog6rQboxx+5X90DdR6WGxo5yDi+i03Zq0W8s+75KvfPVQhpXZXQEA5Kw4jcyQhaV2uQhz23NQXzszhyxCp4z7i48bbuzEYYrfkMSdV8XkjoMiqSMIIiuNmoNs3Xn2y2logfOeR0eutNJQMPoq41aP/Yf7itSWpG4Cxh8uV47mc2p1sb97YNO2K/BfPjoTmfI5nK9hqRXMh0CBkwCARCgwJj5Wk2nVtIcEJp5vlYLTFS3OlhI4/5Au4MBSdRgfalevS6TS22l1T6hmS/Vqw3WUgyM4dyOgTGi22EN6oYJL9Urc5mcQ4N3lJglOGBzuV5tGD1YhnM7Bs8GakER+UbP1yuzXs4Te+RK0wZrNV9pVANjrNM+oBMxeDZQC1aXhWwu1SvlMLEdLQ8H5TC4VK+EbOTghHw6YoAZCJEiIABXGtVrfn0gZoKBa379SqMKgDDY3IOUVyTuH5KwEtTrJpxys2lWZw2jl/xaTYfS5sUGHyldF9YDFFFDh/P18rjjjTte2gIqDF4NGqtBg5kHKFOxJ4aHgbiZalj265UwmHAzeZnEaT9JoKKDFb/eMFoQ0RBxD/YfB9omcNMsfyWRz/pKo5KTakxlcvIoX5KqDtfCelWHBAxopGd37NMGIgMmQICIoJn7dGpkUrCFGDUT1v1yRqiS8nIy/tE/BwADVR2sh426CW3Uyn6d3iHrFft6Ow2bvHRKynOFBChkXdb+ethoz+6kUCZZD7NmglojcIUsSDcvHafPJnZgdEUHZe37RoMgktkKNr2gl6oru9/B4EknN6a8bd/XTLDQqJgm69g92BgAoz8bvcUCg5khiDyhctLJCuV24aRdYnq7XPKNrpmwqoOGCU20Hd3hjQG3VhzgsAd/Nwaya0PHncyEk912yQ5lVQdX/TIYjpAF5XpCgbluwrL2Q2N26rgjFFGtMsAWJzkkPKEyQjlCOiQOqpENc8AmMLpuwoYJAzYtvmkvOewfbCsGDMAl6QgpQAbsGx2wRlTu3nfQue4MxGCX5FymtMvQLvoVBqbdXPsLp9ks+dWqDjbPRyakJ9VMbZwEgAiShCKhSEgSikiQEICgzSirYWMAwyZk1mxCNiEb3dx4rsU3h/yGGOasdMZVxpObKSkG13S4GtQbJjwEO5XOVZd3oW/KzRd3KK9t94jmWu7Wm2eH8nJjPTQ6Kx1BQrOp60Cn1fS2y0G3lYe0U9rp0hH3xDBPONnxHcrBgsHLfnU9bHTRA4kVHu1mREui7F6hlBZ97da0/XfGLQBolX0FrFeCWiX0U8hDBOxesJo2kg3zpJsbU13XhxDomJsH0XpQb73hzCyIFAkCDNhK0JjT0XWfaAYUSUW9J8u2/dYhOeMWFlCu6jTy0ADBMBeVtwv3tHDMyQUmbHAIhiJRcDI54TpCAGSYfROWdaOi/X2uMemIzvzBYAPTj03Ijzm5EffEhBJip1vTDZNO3gAZ6cx6pXGVdYW05ppVL9NuYcYtUIyEaIeCMgPOCqeksi4lHzKRJIrSWwsHr3o8JTDMJZWT+9YMrpBTKpdXXjcnJifdGaIFfyOKBTQDEPbvPV2f7TYQM+elO+0W90lfD5hwcgxe1/X0+GUDBEGUlwdbxlTcS9llhDPp5K8FlaLyssJVJBgIWFe1XzM+sFtMa3tFoiCadPIHoq8HTDi5uglCNiMOOhAY7JJy+qAZCtLLCKfdbPWgCtKrm+BaUNGsu/HQFklowK5Q+xePPYNAGeEceO/BVzyY4Yp+5YY7OkwZ4Rx3S5Jkt5Ltbb85vHVJI9nTG1QfxM9eLYoppwCgY6B0SzZeAAEHh1Pg7XNICZ2sO8Ro7eRhmtN0JMuYPKEK0iuHdUHbE4Jb5CGBQjYbYbWkcugnKrrhm2BkRO+JVsLLI5VXGW+rmXKYKMhMWdexQ7hsLygToDVdZaAoM6IPtBpwRTfWwkr6EvYphQEXZGZCFY52vFyhptzicrB9P7sOFhmB1nS1ouuqD6Uzmk3AeiR79gkDzgp3UhWOmhAAyAmPFV8Ly+3T17kiUQIGxjc6cTeJYI3Akf+1LwhgQvU9qrJ/5GWmauoNE7Scra4+YZRfPBy6RugEBnvkHL7btTuywquboMUYg72wcLjBgEwZ92AHSSMGSi8ISKGu3xZRHJKVqcOKkMOjJmE7QhNS2/KSkQRKLwgIOKybxlETsgkGV029PV0xeBtMvcJAq7o8Tc4hJCj3g9VwI4RuL8UZ4P2BXgkgwLBeClcmVMmlo1yprdms63LV1OVWkTM8a+OHFQTSrJeClYxwXXL6kR7YHcwIOGgYP4QWO2yegdzi7pUG+8rXTaOG+lHUMTBAAiQ6LT8eSaCBAdn1Z0fScneMbKARYiEVtv0Ig4uRDTRCLIziQCPEwsgGGiEWRjbQCLEwYqARYmGUjR8hFkYSaIRYGDHQCLEwYqARYuH/A254XcIbtVT3AAAAAElFTkSuQmCC">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#8fd0fa">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Dory, Chữ và Số">
+<title>Dory, Chữ và Số</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#123a7d; --navy2:#1c56b8; --sky:#7ec8f7; --sky-soft:#e8f6ff; --ink:#17335e;
+  --yellow:#ffc93c; --pink:#ff8fab; --green:#2fbf71; --red:#ef476f; --card:#ffffff;
+  --line:#bfe3fb; --shadow:0 10px 24px rgba(18,58,125,.14);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Nunito",system-ui,sans-serif;color:var(--ink);
+  background:linear-gradient(180deg,#8fd0fa 0%,#cdeeff 34%,#fdf3d8 78%,#eafbe7 100%);min-height:100vh}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:880px;margin:0 auto;padding:16px 14px 40px;position:relative}
+/* clouds */
+.cloud{position:absolute;background:#fff;border-radius:999px;opacity:.9;pointer-events:none}
+.cloud:before,.cloud:after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cloud.c1{width:120px;height:38px;top:18px;left:-30px}
+.cloud.c1:before{width:52px;height:52px;top:-26px;left:18px}
+.cloud.c1:after{width:38px;height:38px;top:-16px;left:64px}
+.cloud.c2{width:150px;height:44px;top:64px;right:-40px}
+.cloud.c2:before{width:62px;height:62px;top:-30px;left:26px}
+.cloud.c2:after{width:44px;height:44px;top:-18px;left:82px}
+.hero{text-align:center;padding:26px 10px 6px;position:relative;z-index:1}
+.bunny{font-size:54px;line-height:1;filter:drop-shadow(0 4px 0 rgba(255,255,255,.7))}
+h1{font-family:"Baloo 2",cursive;font-size:clamp(30px,6vw,46px);color:var(--navy);margin:6px 0 4px;line-height:1.15}
+.hero p.sub{font-size:clamp(16px,3.4vw,20px);font-weight:800;color:#2b5aa8;margin:0 auto;max-width:640px}
+.hero p.note{font-size:15px;font-weight:700;color:#40608f;margin:8px auto 0;max-width:640px}
+.scope{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0 4px}
+.scope span{background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px 12px;font-weight:900;font-size:14px;color:var(--navy)}
+/* home grid */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;position:relative;z-index:1}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.mode{background:var(--card);border:3px solid var(--line);border-radius:22px;padding:16px 16px 14px;text-align:left;box-shadow:var(--shadow);display:flex;gap:12px;align-items:flex-start;transition:transform .12s ease,border-color .12s ease;width:100%}
+.mode:hover{transform:translateY(-2px);border-color:var(--sky)}
+.mode .ic{font-size:38px;line-height:1.1;flex:0 0 auto}
+.mode h3{margin:0 0 4px;font-family:"Baloo 2",cursive;font-size:21px;color:var(--navy);line-height:1.2}
+.mode p{margin:0;font-size:15px;font-weight:700;color:#40608f;line-height:1.45}
+.mode .tag{display:inline-block;margin-top:8px;background:var(--sky-soft);color:var(--navy2);font-size:13px;font-weight:900;border-radius:999px;padding:3px 10px}
+.mode.mixed{grid-column:1/-1;background:linear-gradient(135deg,#123a7d,#1c56b8);border-color:#123a7d;color:#fff}
+.mode.mixed h3{color:#fff}
+.mode.mixed p{color:#d6e9ff}
+.mode.mixed .tag{background:#ffc93c;color:#5b4300}
+/* game */
+.hidden{display:none!important}
+.topbar{display:flex;align-items:center;gap:10px;margin-top:10px;position:relative;z-index:1}
+.btn-back{background:#fff;border:2px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:900;font-size:15px;color:var(--navy)}
+.progress{flex:1;background:#fff;border:2px solid var(--line);border-radius:999px;height:22px;overflow:hidden}
+.progress>div{height:100%;background:linear-gradient(90deg,var(--sky),var(--navy2));width:0%;transition:width .3s ease}
+.stars{background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px 12px;font-weight:900;font-size:16px;color:var(--navy);white-space:nowrap}
+.qcard{background:#fff;border:3px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:22px 18px;margin-top:14px;position:relative;z-index:1}
+.qcat{font-size:14px;font-weight:900;color:var(--navy2);letter-spacing:.02em;text-transform:uppercase}
+.qtext{font-size:clamp(22px,4.6vw,30px);font-weight:900;color:var(--navy);line-height:1.4;margin:8px 0 4px}
+.qvisual{margin:12px 0 4px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+@media(max-width:520px){.opts{grid-template-columns:1fr}}
+.opt{background:var(--sky-soft);border:3px solid #9fd4f8;border-radius:18px;padding:16px 12px;font-size:clamp(20px,4.4vw,26px);font-weight:900;color:var(--navy);min-height:64px;transition:transform .1s ease}
+.opt:hover:not(:disabled){transform:scale(1.02)}
+.opt:disabled{cursor:default;opacity:.92}
+.opt.good{background:#d9f8e6;border-color:var(--green);color:#0c6b3a}
+.opt.bad{background:#ffe1ea;border-color:var(--red);color:#9c1039}
+.opt.dim{opacity:.55}
+.feedback{margin-top:16px;border-radius:18px;padding:14px 16px;font-size:18px;font-weight:800;line-height:1.55;display:none}
+.feedback.show{display:block}
+.feedback.ok{background:#e7fbef;border:2px solid var(--green);color:#0c6b3a}
+.feedback.no{background:#fff4e5;border:2px solid #f5a623;color:#7a4b00}
+.feedback .big{font-size:22px;font-weight:900}
+.btn-next{margin-top:16px;width:100%;background:var(--navy);color:#fff;border:none;border-radius:18px;padding:16px;font-size:21px;font-weight:900;display:none}
+.btn-next.show{display:block}
+/* number line */
+.nline{display:flex;align-items:flex-end;justify-content:space-between;background:#f2faff;border:2px dashed #9fd4f8;border-radius:16px;padding:14px 10px 10px;gap:2px;overflow:hidden}
+.nline .cell{flex:1;text-align:center}
+.nline .dot{width:14px;height:14px;border-radius:50%;background:var(--navy2);margin:0 auto 6px}
+.nline .miss .dot{background:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
+.nline .num{font-size:19px;font-weight:900;color:var(--navy)}
+.nline .miss .num{color:var(--red);font-size:24px}
+/* vertical calc */
+.vcalc{display:inline-block;background:#f2faff;border:2px dashed #9fd4f8;border-radius:16px;padding:14px 26px;font-family:"Baloo 2",monospace;font-size:34px;font-weight:800;color:var(--navy);line-height:1.25;text-align:right;min-width:170px}
+.vcalc .row{display:flex;justify-content:flex-end;gap:10px}
+.vcalc .op{margin-right:auto;padding-right:14px}
+.vcalc .bar{border-top:4px solid var(--navy);margin-top:4px;padding-top:2px;color:var(--red)}
+/* kg visual */
+.kgbox{display:flex;gap:12px;flex-wrap:wrap}
+.kgitem{flex:1;min-width:130px;background:#f2faff;border:2px dashed #9fd4f8;border-radius:16px;padding:12px;text-align:center;font-size:19px;font-weight:900;color:var(--navy)}
+.kgitem .em{font-size:40px;display:block;margin-bottom:4px}
+/* result */
+.rcard{background:#fff;border:3px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:24px 18px;margin-top:16px;text-align:center;position:relative;z-index:1}
+.rcard h2{font-family:"Baloo 2",cursive;color:var(--navy);font-size:32px;margin:4px 0}
+.rstars{font-size:40px;letter-spacing:4px}
+.rscore{font-size:21px;font-weight:900;color:var(--navy2)}
+table.sum{width:100%;border-collapse:collapse;margin:16px 0;text-align:left}
+table.sum th,table.sum td{padding:10px 8px;border-bottom:2px solid #e3f2fd;font-size:16px;font-weight:800}
+table.sum th{color:var(--navy)}
+table.sum td:last-child,table.sum th:last-child{text-align:right}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:900}
+.pill.good{background:#d9f8e6;color:#0c6b3a}
+.pill.mid{background:#fff3cf;color:#7a4b00}
+.pill.low{background:#ffe1ea;color:#9c1039}
+.rbtns{display:grid;gap:10px;margin-top:8px}
+.btn-main{background:var(--navy);color:#fff;border:none;border-radius:16px;padding:15px;font-size:19px;font-weight:900}
+.btn-sub{background:#fff;color:var(--navy);border:3px solid var(--line);border-radius:16px;padding:14px;font-size:18px;font-weight:900}
+.btn-weak{background:var(--yellow);color:#5b4300;border:none;border-radius:16px;padding:15px;font-size:19px;font-weight:900}
+.btn-weak small{display:block;font-size:14px;font-weight:800;margin-top:3px;line-height:1.4}
+table.sum tfoot td{font-weight:900;color:var(--navy);border-bottom:none;border-top:3px solid var(--line);background:#f2faff}
+.histcard{background:#fff;border:3px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:20px 18px;margin-top:16px;position:relative;z-index:1}
+.histcard h2{font-family:"Baloo 2",cursive;color:var(--navy);font-size:25px;margin:0 0 6px;text-align:center}
+.hist-concl{font-size:17px;font-weight:900;color:var(--navy);text-align:center;line-height:1.5;margin:6px 0 2px}
+.hnote{font-size:14px;font-weight:700;color:#40608f;line-height:1.55;margin:10px 0 0;text-align:center}
+.btn-clear{background:#fff;color:#9c1039;border:2px solid #ffc2d4;border-radius:999px;padding:8px 16px;font-weight:900;font-size:14px;display:block;margin:12px auto 0}
+.modal{position:fixed;inset:0;background:rgba(18,58,125,.45);display:flex;align-items:center;justify-content:center;padding:18px;z-index:50}
+.modal-box{background:#fff;border-radius:22px;padding:22px 20px;max-width:420px;width:100%;text-align:center;box-shadow:var(--shadow)}
+.modal-box h3{font-family:"Baloo 2",cursive;color:var(--navy);font-size:23px;margin:0 0 8px}
+.modal-box p{font-size:16px;font-weight:700;line-height:1.55;margin:0 0 16px}
+.modal-btns{display:grid;gap:10px}
+.btn-danger{background:var(--red);color:#fff;border:none;border-radius:14px;padding:13px;font-size:17px;font-weight:900}
+.foot{text-align:center;font-size:14px;font-weight:700;color:#40608f;margin-top:18px;position:relative;z-index:1}
+
+/* gentle hint visuals + slow motion */
+.feedback.hint{background:#eef8ff;border:2px solid var(--sky);color:var(--ink)}
+.hintbox{background:#fff;border:2px dashed #9fd4f8;border-radius:16px;padding:14px 12px;margin-top:10px;overflow:hidden}
+.hint-guide{font-size:17px;font-weight:800;color:var(--navy);margin-top:10px;line-height:1.5}
+.buddy-row{display:flex;align-items:center;gap:10px;margin-top:10px;background:#fff8e1;border:2px solid #ffe08a;border-radius:999px;padding:6px 14px 6px 8px;font-weight:800;font-size:15px;color:#7a4b00}
+#buddy{font-size:28px;display:inline-block;animation:buddyHop 2.4s ease-in-out infinite}
+@keyframes buddyHop{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes flyIn{0%{opacity:0;transform:translateY(-16px) scale(.4)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes slideIn{0%{opacity:0;transform:translateX(26px)}100%{opacity:1;transform:translateX(0)}}
+@keyframes growBar{0%{width:0}100%{}}
+@keyframes drawLine{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+/* bundles of ten + singles */
+.bundles{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:center}
+.bgroup{display:flex;gap:5px;align-items:flex-end}
+.bundle{display:flex;gap:2px;background:#ffe9a8;border:2px solid #e8a90c;border-radius:8px;padding:6px 5px;animation:flyIn .7s ease both}
+.bundle i{display:block;width:4px;height:30px;background:#e8a90c;border-radius:2px}
+.single{display:flex;gap:4px;align-items:flex-end;padding-bottom:2px}
+.single i{display:block;width:6px;height:32px;background:var(--navy2);border-radius:3px;animation:flyIn .7s ease both}
+.blabel{width:100%;text-align:center;font-size:14px;font-weight:900;color:#7a4b00;margin-top:6px}
+/* place value table */
+.pvtable{margin:0 auto;border-collapse:collapse}
+.pvtable th,.pvtable td{border:2px solid #9fd4f8;padding:7px 14px;font-size:20px;font-weight:900;color:var(--navy);text-align:center;background:#f2faff}
+.pvtable th{background:#d9efff;font-size:15px}
+.pvtable td.hl{background:#fff3cf}
+/* ten frame */
+.tenframe{display:grid;grid-template-columns:repeat(5,44px);gap:5px;justify-content:center;margin:4px auto}
+.tfcell{width:44px;height:44px;border:3px solid #9fd4f8;border-radius:10px;background:#f2faff;display:flex;align-items:center;justify-content:center}
+.tfdot{width:26px;height:26px;border-radius:50%;background:var(--navy2);animation:flyIn .65s ease both}
+.tfcell.need{border-color:#f5a623;background:#fff3cf;animation:needPulse 1.6s ease-in-out infinite}
+@keyframes needPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.tfdot.mover{background:var(--green)}
+.tfdot.cross{background:#c9c9c9;position:relative}
+.tfdot.cross:after{content:"";position:absolute;left:-4px;right:-4px;top:50%;height:4px;background:var(--red);border-radius:2px;transform-origin:left;animation:drawLine .8s ease both}
+.outside-dots{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-top:10px;min-height:28px}
+.outside-dots .tfdot{width:24px;height:24px}
+/* animated number line */
+.hline{position:relative;padding:34px 4px 4px}
+.htrack{display:flex;gap:2px}
+.hcell{flex:1;text-align:center}
+.hcell .hdot{width:14px;height:14px;border-radius:50%;background:var(--navy2);margin:0 auto 5px}
+.hcell.target .hdot{background:#f5a623;width:18px;height:18px}
+.hcell .hnum{font-size:18px;font-weight:900;color:var(--navy)}
+.hcell.target .hnum{color:#b26a00;font-size:22px}
+.jumper{position:absolute;top:0;font-size:30px;transform:translateX(-50%);pointer-events:none;z-index:2}
+.step-chips{display:flex;gap:8px;justify-content:center;margin-top:8px;flex-wrap:wrap}
+.step-chip{background:#d9efff;color:var(--navy);border-radius:999px;padding:4px 12px;font-size:14px;font-weight:900;animation:flyIn .6s ease both}
+.dir-arrow{font-size:24px;text-align:center;animation:slideDir 1.8s ease-in-out infinite}
+@keyframes slideDir{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}
+.dir-arrow.back{animation-name:slideBack}
+@keyframes slideBack{0%,100%{transform:translateX(0)}50%{transform:translateX(-10px)}}
+/* diagram boxes */
+.diagram{display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap}
+.dbox{min-width:62px;text-align:center;background:#f2faff;border:3px solid #9fd4f8;border-radius:14px;padding:10px 12px;font-size:24px;font-weight:900;color:var(--navy)}
+.dbox.hl{border-color:#f5a623;background:#fff3cf;animation:needPulse 1.6s ease-in-out infinite}
+.dop{font-size:26px;font-weight:900;color:var(--navy)}
+.darrow{text-align:center;font-size:22px;color:#b26a00;animation:buddyHop 1.8s ease-in-out infinite}
+/* bar model */
+.bars{display:grid;gap:10px}
+.barrow{display:flex;align-items:center;gap:8px}
+.barlab{flex:0 0 64px;font-size:15px;font-weight:900;color:var(--navy);text-align:right}
+.bartrack{flex:1;display:flex;height:30px}
+.barseg{background:var(--sky);border:2px solid var(--navy2);border-radius:8px;animation:slideIn .9s ease both}
+.barseg.known{background:#bfe3fb}
+.barseg.unknown{background:repeating-linear-gradient(45deg,#fff3cf,#fff3cf 8px,#ffe08a 8px,#ffe08a 16px);border-color:#f5a623}
+/* column calc */
+.coltable{margin:0 auto;border-collapse:collapse}
+.coltable th,.coltable td{border:2px solid #9fd4f8;padding:7px 16px;font-size:22px;font-weight:900;color:var(--navy);text-align:center;background:#f2faff}
+.coltable th{font-size:14px;background:#d9efff}
+.coltable td.units{background:#fff3cf}
+.col-arrow{text-align:center;font-size:20px;color:#b26a00;font-weight:900;margin-top:6px}
+/* objects */
+.objrow{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;font-size:30px;line-height:1.25}
+.objrow .obj{animation:flyIn .55s ease both}
+.objrow .obj.added{animation:slideIn .8s ease both}
+.objrow .obj.cross{position:relative;opacity:.45}
+.objrow .obj.cross:after{content:"";position:absolute;left:-3px;right:-3px;top:52%;height:4px;background:var(--red);border-radius:2px;transform-origin:left;animation:drawLine .8s ease both}
+.obj-plus{text-align:center;font-size:22px;font-weight:900;color:var(--navy)}
+/* balance scale */
+.scale{max-width:420px;margin:0 auto}
+.beam{height:10px;background:var(--navy2);border-radius:6px;position:relative;transform-origin:center}
+.beam.tilt-r{animation:tiltR 1.6s ease .3s both}
+.beam.tilt-l{animation:tiltL 1.6s ease .3s both}
+@keyframes tiltR{from{transform:rotate(0)}to{transform:rotate(6deg)}}
+@keyframes tiltL{from{transform:rotate(0)}to{transform:rotate(-6deg)}}
+.pans{display:flex;justify-content:space-between;margin-top:2px}
+.pan{width:44%;text-align:center}
+.pan .rope{width:3px;height:20px;background:var(--navy2);margin:0 auto}
+.pan .dish{background:#ffe9a8;border:3px solid #e8a90c;border-radius:0 0 60px 60px;padding:8px 4px 12px;font-size:17px;font-weight:900;color:var(--navy)}
+.pan.down-r{animation:panDown 1.6s ease .3s both}
+.pan.up-l{animation:panUp 1.6s ease .3s both}
+.pan.down-l{animation:panDown 1.6s ease .3s both}
+.pan.up-r{animation:panUp 1.6s ease .3s both}
+@keyframes panDown{from{transform:translateY(0)}to{transform:translateY(13px)}}
+@keyframes panUp{from{transform:translateY(0)}to{transform:translateY(-9px)}}
+.scale-post{width:10px;height:26px;background:var(--navy2);margin:0 auto;border-radius:4px}
+
+.burst{position:absolute;top:-14px;right:14px;font-size:30px;animation:pop .5s ease}
+/* subject tabs + tieng viet */
+.subj-tabs{display:flex;gap:10px;justify-content:center;margin-top:16px;position:relative;z-index:1;flex-wrap:wrap}
+.subj{background:#fff;border:3px solid var(--line);border-radius:999px;padding:12px 22px;font-size:19px;font-weight:900;color:var(--navy);box-shadow:var(--shadow)}
+.subj.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.passage{background:#fffdf4;border:2px dashed #f5c542;border-radius:16px;padding:14px 16px;font-size:20px;font-weight:800;line-height:1.6;color:var(--ink);text-align:left}
+.passage .ptitle{font-family:"Baloo 2",cursive;color:var(--navy);font-size:21px;display:block;margin-bottom:4px}
+.btn-listen{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);border:none;border-radius:999px;padding:12px 20px;font-size:19px;font-weight:900;color:#5b4300;margin:4px 0 6px}
+.wordchips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.wchip{background:#d9efff;border:2px solid var(--navy2);border-radius:12px;padding:8px 14px;font-size:21px;font-weight:900;color:var(--navy);animation:flyIn .6s ease both}
+.bigem{font-size:64px;text-align:center;line-height:1.2;animation:buddyHop 1.6s ease-in-out infinite}
+.sortsteps{display:flex;align-items:center;gap:6px;justify-content:center;flex-wrap:wrap;font-size:15px;font-weight:900;color:var(--navy)}
+.sortsteps .st{background:#f2faff;border:2px solid #9fd4f8;border-radius:12px;padding:8px 10px;animation:flyIn .6s ease both}
+.sortsteps .arw{color:#b26a00;font-size:18px}
+.boxes3{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.box3{flex:1;min-width:96px;max-width:150px;background:#f2faff;border:3px dashed #9fd4f8;border-radius:14px;padding:10px 6px;text-align:center;font-size:15px;font-weight:900;color:var(--navy)}
+.box3 .em{font-size:30px;display:block;margin-bottom:2px;animation:buddyHop 1.8s ease-in-out infinite}
+@keyframes pop{0%{transform:scale(.3)}70%{transform:scale(1.3)}100%{transform:scale(1)}}
+/* doc tung cau + chon nguon giong */
+.sent{cursor:pointer;border-radius:6px;padding:1px 2px;transition:background .15s ease,box-shadow .15s ease}
+.sent:hover{background:#fff3cf;box-shadow:0 0 0 2px #ffe08a}
+.sent.reading{background:#ffe08a;box-shadow:0 0 0 2px #f5a623}
+.voicerow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px;background:#f7fbff;border:2px solid var(--line);border-radius:999px;padding:6px 8px 6px 14px;font-size:14px;font-weight:900;color:var(--navy)}
+.voicerow .vlabel{margin-right:2px}
+.vtoggle{background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:900;color:#40608f}
+.vtoggle.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.voicenote{display:none;margin-top:8px;background:#fff4e5;border:2px solid #f5a623;color:#7a4b00;border-radius:12px;padding:8px 12px;font-size:14px;font-weight:800;line-height:1.45}
+.voicenote.show{display:block}
+/* lop phan biet chinh ta trong Nghe - viet */
+.btn-contrast{display:inline-flex;align-items:center;gap:8px;background:#fff;border:3px solid var(--navy2);border-radius:999px;padding:11px 18px;font-size:18px;font-weight:900;color:var(--navy);margin:4px 0 6px 8px}
+.contrastbox{margin-top:10px;background:#fffdf4;border:2px dashed #f5c542;border-radius:14px;padding:12px 10px}
+.cgrp{font-size:14px;font-weight:900;color:#b26a00;text-transform:uppercase;letter-spacing:.02em;text-align:center}
+.crow{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;flex-wrap:wrap}
+.cword{font-size:clamp(28px,7vw,36px);font-weight:900;color:var(--navy);background:#eef8ff;border:3px solid #9fd4f8;border-radius:14px;padding:8px 18px;line-height:1.25}
+.cword .diff{background:#ffe08a;color:#9c1039;border-radius:6px;padding:0 3px;box-shadow:0 0 0 2px #f5a623}
+.cvs{font-size:17px;font-weight:900;color:#40608f}
+.ctip{margin-top:10px;font-size:16px;font-weight:800;color:#7a4b00;line-height:1.5;text-align:center}
+::selection{background:#ffe08a}
+.opt{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+/* PWA: nut Cai app o trang chu + dong huong dan cai tren iPhone */
+.installrow{display:none;justify-content:center;margin-top:14px;position:relative;z-index:1}
+.installrow.show{display:flex}
+.btn-install{display:inline-flex;align-items:center;gap:8px;background:#fff;border:3px solid var(--navy2);border-radius:999px;padding:11px 20px;font-size:16px;font-weight:900;color:var(--navy);box-shadow:var(--shadow);min-height:48px}
+.installhint{display:none;margin:12px auto 0;max-width:560px;background:#fff;border:2px dashed #9fd4f8;border-radius:16px;padding:12px 16px;font-size:15px;font-weight:800;color:var(--ink);line-height:1.55;text-align:center;position:relative;z-index:1}
+.installhint.show{display:block}
+/* tuong thich da man hinh: vung an toan khi chay dang app, nut du lon de be bam */
+.wrap{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right));padding-bottom:max(40px,env(safe-area-inset-bottom))}
+.btn-back{min-height:44px}
+img,svg,video{max-width:100%}
+@media(max-width:420px){
+  .wrap{padding-left:max(10px,env(safe-area-inset-left));padding-right:max(10px,env(safe-area-inset-right))}
+  .qcard{padding:18px 12px}
+  .topbar{gap:6px}
+  .btn-back{padding:8px 10px;font-size:14px}
+  .stars{padding:6px 9px;font-size:15px}
+  table.sum th,table.sum td{font-size:14px;padding:8px 5px}
+  .mode{padding:14px 12px}
+  .subj{padding:11px 16px;font-size:17px}
+  .tenframe{grid-template-columns:repeat(5,40px)}
+  .tfcell{width:40px;height:40px}
+}
+@media(min-width:1024px){
+  .hero{padding-top:34px}
+}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cloud c1"></div><div class="cloud c2"></div>
+
+  <!-- HOME -->
+  <section id="view-home">
+    <div class="hero">
+      <div class="bunny" aria-hidden="true">🐰</div>
+      <h1 id="hero-title">Dory, Chữ và Số</h1>
+      <p class="sub" id="hero-sub">Cùng thỏ con chơi và luyện toán thật nhẹ nhàng - từng chút một, không vội nhé!</p>
+      <p class="note" id="hero-note">Theo SGK Toán 2 Tập 1 - Kết nối tri thức với cuộc sống (NXB Giáo dục Việt Nam): Bài 1 đến Bài 15, từ trang 6 đến trang 57. Mỗi lần chơi, câu hỏi lại thay số mới nên con luyện bao nhiêu lần cũng không chán.</p>
+      <div class="scope" id="hero-scope">
+        <span>Số đến 100</span><span>Tia số</span><span>Cộng - trừ qua 10</span><span>Toán có lời văn</span><span>Ki-lô-gam</span>
+      </div>
+    </div>
+    <div class="subj-tabs" role="tablist" aria-label="Chọn môn học">
+      <button type="button" class="subj active" id="tab-toan">🔢 Môn Toán</button>
+      <button type="button" class="subj" id="tab-tv">📚 Môn Tiếng Việt</button>
+    </div>
+    <div class="installrow" id="install-row">
+      <button type="button" class="btn-install" id="btn-install">📲 Cài app vào điện thoại</button>
+    </div>
+    <p class="installhint" id="install-hint">Trên iPhone: mở web này bằng <b>Safari</b>, bấm nút <b>Chia sẻ</b> (ô vuông có mũi tên hướng lên) rồi chọn <b>"Thêm vào màn hình chính"</b> - icon thỏ con sẽ hiện ngoài màn hình chính như một app riêng cho bé bấm vào học.</p>
+    <div class="grid" id="mode-grid"></div>
+    <p class="foot" id="foot-note">Mẹ bấm chọn một chặng để con luyện riêng từng dạng, hoặc chơi lượt tổng hợp trộn nhiều dạng cho vui.</p>
+    <section class="histcard hidden" id="home-stats">
+      <h2>📊 Phần con thường sai</h2>
+      <p class="hist-concl" id="home-concl"></p>
+      <table class="sum"><thead><tr><th>Dạng bài</th><th>Kết quả tích lũy</th><th>Đánh giá</th></tr></thead><tbody id="home-rows"></tbody></table>
+      <p class="hnote">Thống kê cộng dồn qua tất cả các lượt con đã chơi, được lưu trên chính máy này (trình duyệt này) - chơi trên máy khác sẽ tính riêng. Mỗi dạng cần làm đủ 10 câu trở lên web mới xếp hạng phần hay sai, tránh kết luận vội khi mới làm vài câu.</p>
+      <button class="btn-clear" id="btn-clear-home" type="button">Xóa lịch sử thống kê</button>
+    </section>
+  </section>
+
+  <!-- GAME -->
+  <section id="view-game" class="hidden">
+    <div class="topbar">
+      <button class="btn-back" id="btn-back" type="button">← Về chọn chặng</button>
+      <div class="progress" aria-label="Tiến trình"><div id="prog-fill"></div></div>
+      <div class="stars" id="star-box">⭐ 0</div>
+    </div>
+    <div class="qcard" id="qcard">
+      <div class="qcat" id="q-cat"></div>
+      <div class="buddy-row"><span id="buddy" aria-hidden="true">🐰</span><span id="buddy-msg">Thỏ con đồng hành cùng con - cứ từ từ suy nghĩ nhé!</span></div>
+      <div class="voicenote" id="voice-note" role="status"></div>
+      <div class="qtext" id="q-text"></div>
+      <div class="qvisual" id="q-visual"></div>
+      <div class="opts" id="q-opts"></div>
+      <div class="feedback" id="q-feed" role="status"></div>
+      <button class="btn-next" id="btn-next" type="button">Câu tiếp theo →</button>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="view-result" class="hidden">
+    <div class="rcard">
+      <div style="font-size:52px" aria-hidden="true">🏆</div>
+      <h2 id="r-title">Hoàn thành rồi!</h2>
+      <div class="rstars" id="r-stars"></div>
+      <p class="rscore" id="r-score"></p>
+      <p id="r-msg" style="font-size:17px;font-weight:800;line-height:1.55"></p>
+      <table class="sum"><thead><tr><th>Dạng bài</th><th>Kết quả</th><th>Đánh giá</th></tr></thead><tbody id="r-rows"></tbody><tfoot><tr><td>Tổng cả lượt</td><td id="r-total"></td><td></td></tr></tfoot></table>
+      <div class="rbtns">
+        <button class="btn-weak hidden" id="btn-weak" type="button">🎯 Luyện thêm phần yếu<small id="btn-weak-sub"></small></button>
+        <button class="btn-main" id="btn-again" type="button">Chơi lại lượt này</button>
+        <button class="btn-sub" id="btn-home" type="button">Về chọn chặng khác</button>
+      </div>
+      <div id="result-stats" class="hidden" style="margin-top:22px;border-top:3px dashed var(--line);padding-top:18px">
+        <h2 style="font-size:25px">📊 Phần con thường sai</h2>
+        <p class="hist-concl" id="res-concl"></p>
+        <table class="sum"><thead><tr><th>Dạng bài</th><th>Kết quả tích lũy</th><th>Đánh giá</th></tr></thead><tbody id="res-rows"></tbody></table>
+        <p class="hnote">Thống kê cộng dồn qua tất cả các lượt con đã chơi, được lưu trên chính máy này (trình duyệt này) - chơi trên máy khác sẽ tính riêng. Mỗi dạng cần làm đủ 10 câu trở lên web mới xếp hạng phần hay sai, tránh kết luận vội khi mới làm vài câu.</p>
+        <button class="btn-clear" id="btn-clear-res" type="button">Xóa lịch sử thống kê</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIRM CLEAR HISTORY -->
+  <div class="modal hidden" id="modal-clear" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <h3>Xóa lịch sử thống kê?</h3>
+      <p>Nếu xóa, toàn bộ số câu đúng - sai đã cộng dồn sẽ mất hết và mục "Phần con thường sai" bắt đầu tính lại từ đầu. Các chặng luyện tập không bị ảnh hưởng gì.</p>
+      <div class="modal-btns">
+        <button class="btn-danger" id="btn-clear-yes" type="button">Xóa lịch sử</button>
+        <button class="btn-sub" id="btn-clear-no" type="button">Để sau, giữ lại</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+/* ---------- helpers ---------- */
+function ri(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
+function pick(arr){return arr[ri(0,arr.length-1)];}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=ri(0,i);var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function opts4(correct,wrongs){
+  var set=[correct]; wrongs.forEach(function(w){ if(set.indexOf(w)===-1 && set.length<4) set.push(w); });
+  var guard=0;
+  while(set.length<4 && guard<60){ guard++; var w=correct+pick([-3,-2,-1,1,2,3,10,-10]); if(w>=0 && set.indexOf(w)===-1) set.push(w); }
+  return shuffle(set);
+}
+function numWordProblem(){ return {}; }
+var NAMES=["An","Bình","Chi","Dũng","Hà","Khánh","Linh","Minh","Ngọc","Phúc","Thảo","Tuấn"];
+var THINGS=[["quả táo","🍎"],["cái kẹo","🍬"],["quyển vở","📓"],["cái bút chì","✏️"],["viên bi","🔵"],["bông hoa","🌼"],["quả cam","🍊"],["chiếc nhãn vở","🏷️"]];
+
+/* ---------- question generators ----------
+Each returns {cat, text, visual(html or ""), options[], answer, explain} */
+var CAT={
+  so100:"Số đến 100",
+  tiaso:"Tia số - liền trước, liền sau",
+  thanhphan:"Thành phần phép tính",
+  khongnho:"Cộng, trừ không nhớ trong 100",
+  qua10:"Cộng, trừ qua 10 trong 20",
+  loivan:"Toán có lời văn",
+  kg:"Ki-lô-gam",
+  tvdoc:"Đọc hiểu - bài đọc Tuần 1 đến 8",
+  tvnghe:"Nghe - viết và chính tả",
+  tvviet:"Viết câu tả đồ dùng học tập",
+  tvtu:"Từ chỉ sự vật - hoạt động - đặc điểm"
+};
+
+function genSo100(){
+  var kind=ri(0,4);
+  if(kind===0){ // phan tich cau tao
+    var n=ri(21,99), ch=Math.floor(n/10)*10, dv=n%10; if(dv===0){n+=3;ch=Math.floor(n/10)*10;dv=n%10;}
+    var tc=Math.floor(n/10), correctS=tc+" chục và "+dv+" đơn vị";
+    var cand=[(tc+1)+" chục và "+dv+" đơn vị",tc+" chục và "+(dv===9?dv-1:dv+1)+" đơn vị",dv+" chục và "+tc+" đơn vị",(tc===1?tc+2:tc-1)+" chục và "+dv+" đơn vị",tc+" chục và "+(dv>=2?dv-2:dv+2)+" đơn vị"];
+    var wrongs=[]; cand.forEach(function(c){ if(c!==correctS && wrongs.indexOf(c)===-1 && wrongs.length<3) wrongs.push(c); });
+    return {cat:CAT.so100,text:"Số "+n+" gồm mấy chục và mấy đơn vị?",visual:"",options:shuffle([correctS].concat(wrongs)),answer:correctS,explain:"Số "+n+" có chữ số "+tc+" ở hàng chục và chữ số "+dv+" ở hàng đơn vị, nên "+n+" = "+ch+" + "+dv+"."};
+  }
+  if(kind===1){
+    var m=ri(21,98); var ch2=Math.floor(m/10)*10, dv2=m%10;
+    return {cat:CAT.so100,text:"Điền số thích hợp: "+m+" = "+ch2+" + ?",visual:"",options:opts4(dv2,[dv2+1,dv2-1,dv2+10]),answer:dv2,explain:"Phần chục của "+m+" là "+ch2+", phần còn lại là đơn vị: "+m+" - "+ch2+" = "+dv2+"."};
+  }
+  if(kind===2){ // so sanh
+    var a=ri(15,99), b=a; while(b===a){b=ri(15,99);}
+    var sym=a>b?">":"<";
+    return {cat:CAT.so100,text:"Điền dấu thích hợp: "+a+" ... "+b,visual:"",options:shuffle([">","<","="]),answer:sym,explain:"So sánh hàng chục trước, rồi đến hàng đơn vị. "+a+" "+(a>b?"lớn hơn":"bé hơn")+" "+b+" nên điền dấu \""+sym+"\"."};
+  }
+  if(kind===3){ // lon nhat / be nhat
+    var s=[]; while(s.length<4){var v=ri(12,99); if(s.indexOf(v)===-1)s.push(v);}
+    var askBig=Math.random()<0.5, target=askBig?Math.max.apply(null,s):Math.min.apply(null,s);
+    return {cat:CAT.so100,text:"Trong các số "+s.join(", ")+" - số nào "+(askBig?"lớn nhất":"bé nhất")+"?",visual:"",options:shuffle(s),answer:target,explain:"So sánh lần lượt hàng chục rồi hàng đơn vị, ta thấy số "+(askBig?"lớn nhất":"bé nhất")+" trong các số đã cho là "+target+"."};
+  }
+  // doc so
+  var names={20:"hai mươi",30:"ba mươi",40:"bốn mươi",50:"năm mươi",60:"sáu mươi",70:"bảy mươi",80:"tám mươi",90:"chín mươi"};
+  var ch3=pick([20,30,40,50,60,70,80,90]); var dv3=ri(1,9); var n3=ch3+dv3;
+  var dvWord={1:"mốt",2:"hai",3:"ba",4:"bốn",5:"lăm",6:"sáu",7:"bảy",8:"tám",9:"chín"};
+  var read=names[ch3]+" "+dvWord[dv3];
+  return {cat:CAT.so100,text:"Số \""+read+"\" được viết là số nào?",visual:"",options:opts4(n3,[n3+1,n3-1,ch3+ (dv3===5?4:5)]),answer:n3,explain:"\""+read+"\" có "+(ch3/10)+" chục và "+dv3+" đơn vị, viết là "+n3+"."};
+}
+
+function genTiaSo(){
+  var kind=ri(0,2);
+  if(kind===0){
+    var n=ri(12,97);
+    var after=Math.random()<0.5;
+    var ans=after?n+1:n-1;
+    return {cat:CAT.tiaso,text:"Số liền "+(after?"sau":"trước")+" của số "+n+" là số nào?",visual:"",options:opts4(ans,[ans+1,ans-1,ans+2]),answer:ans,explain:"Số liền sau hơn số đã cho 1 đơn vị, số liền trước kém 1 đơn vị. Liền "+(after?"sau":"trước")+" của "+n+" là "+ans+"."};
+  }
+  if(kind===1){ // tia so thieu so
+    var start=ri(5,80); var missIdx=ri(1,4); var cells="";
+    for(var i=0;i<6;i++){ var val=start+i; var miss=i===missIdx;
+      cells+='<div class="cell'+(miss?" miss":"")+'"><div class="dot"></div><div class="num">'+(miss?"?":val)+'</div></div>'; }
+    var ans2=start+missIdx;
+    return {cat:CAT.tiaso,text:"Số nào còn thiếu trên tia số?",visual:'<div class="nline">'+cells+'</div>',options:opts4(ans2,[ans2-1,ans2+1,ans2+2]),answer:ans2,explain:"Trên tia số, các số tăng dần đều nhau 1 đơn vị. Số còn thiếu nằm giữa "+(ans2-1)+" và "+(ans2+1)+" nên là "+ans2+"."};
+  }
+  var a=ri(15,95);
+  return {cat:CAT.tiaso,text:"Số "+a+" nằm giữa hai số nào dưới đây?",visual:"",options:shuffle([(a-1)+" và "+(a+1),(a+1)+" và "+(a+2),(a-2)+" và "+(a-1),(a)+" và "+(a+1)]),answer:(a-1)+" và "+(a+1),explain:"Số đứng ngay trước "+a+" là "+(a-1)+", số đứng ngay sau "+a+" là "+(a+1)+", nên "+a+" nằm giữa "+(a-1)+" và "+(a+1)+"."};
+}
+
+function genThanhPhan(){
+  var kind=ri(0,4);
+  if(kind===0){
+    var a=ri(3,29), b=ri(2,9), s=a+b;
+    var q=pick([
+      {ask:"Trong phép tính "+a+" + "+b+" = "+s+", số "+a+" được gọi là gì?",ans:"Số hạng"},
+      {ask:"Trong phép tính "+a+" + "+b+" = "+s+", số "+s+" được gọi là gì?",ans:"Tổng"},
+      {ask:"Trong phép tính "+a+" + "+b+" = "+s+", số "+b+" được gọi là gì?",ans:"Số hạng"}
+    ]);
+    return {cat:CAT.thanhphan,text:q.ask,visual:"",options:shuffle(["Số hạng","Tổng","Số bị trừ","Hiệu"]),answer:q.ans,explain:"Trong phép cộng: các số được cộng gọi là số hạng, kết quả gọi là tổng. Ở đây "+a+" + "+b+" = "+s+"."};
+  }
+  if(kind===1){
+    var c=ri(15,40), d=ri(3,9), h=c-d;
+    var q2=pick([
+      {ask:"Trong phép tính "+c+" - "+d+" = "+h+", số "+c+" được gọi là gì?",ans:"Số bị trừ"},
+      {ask:"Trong phép tính "+c+" - "+d+" = "+h+", số "+d+" được gọi là gì?",ans:"Số trừ"},
+      {ask:"Trong phép tính "+c+" - "+d+" = "+h+", số "+h+" được gọi là gì?",ans:"Hiệu"}
+    ]);
+    return {cat:CAT.thanhphan,text:q2.ask,visual:"",options:shuffle(["Số bị trừ","Số trừ","Hiệu","Tổng"]),answer:q2.ans,explain:"Trong phép trừ: số bị trừ - số trừ = hiệu. Ở đây "+c+" - "+d+" = "+h+"."};
+  }
+  if(kind===2){ // tim so hang thieu
+    var x=ri(3,40), y=ri(2,30), s2=x+y;
+    return {cat:CAT.thanhphan,text:"Tìm số còn thiếu: ? + "+y+" = "+s2,visual:"",options:opts4(x,[x+1,x-1,x+10]),answer:x,explain:"Muốn tìm số hạng chưa biết, con lấy tổng trừ đi số hạng đã biết: "+s2+" - "+y+" = "+x+"."};
+  }
+  if(kind===3){ // Hon, kem nhau bao nhieu - Bai 4
+    var nm1=pick(NAMES), nm2=pick(NAMES.filter(function(x){return x!==nm1;}));
+    var thx=pick(THINGS), ob=thx[0], emx=thx[1];
+    var big=ri(14,32), small=ri(5,big-4), diff=big-small; var askMore=Math.random()<0.5;
+    return {cat:CAT.thanhphan,text:nm1+" có "+big+" "+ob+", "+nm2+" có "+small+" "+ob+". Hỏi "+(askMore? nm1+" có nhiều hơn "+nm2 : nm2+" có ít hơn "+nm1)+" bao nhiêu "+ob+"?",visual:'<div class="kgbox"><div class="kgitem"><span class="em">'+emx+'</span>'+nm1+": "+big+'</div><div class="kgitem"><span class="em">'+emx+'</span>'+nm2+": "+small+"</div></div>",options:opts4(diff,[diff+1,diff-1,big+small]),answer:diff,explain:"Muốn biết hơn - kém nhau bao nhiêu, con lấy số lớn trừ số bé: "+big+" - "+small+" = "+diff+". Đáp số: "+diff+" "+ob+"."};
+  }
+  var c2=ri(20,50), h2=ri(5,c2-8), d2=c2-h2;
+  return {cat:CAT.thanhphan,text:"Tìm số còn thiếu: "+c2+" - ? = "+h2,visual:"",options:opts4(d2,[d2+1,d2-1,d2+2]),answer:d2,explain:"Muốn tìm số trừ, con lấy số bị trừ trừ đi hiệu: "+c2+" - "+h2+" = "+d2+"."};
+}
+
+function genKhongNho(){
+  var isAdd=Math.random()<0.5;
+  if(isAdd){
+    var aT=ri(1,7), aU=ri(1,8), bT=ri(1,8-aT), bU=ri(0,9-aU);
+    var a=aT*10+aU, b=bT*10+bU, s=a+b;
+    var vis='<div class="vcalc"><div class="row"><span>'+a+'</span></div><div class="row"><span class="op">+</span><span>'+b+'</span></div><div class="row bar"><span>?</span></div></div>';
+    return {cat:CAT.khongnho,text:"Đặt tính rồi tính: "+a+" + "+b+" = ?",visual:vis,options:opts4(s,[s+1,s-1,s+10]),answer:s,explain:"Cộng hàng đơn vị trước: "+aU+" + "+bU+" = "+(aU+bU)+", rồi cộng hàng chục: "+aT+" + "+bT+" = "+(aT+bT)+". Kết quả là "+s+"."};
+  }
+  var cT=ri(3,9), cU=ri(2,9), dT=ri(1,cT-1), dU=ri(0,cU);
+  var c=cT*10+cU, d=dT*10+dU, h=c-d;
+  var vis2='<div class="vcalc"><div class="row"><span>'+c+'</span></div><div class="row"><span class="op">-</span><span>'+d+'</span></div><div class="row bar"><span>?</span></div></div>';
+  return {cat:CAT.khongnho,text:"Đặt tính rồi tính: "+c+" - "+d+" = ?",visual:vis2,options:opts4(h,[h+1,h-1,h+10]),answer:h,explain:"Trừ hàng đơn vị trước: "+cU+" - "+dU+" = "+(cU-dU)+", rồi trừ hàng chục: "+cT+" - "+dT+" = "+(cT-dT)+". Kết quả là "+h+"."};
+}
+
+function genQua10(){
+  var isAdd=Math.random()<0.5;
+  if(isAdd){
+    var a=pick([6,7,8,9,9,8]); var b=ri(10-a+1,9); var s=a+b; var need=10-a;
+    return {cat:CAT.qua10,text:"Tính: "+a+" + "+b+" = ?",visual:"",options:opts4(s,[s-1,s+1,s+2]),answer:s,explain:"Tách cho tròn chục: "+a+" cần thêm "+need+" để được 10. Tách "+b+" = "+need+" + "+(b-need)+". Vậy "+a+" + "+b+" = "+a+" + "+need+" + "+(b-need)+" = 10 + "+(b-need)+" = "+s+"."};
+  }
+  var s2=ri(11,18); var b2=ri(s2-9,9); var h=s2-b2; var step=s2-10;
+  return {cat:CAT.qua10,text:"Tính: "+s2+" - "+b2+" = ?",visual:"",options:opts4(h,[h+1,h-1,h+2]),answer:h,explain:"Tách cho tròn chục: trừ "+step+" để "+s2+" về 10, còn phải trừ tiếp "+(b2-step)+". Vậy "+s2+" - "+b2+" = "+s2+" - "+step+" - "+(b2-step)+" = 10 - "+(b2-step)+" = "+h+"."};
+}
+
+function genLoiVan(){
+  var name=pick(NAMES), name2=pick(NAMES.filter(function(x){return x!==name;}));
+  var th=pick(THINGS), obj=th[0], em=th[1];
+  var kind=ri(0,4);
+  if(kind===0){ // them
+    var a=ri(5,25), b=ri(3,15), s=a+b;
+    return {cat:CAT.loivan,text:name+" có "+a+" "+obj+". Mẹ cho "+name+" thêm "+b+" "+obj+" nữa. Hỏi "+name+" có tất cả bao nhiêu "+obj+"?",visual:'<div class="kgbox"><div class="kgitem"><span class="em">'+em+'</span>'+a+" "+obj+" lúc đầu</div><div class=\"kgitem\"><span class=\"em\">➕</span>thêm "+b+" "+obj+"</div></div>",options:opts4(s,[s-1,s+1,Math.abs(a-b)]),answer:s,explain:"Bài toán về thêm nên con làm phép cộng: "+a+" + "+b+" = "+s+". Đáp số: "+s+" "+obj+"."};
+  }
+  if(kind===1){ // bot
+    var a2=ri(12,30), b2=ri(3,a2-5), h=a2-b2;
+    return {cat:CAT.loivan,text:name+" có "+a2+" "+obj+". "+name+" cho bạn "+b2+" "+obj+". Hỏi "+name+" còn lại bao nhiêu "+obj+"?",visual:'<div class="kgbox"><div class="kgitem"><span class="em">'+em+'</span>'+a2+" "+obj+" lúc đầu</div><div class=\"kgitem\"><span class=\"em\">➖</span>cho bạn "+b2+" "+obj+"</div></div>",options:opts4(h,[h+1,h-1,a2+b2]),answer:h,explain:"Bài toán về bớt nên con làm phép trừ: "+a2+" - "+b2+" = "+h+". Đáp số: "+h+" "+obj+"."};
+  }
+  if(kind===2){ // nhieu hon
+    var a3=ri(6,24), b3=ri(3,12), s3=a3+b3;
+    return {cat:CAT.loivan,text:name+" có "+a3+" "+obj+". "+name2+" có nhiều hơn "+name+" "+b3+" "+obj+". Hỏi "+name2+" có bao nhiêu "+obj+"?",visual:"",options:opts4(s3,[a3-b3>0?a3-b3:s3+2,s3-1,s3+1]),answer:s3,explain:"\"Nhiều hơn\" nghĩa là số lớn hơn, con làm phép cộng: "+a3+" + "+b3+" = "+s3+". Đáp số: "+s3+" "+obj+"."};
+  }
+  if(kind===3){ // it hon
+    var a4=ri(14,32), b4=ri(3,10), h4=a4-b4;
+    return {cat:CAT.loivan,text:name+" có "+a4+" "+obj+". "+name2+" có ít hơn "+name+" "+b4+" "+obj+". Hỏi "+name2+" có bao nhiêu "+obj+"?",visual:"",options:opts4(h4,[a4+b4,h4+1,h4-1]),answer:h4,explain:"\"Ít hơn\" nghĩa là số bé hơn, con làm phép trừ: "+a4+" - "+b4+" = "+h4+". Đáp số: "+h4+" "+obj+"."};
+  }
+  // chon phep tinh dung
+  var a5=ri(8,26), b5=ri(3,12), s5=a5+b5, correct5=a5+" + "+b5+" = "+s5;
+  var cand5=[a5+" - "+b5+" = "+(a5-b5),b5+" - "+a5+" = "+(b5-a5),a5+" + "+b5+" = "+(s5+2),a5+" + "+b5+" = "+(s5+3)];
+  var wrongs5=[]; cand5.forEach(function(c){ if(c!==correct5 && wrongs5.indexOf(c)===-1 && wrongs5.length<3) wrongs5.push(c); });
+  return {cat:CAT.loivan,text:name+" hái được "+a5+" quả cam. Chị hái được thêm "+b5+" quả cam nữa. Phép tính nào đúng để tìm tổng số quả cam?",visual:"",options:shuffle([correct5].concat(wrongs5)),answer:correct5,explain:"Hái thêm vào nên số quả tăng lên, con dùng phép cộng: "+a5+" + "+b5+" = "+s5+"."};
+}
+
+var KG_THINGS=[["bao gạo","🍚"],["quả bí ngô","🎃"],["quả dưa hấu","🍉"],["túi khoai","🥔"],["con mèo","🐱"],["con chó","🐶"],["quả cam","🍊"],["túi táo","🍎"]];
+function genKg(){
+  var kind=ri(0,3);
+  if(kind===0){ // nang hon nhe hon
+    var t1=pick(KG_THINGS), t2=pick(KG_THINGS.filter(function(x){return x[0]!==t1[0];}));
+    var w1=ri(2,12), w2=w1; while(w2===w1){w2=ri(2,15);}
+    var heavier=w1>w2?t1[0]:t2[0];
+    return {cat:CAT.kg,text:"Vật nào nặng hơn?",visual:'<div class="kgbox"><div class="kgitem"><span class="em">'+t1[1]+"</span>"+t1[0]+": "+w1+" kg</div><div class=\"kgitem\"><span class=\"em\">"+t2[1]+"</span>"+t2[0]+": "+w2+" kg</div></div>",options:shuffle([t1[0],t2[0],"Hai vật nặng bằng nhau"]),answer:heavier,explain:"So sánh số ki-lô-gam: "+Math.max(w1,w2)+" kg lớn hơn "+Math.min(w1,w2)+" kg, nên "+heavier+" nặng hơn."};
+  }
+  if(kind===1){ // doc so do
+    var t=pick(KG_THINGS), w=ri(2,20);
+    return {cat:CAT.kg,text:"Cân ghi: "+t[0]+" nặng "+w+" kg. Số đo này đọc là gì?",visual:'<div class="kgbox"><div class="kgitem"><span class="em">⚖️</span>'+t[0]+" - "+w+" kg</div></div>",options:opts4(w,[w+1,w-1,w+2]).map(function(v){return v+" ki-lô-gam";}),answer:w+" ki-lô-gam",explain:"Khối lượng đo bằng đơn vị ki-lô-gam, viết tắt là kg. Số đo "+w+" kg đọc là \""+w+" ki-lô-gam\"."};
+  }
+  if(kind===2){ // so sanh so do
+    var a=ri(3,19), b=a; while(b===a){b=ri(3,19);}
+    var sym=a>b?">":"<";
+    return {cat:CAT.kg,text:"Điền dấu thích hợp: "+a+" kg ... "+b+" kg",visual:"",options:shuffle([">","<","="]),answer:sym,explain:"Cùng đơn vị kg nên con so sánh hai số đo như so sánh số thường: "+a+" "+(a>b?"lớn hơn":"bé hơn")+" "+b+", điền dấu \""+sym+"\"."};
+  }
+  var t3=pick(KG_THINGS), x=ri(2,9), y=ri(2,9), s=x+y;
+  return {cat:CAT.kg,text:"Một túi nặng "+x+" kg, một túi khác nặng "+y+" kg. Hỏi cả hai túi nặng bao nhiêu ki-lô-gam?",visual:'<div class="kgbox"><div class="kgitem"><span class="em">'+t3[1]+"</span>Túi 1: "+x+" kg</div><div class=\"kgitem\"><span class=\"em\">"+t3[1]+"</span>Túi 2: "+y+" kg</div></div>",options:opts4(s,[s-1,s+1,Math.abs(x-y)]),answer:s,explain:"Muốn tìm khối lượng của cả hai túi, con cộng hai số đo: "+x+" + "+y+" = "+s+". Đáp số: "+s+" kg."};
+}
+
+
+/* ---------- TIENG VIET: du lieu va bo sinh cau hoi ---------- */
+var PASSAGES=[
+  {title:"Buổi sáng ở lớp 2B",body:"Sáng nào, em cũng đến lớp thật sớm. Em treo cặp lên móc, lấy sách vở ra để ngay ngắn trên bàn. Bạn Tuấn, tổ trưởng của em, đi từng bàn kiểm tra bài cũ. Khi cô giáo bước vào, cả lớp đứng dậy chào cô thật to. Ai cũng vui vẻ bắt đầu một ngày học mới.",
+   qs:[{q:"Buổi sáng, em làm gì khi đến lớp?",o:["Treo cặp lên móc và lấy sách vở ra","Chạy ra sân chơi đá bóng","Ngủ thêm một giấc ngắn trên bàn"],a:"Treo cặp lên móc và lấy sách vở ra",e:"Đoạn văn viết: em treo cặp lên móc, lấy sách vở ra để ngay ngắn trên bàn."},
+       {q:"Bạn Tuấn, tổ trưởng của lớp, làm việc gì vào buổi sáng?",o:["Đi từng bàn kiểm tra bài cũ","Lau bảng giúp cô giáo","Phát vở cho cả lớp"],a:"Đi từng bàn kiểm tra bài cũ",e:"Đoạn văn kể: bạn Tuấn đi từng bàn kiểm tra bài cũ."},
+       {q:"Khi cô giáo bước vào lớp, cả lớp làm gì?",o:["Đứng dậy chào cô thật to","Im lặng cúi xuống bàn","Chạy ùa ra cửa đón cô"],a:"Đứng dậy chào cô thật to",e:"Đoạn văn viết: khi cô giáo bước vào, cả lớp đứng dậy chào cô thật to."}]},
+  {title:"Bạn Hùng thích vẽ",body:"Hùng là bạn ngồi cạnh em. Hùng vẽ rất đẹp, nhất là vẽ con vật. Giờ mĩ thuật hôm qua, Hùng vẽ một chú mèo mướp đang ngủ dưới gốc cây. Cô giáo khen bức tranh sinh động và treo lên góc sáng tạo của lớp. Hùng cười thật tươi vì tranh của mình được các bạn ngắm nhìn.",
+   qs:[{q:"Hùng ngồi ở đâu trong lớp?",o:["Ngồi cạnh em","Ngồi ở cuối lớp","Ngồi ngay cạnh cửa ra vào"],a:"Ngồi cạnh em",e:"Câu đầu đoạn văn: \"Hùng là bạn ngồi cạnh em.\""},
+       {q:"Giờ mĩ thuật hôm qua, Hùng vẽ con vật gì?",o:["Một chú mèo mướp","Một chú chó con","Một con chim sẻ"],a:"Một chú mèo mướp",e:"Đoạn văn kể: Hùng vẽ một chú mèo mướp đang ngủ dưới gốc cây."},
+       {q:"Vì sao Hùng cười thật tươi?",o:["Vì tranh của Hùng được treo lên và các bạn ngắm nhìn","Vì Hùng được cô giáo cho kẹo","Vì hôm nay lớp được nghỉ học"],a:"Vì tranh của Hùng được treo lên và các bạn ngắm nhìn",e:"Cô giáo treo bức tranh lên góc sáng tạo của lớp, nên Hùng cười thật tươi vì tranh của mình được các bạn ngắm nhìn."}]},
+  {title:"Cô giáo lớp em",body:"Cô Hằng là cô giáo chủ nhiệm lớp em. Cô có giọng đọc rất hay, nghe như kể chuyện. Mỗi khi có bạn chưa hiểu bài, cô lại giảng chậm rãi cho đến khi bạn hiểu mới thôi. Giờ ra chơi, cô còn đọc truyện cho cả lớp nghe. Bạn nào trong lớp cũng yêu quý cô Hằng.",
+   qs:[{q:"Cô Hằng có giọng đọc thế nào?",o:["Rất hay, nghe như kể chuyện","Rất to và nghiêm khắc","Nhỏ nhẹ, nghe không rõ"],a:"Rất hay, nghe như kể chuyện",e:"Đoạn văn viết: cô có giọng đọc rất hay, nghe như kể chuyện."},
+       {q:"Khi có bạn chưa hiểu bài, cô Hằng làm gì?",o:["Giảng chậm rãi cho đến khi bạn hiểu","Cho bạn chép phạt một trang","Bỏ qua để dạy bài mới"],a:"Giảng chậm rãi cho đến khi bạn hiểu",e:"Đoạn văn kể: cô lại giảng chậm rãi cho đến khi bạn hiểu mới thôi."},
+       {q:"Giờ ra chơi, cô Hằng làm gì cho cả lớp?",o:["Đọc truyện cho cả lớp nghe","Chấm bài ở phòng giáo viên","Ra sân chơi cùng các bạn"],a:"Đọc truyện cho cả lớp nghe",e:"Đoạn văn viết: giờ ra chơi, cô còn đọc truyện cho cả lớp nghe."}]},
+  {title:"Giờ ra chơi vui vẻ",body:"Tiếng trống vừa vang lên, cả lớp ùa ra sân trường. Dưới gốc bàng, mấy bạn nữ đang nhảy dây thật nhịp nhàng. Bên kia sân, các bạn nam chia đội đá cầu với nhau. Em và Lan ngồi trên ghế đá, cùng đọc một quyển truyện tranh. Tiếng cười nói rộn ràng khắp sân trường thân yêu.",
+   qs:[{q:"Đoạn văn tả cảnh gì?",o:["Cảnh giờ ra chơi ở sân trường","Cảnh giờ học trong lớp","Cảnh buổi sáng ở nhà em"],a:"Cảnh giờ ra chơi ở sân trường",e:"Cả đoạn văn kể các hoạt động của các bạn trên sân trường trong giờ ra chơi."},
+       {q:"Các bạn nữ đang làm gì dưới gốc bàng?",o:["Nhảy dây thật nhịp nhàng","Đọc truyện tranh","Đá cầu với nhau"],a:"Nhảy dây thật nhịp nhàng",e:"Đoạn văn viết: dưới gốc bàng, mấy bạn nữ đang nhảy dây thật nhịp nhàng."},
+       {q:"Em và Lan làm gì trong giờ ra chơi?",o:["Ngồi trên ghế đá đọc truyện tranh","Chạy quanh sân trường","Nhảy dây cùng các bạn nữ"],a:"Ngồi trên ghế đá đọc truyện tranh",e:"Đoạn văn kể: em và Lan ngồi trên ghế đá, cùng đọc một quyển truyện tranh."}]},
+  {title:"Quyển truyện của Na",body:"Na có một quyển truyện tranh rất hay. Trang bìa quyển truyện vẽ một chú thỏ trắng đeo chiếc nơ hồng. Mỗi giờ ra chơi, Na lại mở truyện ra đọc cùng em. Có bạn làm rách một trang, Na không giận mà cùng bạn dán lại cẩn thận. Cả lớp quý Na vì Na tốt bụng và biết chia sẻ.",
+   qs:[{q:"Trên bìa quyển truyện của Na vẽ gì?",o:["Một chú thỏ trắng đeo nơ hồng","Một chú mèo mướp","Một con chim sẻ"],a:"Một chú thỏ trắng đeo nơ hồng",e:"Đoạn văn viết: trang bìa quyển truyện vẽ một chú thỏ trắng đeo chiếc nơ hồng."},
+       {q:"Khi có bạn làm rách một trang truyện, Na làm gì?",o:["Cùng bạn dán lại cẩn thận","Giận bạn và bật khóc","Cất truyện, không cho ai đọc nữa"],a:"Cùng bạn dán lại cẩn thận",e:"Đoạn văn kể: Na không giận mà cùng bạn dán lại cẩn thận."},
+       {q:"Vì sao cả lớp quý Na?",o:["Vì Na tốt bụng và biết chia sẻ","Vì Na học giỏi nhất lớp","Vì Na có rất nhiều truyện hay"],a:"Vì Na tốt bụng và biết chia sẻ",e:"Câu cuối đoạn văn: cả lớp quý Na vì Na tốt bụng và biết chia sẻ."}]},
+  {title:"Sáng mẹ đưa em đi học",body:"Mỗi buổi sáng, mẹ đều dậy sớm nấu bữa sáng cho cả nhà. Ăn xong, em tự mặc đồng phục và đeo cặp sách. Mẹ chở em đến trường bằng xe đạp. Trước cổng trường, em khoanh tay chào mẹ rồi chạy vào lớp. Em thầm cảm ơn mẹ vì ngày nào mẹ cũng chăm sóc em chu đáo.",
+   qs:[{q:"Buổi sáng, mẹ làm gì cho cả nhà?",o:["Dậy sớm nấu bữa sáng","Đưa em đi chơi công viên","Đọc truyện cho em nghe"],a:"Dậy sớm nấu bữa sáng",e:"Đoạn văn viết: mỗi buổi sáng, mẹ đều dậy sớm nấu bữa sáng cho cả nhà."},
+       {q:"Mẹ chở em đến trường bằng gì?",o:["Bằng xe đạp","Bằng xe máy","Bằng xe buýt"],a:"Bằng xe đạp",e:"Đoạn văn kể: mẹ chở em đến trường bằng xe đạp."},
+       {q:"Trước cổng trường, em làm gì?",o:["Khoanh tay chào mẹ rồi chạy vào lớp","Vẫy tay rồi đi ăn sáng","Đứng chờ bạn đến mới vào lớp"],a:"Khoanh tay chào mẹ rồi chạy vào lớp",e:"Đoạn văn viết: trước cổng trường, em khoanh tay chào mẹ rồi chạy vào lớp."}]},
+  {title:"Chiếc bút mực mới",body:"Hôm qua, bố tặng em một chiếc bút mực mới. Thân bút màu xanh da trời, nắp bút sáng bóng như gương. Em bơm mực thật cẩn thận rồi viết thử lên trang giấy trắng. Nét chữ hiện ra đều và đẹp hơn hẳn. Em cất bút vào hộp, thầm hứa sẽ giữ gìn bút thật tốt.",
+   qs:[{q:"Ai tặng em chiếc bút mực mới?",o:["Bố em","Mẹ em","Cô giáo"],a:"Bố em",e:"Câu đầu đoạn văn: \"Hôm qua, bố tặng em một chiếc bút mực mới.\""},
+       {q:"Thân bút có màu gì?",o:["Màu xanh da trời","Màu hồng phấn","Màu vàng tươi"],a:"Màu xanh da trời",e:"Đoạn văn tả: thân bút màu xanh da trời, nắp bút sáng bóng như gương."},
+       {q:"Em thầm hứa điều gì sau khi cất bút vào hộp?",o:["Sẽ giữ gìn bút thật tốt","Sẽ cho bạn mượn bút mỗi ngày","Sẽ viết thật nhanh cho hết mực"],a:"Sẽ giữ gìn bút thật tốt",e:"Câu cuối đoạn văn: em thầm hứa sẽ giữ gìn bút thật tốt."}]},
+  {title:"Lớp em giữ sân trường sạch",body:"Sau giờ ăn trưa, sân trường có nhiều vỏ hộp sữa vương vãi. Cô giáo nhắc cả lớp cùng nhau nhặt rác cho sân trường sạch đẹp. Bạn thì nhặt vỏ hộp, bạn thì quét lá khô dưới gốc cây. Chỉ một lúc sau, sân trường đã sạch bóng như mới. Cô khen cả lớp ngoan và biết giữ gìn trường lớp.",
+   qs:[{q:"Sau giờ ăn trưa, sân trường có gì vương vãi?",o:["Nhiều vỏ hộp sữa","Nhiều đồ chơi của các bạn","Nhiều cặp sách để quên"],a:"Nhiều vỏ hộp sữa",e:"Đoạn văn viết: sau giờ ăn trưa, sân trường có nhiều vỏ hộp sữa vương vãi."},
+       {q:"Các bạn đã làm gì để sân trường sạch đẹp?",o:["Nhặt vỏ hộp và quét lá khô","Tưới nước rửa sân","Trồng thêm cây mới"],a:"Nhặt vỏ hộp và quét lá khô",e:"Đoạn văn kể: bạn thì nhặt vỏ hộp, bạn thì quét lá khô dưới gốc cây."},
+       {q:"Vì sao cô giáo khen cả lớp?",o:["Vì cả lớp ngoan và biết giữ gìn trường lớp","Vì cả lớp học bài rất giỏi","Vì cả lớp hát rất hay"],a:"Vì cả lớp ngoan và biết giữ gìn trường lớp",e:"Câu cuối đoạn văn: cô khen cả lớp ngoan và biết giữ gìn trường lớp."}]}
+];
+function genTvDoc(){
+  var P=pick(PASSAGES); var Q=pick(P.qs);
+  return {cat:CAT.tvdoc,text:Q.q,visual:'<div class="passage"><span class="ptitle">'+P.title+"</span>"+P.body+"</div>",options:shuffle(Q.o),answer:Q.a,explain:Q.e};
+}
+
+var SPELL=[
+  {sent:"Em ___ lời cô giáo giảng bài.",full:"Em nghe lời cô giáo giảng bài.",o:["nghe","nge","nghe."],a:"nghe",rule:"Chữ \"nghe\" gồm âm ng và vần e thêm chữ h: n-g-h-e. Con nhớ: âm ng đứng đầu, sau là ghe."},
+  {sent:"Chủ nhật, em được ___ học ở nhà.",full:"Chủ nhật, em được nghỉ học ở nhà.",o:["nghỉ","ngỉ","nghĩ"],a:"nghỉ",rule:"Trước chữ i, âm ng viết thành ngh. \"Nghỉ\" mang dấu hỏi - con đọc lại chậm: ng-h-ỉ."},
+  {sent:"Cô giáo ___ nhẹ lên bảng để cả lớp chú ý.",full:"Cô giáo gõ nhẹ lên bảng để cả lớp chú ý.",o:["gõ","gỏ","gô"],a:"gõ",rule:"\"Gõ\" mang dấu ngã - dấu ngã cong như con sóng nhỏ. Dấu hỏi thì cong như dấu móc."},
+  {sent:"Em ngồi vào ___ và mở sách ra học bài.",full:"Em ngồi vào ghế và mở sách ra học bài.",o:["ghế","gế","ghê"],a:"ghế",rule:"Trước chữ ê, âm g viết thành gh. \"Ghế\" mang dấu sắc, đọc lên cao."},
+  {sent:"Buổi ___ , em nằm ngủ một giấc ngắn để chiều học tiếp.",full:"Buổi trưa, em nằm ngủ một giấc ngắn để chiều học tiếp.",o:["trưa","chưa","trua"],a:"trưa",rule:"\"Trưa\" là giữa ngày, viết bằng tr. \"Chưa\" lại là một từ khác hẳn - chưa làm xong việc gì."},
+  {sent:"Em ___ chỉ làm bài tập cô giao mỗi ngày.",full:"Em chăm chỉ làm bài tập cô giao mỗi ngày.",o:["chăm","trăm","châm"],a:"chăm",rule:"\"Chăm chỉ\" nghĩa là siêng năng, viết bằng ch. \"Trăm\" là số 100, còn \"châm\" là châm kim - khác hẳn nhau."},
+  {sent:"Sau cơn mưa, bầu trời ___ biếc và mát mẻ.",full:"Sau cơn mưa, bầu trời xanh biếc và mát mẻ.",o:["xanh","sanh","xanh."],a:"xanh",rule:"Màu của lá cây, của bầu trời viết là \"xanh\" bằng x. Con nhớ: xanh lá, xanh trời đều viết x."},
+  {sent:"Em giữ gìn sách vở ___ sẽ, không quăn mép.",full:"Em giữ gìn sách vở sạch sẽ, không quăn mép.",o:["sạch","xạch","sach"],a:"sạch",rule:"\"Sạch\" viết bằng s và có chữ ch ở cuối vần. Con đọc chậm: s-ạ-ch."},
+  {sent:"Thấy bạn mang nhiều sách, em chạy lại ___ bạn một tay.",full:"Thấy bạn mang nhiều sách, em chạy lại giúp bạn một tay.",o:["giúp","dúp","gúp"],a:"giúp",rule:"\"Giúp\" viết bằng gi và dấu sắc. Con nhớ cụm quen thuộc: giúp đỡ bạn bè."},
+  {sent:"Em bé bị ___ khi chạy nhanh, may mà chỉ đau nhẹ.",full:"Em bé bị ngã khi chạy nhanh, may mà chỉ đau nhẹ.",o:["ngã","ngả","ngã."],a:"ngã",rule:"\"Ngã\" mang dấu ngã - con sóng nhỏ cong cong. Đọc phân biệt: ngã (dấu ngã) khác ngả (dấu hỏi)."},
+  {sent:"Giờ mĩ thuật, em học ___ một ngôi nhà nhỏ.",full:"Giờ mĩ thuật, em học vẽ một ngôi nhà nhỏ.",o:["vẽ","vẻ","vẽ."],a:"vẽ",rule:"\"Vẽ\" tranh mang dấu ngã. Còn \"vẻ\" mặt, \"vẻ\" đẹp lại mang dấu hỏi - con đọc kĩ ngữ cảnh nhé."},
+  {sent:"Đêm rằm, vầng ___ sáng vằng vặc trên bầu trời.",full:"Đêm rằm, vầng trăng sáng vằng vặc trên bầu trời.",o:["trăng","chăng","trăng."],a:"trăng",rule:"\"Trăng\" viết bằng tr. \"Chăng\" là từ khác (trong câu hỏi \"có... chăng\"), không phải mặt trăng."},
+  {sent:"Bạn Lan học rất ___ , bài nào cũng làm đúng.",full:"Bạn Lan học rất giỏi, bài nào cũng làm đúng.",o:["giỏi","dỏi","giỏi."],a:"giỏi",rule:"\"Giỏi\" viết bằng gi và dấu hỏi. Con nhớ: học giỏi, làm giỏi đều viết gi."},
+  {sent:"Mẹ mua cho em một quyển ___ mới tinh, thơm mùi giấy.",full:"Mẹ mua cho em một quyển vở mới tinh, thơm mùi giấy.",o:["vở","vỡ","vở."],a:"vở",rule:"\"Vở\" viết mang dấu hỏi. \"Vỡ\" mang dấu ngã nghĩa là bị bể ra - hai từ khác nhau hẳn."},
+  {sent:"Bé ngồi ___ mẹ.",full:"Bé ngồi bên mẹ.",o:["bên","bênh"],a:"bên",rule:"\"Bên\" viết bằng vần ên, không có chữ h ở cuối. \"Bênh\" có thêm chữ h là một từ khác hẳn."},
+  {sent:"Em ___ lớp hai.",full:"Em lên lớp hai.",o:["lên","lênh"],a:"lên",rule:"\"Lên\" viết bằng vần ên, không có chữ h ở cuối. \"Lênh\" có thêm chữ h đọc khác hẳn."},
+  {sent:"Quả ___ chín thơm.",full:"Quả mít chín thơm.",o:["mít","mích"],a:"mít",rule:"\"Mít\" là quả mít, viết bằng vần it kết thúc bằng chữ t. \"Mích\" kết thúc bằng chữ ch là chữ viết sai."},
+  {sent:"Bé ___ đọc sách.",full:"Bé thích đọc sách.",o:["thích","thít"],a:"thích",rule:"\"Thích\" viết bằng vần ic kết thúc bằng chữ ch. \"Thít\" kết thúc bằng chữ t là chữ viết sai."},
+  {sent:"Em ___ chữ đẹp.",full:"Em viết chữ đẹp.",o:["viết","viếc"],a:"viết",rule:"\"Viết\" viết bằng vần iết kết thúc bằng chữ t. \"Viếc\" kết thúc bằng chữ c là chữ viết sai."},
+  {sent:"Một ___ lá rơi.",full:"Một chiếc lá rơi.",o:["chiếc","chiết"],a:"chiếc",rule:"\"Chiếc\" viết bằng vần iếc kết thúc bằng chữ c. \"Chiết\" kết thúc bằng chữ t là chữ viết sai."},
+  {sent:"Cái ___ học nhỏ.",full:"Cái bàn học nhỏ.",o:["bàn","bàng"],a:"bàn",rule:"\"Bàn\" viết bằng vần an, không có chữ g ở cuối. \"Bàng\" có thêm chữ g là cây bàng, khác hẳn bàn học."},
+  {sent:"Buổi ___ đẹp trời.",full:"Buổi sáng đẹp trời.",o:["sáng","sán"],a:"sáng",rule:"\"Sáng\" viết bằng vần ang, có chữ g ở cuối. \"Sán\" không có chữ g là chữ viết sai."},
+  {sent:"Cô ___ em ngoan.",full:"Cô khen em ngoan.",o:["khen","kheng"],a:"khen",rule:"\"Khen\" viết bằng vần en, không có chữ g ở cuối. \"Kheng\" có thêm chữ g là chữ viết sai."},
+  {sent:"Chuông kêu leng ___.",full:"Chuông kêu leng keng.",o:["keng","ken"],a:"keng",rule:"\"Keng\" trong \"leng keng\" viết bằng vần eng, có chữ g ở cuối. \"Ken\" không có chữ g là chữ viết sai."}
+];
+SPELL.forEach(function(s){ s.o=s.o.filter(function(x){return x.slice(-1)!==".";}); });
+/* Du lieu phan biet chinh ta cho tung cau: cap am/dau can tach, chu sai de nham nhat (vs)
+   va meo luat tuong ung - he thong doc cham bang giong mien Nam online + to sang va goi ten phan chu khac nhau theo cac truong nay. */
+var SPELLMETA={
+  "nghe":{vs:"nge",grp:"ngh - ng trước e",tip:"Mẹo luật: đứng trước e, ê, i thì âm ng viết thành ngh, âm g viết thành gh - như nghe, nghỉ, ghế."},
+  "nghỉ":{vs:"nghĩ",grp:"dấu hỏi - dấu ngã",tip:"Mẹo nhìn dấu: dấu hỏi cong như dấu móc câu, dấu ngã cong như con sóng nhỏ. Nghỉ học mang dấu hỏi."},
+  "gõ":{vs:"gỏ",grp:"dấu ngã - dấu hỏi",tip:"Mẹo nhìn dấu: dấu ngã cong như con sóng nhỏ trên mặt nước. Gõ cửa, gõ bảng đều mang dấu ngã."},
+  "ghế":{vs:"gế",grp:"gh - g trước ê",tip:"Mẹo luật: đứng trước e, ê, i thì âm g viết thành gh - như ghế, ghé thăm, ghi bài."},
+  "trưa":{vs:"chưa",grp:"tr - ch",tip:"Mẹo nhớ nghĩa: trưa là buổi giữa ngày, lúc mặt trời lên cao. Chưa nghĩa là chưa làm xong một việc gì."},
+  "chăm":{vs:"trăm",grp:"ch - tr",tip:"Mẹo nhớ nghĩa: chăm chỉ là siêng năng, viết bằng ch. Trăm là số 100, viết bằng tr."},
+  "xanh":{vs:"sanh",grp:"x - s",tip:"Mẹo nhớ: màu của lá cây và của bầu trời viết là xanh, bằng chữ x."},
+  "sạch":{vs:"xạch",grp:"s - x",tip:"Mẹo nhớ: sạch sẽ viết bằng chữ s, cuối vần có thêm chữ ch."},
+  "giúp":{vs:"dúp",grp:"gi - d",tip:"Mẹo nhớ: giúp đỡ bạn bè viết bằng gi."},
+  "ngã":{vs:"ngả",grp:"dấu ngã - dấu hỏi",tip:"Mẹo nhớ nghĩa: ngã là bị té, mang dấu ngã cong như con sóng. Ngả mũ, ngả lưng lại mang dấu hỏi."},
+  "vẽ":{vs:"vẻ",grp:"dấu ngã - dấu hỏi",tip:"Mẹo nhớ nghĩa: vẽ tranh mang dấu ngã. Vẻ mặt, vẻ đẹp lại mang dấu hỏi."},
+  "trăng":{vs:"chăng",grp:"tr - ch",tip:"Mẹo nhớ: mặt trăng viết bằng tr. Chăng là từ khác, hay gặp trong câu như có biết chăng."},
+  "giỏi":{vs:"dỏi",grp:"gi - d",tip:"Mẹo nhớ: học giỏi, làm giỏi đều viết bằng gi."},
+  "vở":{vs:"vỡ",grp:"dấu hỏi - dấu ngã",tip:"Mẹo nhớ nghĩa: quyển vở mang dấu hỏi. Vỡ mang dấu ngã, nghĩa là bị bể ra."},
+  "bên":{vs:"bênh",grp:"ên - ênh",tip:"Mẹo nhìn chữ: bên viết vần ên, không có chữ h ở cuối. Vần ênh có thêm chữ h - con nhìn kĩ đuôi chữ nhé."},
+  "lên":{vs:"lênh",grp:"ên - ênh",tip:"Mẹo nhìn chữ: lên viết vần ên, không có chữ h ở cuối. Thấy chữ h ở cuối là vần ênh, khác hẳn."},
+  "mít":{vs:"mích",grp:"it - ic",tip:"Mẹo nhìn chữ: mít kết thúc bằng chữ t - vần it. Kết thúc bằng chữ ch là vần ic, như thích."},
+  "thích":{vs:"thít",grp:"ic - it",tip:"Mẹo nhìn chữ: thích kết thúc bằng chữ ch - vần ic. Kết thúc bằng chữ t là vần it, như mít."},
+  "viết":{vs:"viếc",grp:"iết - iếc",tip:"Mẹo nhìn chữ: viết kết thúc bằng chữ t - vần iết. Kết thúc bằng chữ c là vần iếc, như chiếc."},
+  "chiếc":{vs:"chiết",grp:"iếc - iết",tip:"Mẹo nhìn chữ: chiếc kết thúc bằng chữ c - vần iếc. Kết thúc bằng chữ t là vần iết, như viết."},
+  "bàn":{vs:"bàng",grp:"an - ang",tip:"Mẹo nhìn chữ: bàn viết vần an, không có chữ g ở cuối. Có chữ g ở cuối là vần ang, như sáng."},
+  "sáng":{vs:"sán",grp:"ang - an",tip:"Mẹo nhìn chữ: sáng viết vần ang, có chữ g ở cuối. Không có chữ g là vần an, như bàn."},
+  "khen":{vs:"kheng",grp:"en - eng",tip:"Mẹo nhìn chữ: khen viết vần en, không có chữ g ở cuối. Có chữ g ở cuối là vần eng, như keng."},
+  "keng":{vs:"ken",grp:"eng - en",tip:"Mẹo nhớ: tiếng chuông leng keng viết vần eng, có chữ g ở cuối. Không có chữ g là vần en, như khen."}
+};
+SPELL.forEach(function(s){ var m=SPELLMETA[s.a]; if(m){ s.vs=m.vs; s.grp=m.grp; s.tip=m.tip; } });
+function genTvNghe(){
+  var s=pick(SPELL);
+  return {cat:CAT.tvnghe,text:"Điền chữ viết đúng vào chỗ trống: "+s.sent,visual:'<button type="button" class="btn-contrast" onclick="playContrast()">🔍 Nghe phân biệt</button><div id="cbox"></div>',options:shuffle(s.o),answer:s.a,explain:s.rule+" Đoạn gốc để con đối chiếu: \""+s.full+"\"",spellVs:s.vs,spellGrp:s.grp,spellTip:s.tip};
+}
+var DESCRIBE=[
+  {item:"chiếc bút chì",s:["Em có một chiếc bút chì mới.","Bút chì dài, thân sơn màu vàng, một đầu có cục tẩy nhỏ màu hồng.","Em dùng bút chì để viết bài và vẽ tranh.","Em rất quý chiếc bút chì của mình."]},
+  {item:"chiếc thước kẻ",s:["Đồ dùng học tập em thích nhất là chiếc thước kẻ.","Thước làm bằng nhựa trong suốt, dài 20 xăng-ti-mét và có vạch chia rõ ràng.","Em dùng thước để kẻ vở và đo độ dài các vật.","Em luôn cất thước cẩn thận trong hộp bút."]},
+  {item:"chiếc cặp sách",s:["Năm học mới, mẹ mua cho em một chiếc cặp sách.","Cặp có hình chữ nhật, màu xanh da trời và hai quai đeo rất mềm.","Em đựng sách, vở và hộp bút trong cặp mỗi ngày.","Em giữ cặp luôn sạch sẽ để cặp được bền đẹp."]},
+  {item:"cục tẩy",s:["Em có một cục tẩy nhỏ xinh.","Cục tẩy hình trái dâu tây, màu hồng và thơm mùi dâu.","Khi viết sai, em dùng tẩy xoá đi rồi viết lại cho đẹp.","Em cất tẩy vào hộp bút sau mỗi lần dùng."]},
+  {item:"quyển vở",s:["Đầu năm học, em được phát một quyển vở mới.","Vở có bìa màu xanh lá cây, giấy trắng tinh và kẻ ô li đều tăm tắp.","Em viết bài và làm bài tập vào vở.","Em giữ vở sạch đẹp, không để quăn mép."]}
+];
+var POSQ=[
+  {p:0,label:"Câu nào giới thiệu đồ dùng - nên đặt ở đầu đoạn?",e:"Đoạn tả đồ dùng bắt đầu bằng câu giới thiệu: cho biết em có đồ dùng gì, hoặc đồ dùng đó từ đâu mà có."},
+  {p:1,label:"Câu nào tả hình dáng, màu sắc của đồ dùng?",e:"Sau câu giới thiệu là câu tả hình dáng, màu sắc, chất liệu của đồ dùng - nhìn đồ dùng thấy thế nào thì tả thế ấy."},
+  {p:2,label:"Câu nào nêu công dụng của đồ dùng?",e:"Tiếp theo là câu nêu công dụng: đồ dùng ấy giúp em làm việc gì khi học tập."},
+  {p:3,label:"Câu nào nên đặt ở cuối đoạn để kết đoạn?",e:"Cuối đoạn là câu nói tình cảm của em với đồ dùng, hoặc cách em giữ gìn đồ dùng ấy."}
+];
+function genTvViet(){
+  var D=pick(DESCRIBE); var Q=pick(POSQ);
+  return {cat:CAT.tvviet,text:"Viết đoạn văn tả "+D.item+": "+Q.label,visual:'<div class="passage"><span class="ptitle">✏️ Tả '+D.item+'</span>Một đoạn tả đồ dùng thường có 4 câu theo thứ tự: giới thiệu - tả hình dáng, màu sắc - công dụng - tình cảm, kết đoạn.</div>',options:shuffle(D.s),answer:D.s[Q.p],explain:Q.e+" Trong đoạn tả "+D.item+", câu đó là: \""+D.s[Q.p]+"\""};
+}
+var WORDS={
+  sv:[["bảng đen","🟩"],["quyển vở","📓"],["cây bàng","🌳"],["con mèo","🐱"],["chiếc cặp sách","🎒"],["bông hoa","🌼"],["mặt trời","☀️"],["quả bóng","⚽"],["cái bàn","🪑"],["ngôi trường","🏫"]],
+  hd:[["chạy","🏃"],["hát","🎤"],["đọc sách","📖"],["viết bài","✍️"],["quét nhà","🧹"],["đá bóng","⚽"],["bơi","🏊"],["nhảy dây","🤾"],["cười","😄"],["trồng cây","🌱"]],
+  dd:[["xanh","🟦"],["cao","🦒"],["đỏ","🟥"],["chăm chỉ","⭐"],["sạch sẽ","✨"],["nhanh","💨"],["to lớn","🦣"],["nhỏ bé","🐜"],["ấm áp","🌤️"],["ngoan","💗"]]
+};
+var CLASSNAME={sv:"Từ chỉ sự vật",hd:"Từ chỉ hoạt động",dd:"Từ chỉ đặc điểm"};
+var CLASSKEYS=["sv","hd","dd"];
+function genTvTu(){
+  var kind=ri(0,1);
+  if(kind===0){ var ck=pick(CLASSKEYS); var w=pick(WORDS[ck]);
+    return {cat:CAT.tvtu,text:"Từ \""+w[0]+"\" thuộc nhóm từ nào?",visual:'<div class="bigem" aria-hidden="true">'+w[1]+'</div>',options:shuffle(CLASSKEYS.map(function(k){return CLASSNAME[k];})),answer:CLASSNAME[ck],explain:"\""+w[0]+"\" là "+CLASSNAME[ck].toLowerCase()+". Con nhớ: sự vật là người, vật, cây cối xung quanh; hoạt động là việc làm; đặc điểm là màu sắc, hình dáng, tính nết.",tvword:w,tvclass:ck};
+  }
+  var ck2=pick(CLASSKEYS); var right=pick(WORDS[ck2]);
+  var others=CLASSKEYS.filter(function(k){return k!==ck2;});
+  var wrongs=[pick(WORDS[others[0]]),pick(WORDS[others[1]])];
+  return {cat:CAT.tvtu,text:"Từ nào dưới đây là "+CLASSNAME[ck2].toLowerCase()+"?",visual:"",options:shuffle([right[0],wrongs[0][0],wrongs[1][0]]),answer:right[0],explain:"\""+right[0]+"\" là "+CLASSNAME[ck2].toLowerCase()+". Còn \""+wrongs[0][0]+"\" là "+CLASSNAME[CATKEY_OF(wrongs[0])].toLowerCase()+" và \""+wrongs[1][0]+"\" là "+CLASSNAME[CATKEY_OF(wrongs[1])].toLowerCase()+".",tvword:right,tvclass:ck2};
+}
+function CATKEY_OF(w){ var found=""; CLASSKEYS.forEach(function(k){ WORDS[k].forEach(function(x){ if(x[0]===w[0]) found=k; }); }); return found; }
+
+/* ---------- goi y truc quan bang hinh (khong viet thang dap so) ---------- */
+function numsIn(t){ var m=String(t).match(/\d+/g); return m? m.map(Number):[]; }
+function bundleHTML(tc,dv){
+  var h='<div class="bundles"><div class="bgroup">';
+  for(var i=0;i<tc;i++){ h+='<span class="bundle" style="animation-delay:'+(i*0.18)+'s"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>'; }
+  h+='</div>';
+  if(dv>0){ h+='<div class="single">'; for(var j=0;j<dv;j++) h+='<i style="animation-delay:'+(0.4+j*0.12)+'s"></i>'; h+='</div>'; }
+  h+='<div class="blabel">Mỗi bó là 1 chục - que lẻ là đơn vị</div></div>';
+  return h;
+}
+function pvTable(list){
+  var h='<table class="pvtable"><tr><th>Số</th><th>Chục</th><th>Đơn vị</th></tr>';
+  list.forEach(function(n){ h+='<tr><td>'+n+'</td><td>'+Math.floor(n/10)+'</td><td>'+(n%10)+'</td></tr>'; });
+  return h+'</table>';
+}
+function lineHTML(cells,targetIdx,fromIdx,dir,stepLabel){
+  var h='<div class="hline"><div class="jumper" data-from="'+fromIdx+'" data-count="'+cells.length+'">🐰</div><div class="htrack">';
+  cells.forEach(function(c,i){ h+='<div class="hcell'+(i===targetIdx?' target':'')+'"><div class="hdot"></div><div class="hnum">'+c+'</div></div>'; });
+  h+='</div><div class="dir-arrow'+(dir<0?' back':'')+'">'+(dir>0?'➡️':'⬅️')+'</div>';
+  h+='<div class="step-chips"><span class="step-chip" style="animation-delay:.9s">'+stepLabel+'</span></div></div>';
+  return h;
+}
+function animateHint(){
+  var j=document.querySelector("#q-feed .jumper"); if(!j) return;
+  var track=document.querySelector("#q-feed .htrack"); if(!track) return;
+  var count=parseInt(j.getAttribute("data-count"),10), from=parseInt(j.getAttribute("data-from"),10);
+  var targetEl=track.children; var ti=-1;
+  for(var i=0;i<targetEl.length;i++){ if(targetEl[i].className.indexOf("target")>-1) ti=i; }
+  if(ti<0) return;
+  var cellW=track.offsetWidth/count;
+  j.style.left=((from+0.5)*cellW)+"px";
+  var dx=(ti-from)*cellW; if(dx===0) return;
+  var steps=Math.abs(ti-from), frames=[], seg=1/(steps*2);
+  frames.push({transform:"translateX(-50%) translateY(0)"});
+  for(var st=0;st<steps;st++){
+    frames.push({transform:"translateX(calc(-50% + "+((st+0.5)*dx/steps)+"px)) translateY(-18px)",offset:(st*2+1)*seg});
+    frames.push({transform:"translateX(calc(-50% + "+((st+1)*dx/steps)+"px)) translateY(0)",offset:(st*2+2)*seg});
+  }
+  try{ j.animate(frames,{duration:steps*850,delay:350,fill:"forwards",easing:"ease-in-out"}); }catch(e){}
+  setTimeout(function(){ j.style.transform="translateX(calc(-50% + "+dx+"px))"; }, steps*850+400);
+}
+function scaleHTML(leftEm,leftTxt,rightEm,rightTxt,heavier){ /* heavier: -1 left, 1 right, 0 none */
+  var beamCls= heavier>0?" tilt-r": heavier<0?" tilt-l":"";
+  var lp= heavier<0?" down-l": heavier>0?" up-l":"";
+  var rp= heavier>0?" down-r": heavier<0?" up-r":"";
+  return '<div class="scale"><div class="beam'+beamCls+'"></div><div class="pans">'
+    +'<div class="pan'+lp+'"><div class="rope"></div><div class="dish">'+leftEm+'<br>'+leftTxt+'</div></div>'
+    +'<div class="pan'+rp+'"><div class="rope"></div><div class="dish">'+rightEm+'<br>'+rightTxt+'</div></div></div>'
+    +'<div class="scale-post"></div></div>';
+}
+function objRowHTML(em,count,clsFn,delay0){
+  var h='<div class="objrow">';
+  for(var i=0;i<count;i++){ var c=clsFn?clsFn(i):""; h+='<span class="obj '+c+'" style="animation-delay:'+((delay0||0)+i*0.12)+'s">'+em+'</span>'; }
+  return h+'</div>';
+}
+function buildHint(q){
+  var key=CATKEY[q.cat]||"", text=q.text, ans=q.answer;
+  if(key==="tvtu"){
+    var wem=q.tvword?q.tvword[1]:"🔤";
+    var boxes='<div class="boxes3"><div class="box3"><span class="em">🧸</span>Từ chỉ sự vật<br><span style="font-size:13px;color:#40608f">người, vật, cây cối</span></div><div class="box3"><span class="em">🏃</span>Từ chỉ hoạt động<br><span style="font-size:13px;color:#40608f">việc làm, cử động</span></div><div class="box3"><span class="em">🎨</span>Từ chỉ đặc điểm<br><span style="font-size:13px;color:#40608f">màu sắc, hình dáng, tính nết</span></div></div>';
+    return {html:'<div class="bigem">'+wem+'</div>'+boxes,guide:"Con nhìn hình của từ rồi nghĩ: từ này gọi tên một người, một vật hay cây cối? Hay là một việc làm đang diễn ra? Hay là màu sắc, hình dáng, tính nết? Nghĩ kĩ rồi cho thẻ từ bay vào đúng hộp nhé."};
+  }
+  if(key==="tvdoc"){
+    return {html:'<div class="bigem">📖</div><div class="step-chips"><span class="step-chip">Đọc lại đoạn văn</span><span class="step-chip" style="animation-delay:.4s">Tìm câu nói về điều được hỏi</span><span class="step-chip" style="animation-delay:.8s">Đối chiếu rồi chọn</span></div>',guide:"Con rà chuột lên từng câu trong đoạn văn (trên điện thoại thì chạm vào câu) để nghe lại câu đó, hoặc tự đọc thầm một lần nữa, tìm đúng câu nói về điều câu hỏi hỏi tới - câu trả lời nằm ngay trong đoạn văn đó."};
+  }
+  if(key==="tvnghe"){
+    return {html:'<div class="bigem">👂</div><div class="wordchips"><span class="wchip" style="animation-delay:.1s">g - gh</span><span class="wchip" style="animation-delay:.3s">ng - ngh</span><span class="wchip" style="animation-delay:.5s">ch - tr</span><span class="wchip" style="animation-delay:.7s">s - x</span><span class="wchip" style="animation-delay:.9s">dấu hỏi - dấu ngã</span></div>',guide:"Con rà chuột lên câu đề bài (trên điện thoại thì chạm vào câu) để nghe lại, đọc chậm từng tiếng rồi nhớ quy tắc: đứng trước e, ê, i thì g viết thành gh, ng viết thành ngh. Dấu hỏi cong như dấu móc, dấu ngã cong như con sóng nhỏ."};
+  }
+  if(key==="tvviet"){
+    return {html:'<div class="sortsteps"><span class="st">1. 👋 Giới thiệu đồ dùng</span><span class="arw">→</span><span class="st" style="animation-delay:.25s">2. 🎨 Tả hình dáng, màu sắc</span><span class="arw">→</span><span class="st" style="animation-delay:.5s">3. ✋ Nêu công dụng</span><span class="arw">→</span><span class="st" style="animation-delay:.75s">4. ❤️ Tình cảm, kết đoạn</span></div>',guide:"Đoạn tả đồ dùng đi theo đúng 4 bước như trong hình. Con xem câu hỏi đang hỏi bước nào, rồi tìm câu làm đúng vai trò của bước đó nhé."};
+  }
+  if(key==="so100"){
+    if(text.indexOf("gồm mấy chục")>-1){ var n=numsIn(text)[0];
+      return {html:bundleHTML(Math.floor(n/10),n%10),guide:"Con đếm xem hình có mấy bó chục và mấy que lẻ nhé - đếm bó trước, que lẻ sau rồi chọn lại."}; }
+    if(text.indexOf("Điền số thích hợp")>-1){ var mm=numsIn(text); 
+      return {html:bundleHTML(Math.floor(mm[0]/10),mm[0]%10),guide:"Hình vẽ đúng số đó bằng bó chục và que lẻ. Phần bó chục đã cho sẵn, con đếm phần que lẻ còn lại nhé."}; }
+    if(text.indexOf("Điền dấu")>-1){ var ab=numsIn(text);
+      return {html:pvTable(ab),guide:"Con so sánh hàng chục trước: chục nào lớn hơn thì số đó lớn hơn. Chục bằng nhau mới nhìn sang hàng đơn vị nhé."}; }
+    if(text.indexOf("lớn nhất")>-1||text.indexOf("bé nhất")>-1){ var list=numsIn(text.split("-")[0]);
+      return {html:pvTable(list),guide:"Con nhìn cột Chục trong bảng trước để tìm số nổi bật nhất, chục bằng nhau thì mới so cột Đơn vị nhé."}; }
+    var rd=parseInt(ans,10);
+    if(!isNaN(rd)) return {html:bundleHTML(Math.floor(rd/10),rd%10),guide:"Tên gọi của số cho con biết mấy chục và mấy đơn vị. Con đếm số bó chục và que lẻ trong hình rồi ghép thành số nhé."};
+  }
+  if(key==="tiaso"){
+    if(text.indexOf("liền")>-1){ var n1=numsIn(text)[0], after=text.indexOf("liền sau")>-1;
+      var cells=[],ti=0,fi=0;
+      for(var v=n1-2;v<=n1+2;v++){ if(v<0){cells.push("");continue;} var idx=cells.length; cells.push(v===(after?n1+1:n1-1)?"?":v); if(v===(after?n1+1:n1-1))ti=idx; if(v===n1)fi=idx; }
+      return {html:lineHTML(cells,ti,fi,after?1:-1, after?"Bước 1: thỏ nhảy TIẾN 1 bước sang phải":"Bước 1: thỏ nhảy LÙI 1 bước sang trái"),
+        guide: after?"Số liền sau đứng ngay bên phải trên tia số. Con xem thỏ nhảy tiến 1 bước tới ô nào nhé.":"Số liền trước đứng ngay bên trái trên tia số. Con xem thỏ nhảy lùi 1 bước tới ô nào nhé."}; }
+    if(text.indexOf("còn thiếu trên tia số")>-1){ var visNums=numsIn(q.visual); var start=visNums[0]; var miss=parseInt(ans,10); var mi=miss-start;
+      var cells2=[]; for(var k=0;k<6;k++) cells2.push(k===mi?"?":start+k);
+      return {html:lineHTML(cells2,mi,mi-1,1,"Thỏ nhảy tiến từng bước, mỗi bước là thêm 1"),guide:"Các số trên tia số tăng dần đều nhau. Con đi theo bước nhảy của thỏ từ số đã biết tới ô trống nhé."}; }
+    var a2=numsIn(text)[0]; var cells3=[]; for(var v2=a2-2;v2<=a2+2;v2++) cells3.push(v2);
+    return {html:lineHTML(cells3,2,0,1,"Thỏ nhảy tiến từng bước tới số ở giữa"),guide:"Số ở giữa có một số đứng ngay trước và một số đứng ngay sau. Con nhìn hai ô kề bên số đã tô màu nhé."};
+  }
+  if(key==="thanhphan"){
+    var meq=text.match(/(\d+)\s*([\+\-])\s*(\d+)\s*=\s*(\d+)/);
+    var asked=text.match(/số (\d+) được gọi/);
+    if(meq && asked){
+      var parts=[meq[1],meq[3],meq[4]], op=meq[2], ai=parts.indexOf(asked[1]);
+      var h='<div class="diagram"><span class="dbox'+(ai===0?' hl':'')+'">'+parts[0]+'</span><span class="dop">'+(op==="+"?"+":"-")+'</span><span class="dbox'+(ai===1?' hl':'')+'">'+parts[1]+'</span><span class="dop">=</span><span class="dbox'+(ai===2?' hl':'')+'">'+parts[2]+'</span></div><div class="darrow">⬆ ô đang hỏi</div>';
+      var guides={
+        "+0":"Ô đang hỏi đứng ở đầu phép cộng - đó là một trong hai số được cộng vào nhau. Con nhớ tên gọi của các số được cộng nhé.",
+        "+1":"Ô đang hỏi đứng ở đầu phép cộng - đó là một trong hai số được cộng vào nhau. Con nhớ tên gọi của các số được cộng nhé.",
+        "+2":"Ô đang hỏi đứng sau dấu bằng - đó là kết quả của phép cộng. Con nhớ kết quả phép cộng được gọi là gì nhé.",
+        "-0":"Ô đang hỏi là số ban đầu, bị bớt đi một phần. Con nhớ số ban đầu trong phép trừ được gọi là gì nhé.",
+        "-1":"Ô đang hỏi là số được lấy đi, bớt đi trong phép trừ. Con nhớ tên gọi của số bị lấy đi nhé.",
+        "-2":"Ô đang hỏi là phần còn lại sau khi trừ. Con nhớ phần còn lại trong phép trừ được gọi là gì nhé."};
+      return {html:h,guide:guides[op+ai]||"Con nhìn vị trí của ô đang hỏi trong phép tính nhé."};
+    }
+    if(text.indexOf("Tìm số còn thiếu")>-1){
+      var tf=numsIn(text);
+      if(text.indexOf("+")>-1){ var tot=tf[1], known=tf[0];
+        var h2='<div class="bars"><div class="barrow"><span class="barlab">Tất cả</span><div class="bartrack"><div class="barseg unknown" style="width:'+Math.round((tot-known)/tot*100)+'%"></div><div class="barseg known" style="width:'+Math.round(known/tot*100)+'%"></div></div></div><div class="barrow"><span class="barlab"></span><div style="font-weight:900;color:#7a4b00">Phần gạch chéo là phần chưa biết - phần sáng là '+known+'</div></div></div>';
+        return {html:h2,guide:"Thanh dài là tổng. Muốn tìm phần chưa biết, con lấy cả thanh trừ đi phần đã biết nhé."};
+      }
+      var c3=tf[0], hh=tf[1];
+      var h3='<div class="bars"><div class="barrow"><span class="barlab">Ban đầu</span><div class="bartrack"><div class="barseg known" style="width:'+Math.round(hh/c3*100)+'%"></div><div class="barseg unknown" style="width:'+Math.round((c3-hh)/c3*100)+'%"></div></div></div><div class="barrow"><span class="barlab"></span><div style="font-weight:900;color:#7a4b00">Phần sáng còn lại là '+hh+' - phần gạch chéo là số đã trừ đi</div></div></div>';
+      return {html:h3,guide:"Thanh dài là số ban đầu. Phần chưa biết là phần đã bị trừ đi, con lấy số ban đầu trừ đi phần còn lại nhé."};
+    }
+    /* hon - kem */
+    var hv=numsIn(text); if(hv.length>=2){ var big=Math.max(hv[0],hv[1]), small=Math.min(hv[0],hv[1]);
+      var hb='<div class="bars"><div class="barrow"><span class="barlab">Nhiều</span><div class="bartrack"><div class="barseg known" style="width:'+Math.round(small/big*100)+'%"></div><div class="barseg unknown" style="width:'+Math.round((big-small)/big*100)+'%"></div></div></div><div class="barrow"><span class="barlab">Ít</span><div class="bartrack"><div class="barseg" style="width:'+Math.round(small/big*100)+'%"></div></div></div></div>';
+      return {html:hb,guide:"Hai thanh bắt đầu bằng nhau. Phần gạch chéo thừa ra ở thanh dài hơn chính là phần hơn - kém nhau, con tìm bằng cách lấy thanh dài trừ thanh ngắn nhé."};
+    }
+  }
+  if(key==="khongnho"){
+    var mk=text.match(/(\d+)\s*([\+\-])\s*(\d+)/);
+    if(mk){ var A=+mk[1],B=+mk[3];
+      var ct='<table class="coltable"><tr><th></th><th>Chục</th><th>Đơn vị</th></tr>'
+        +'<tr><td rowspan="2" style="font-size:26px">'+mk[2]+'</td><td>'+Math.floor(A/10)+'</td><td class="units">'+(A%10)+'</td></tr>'
+        +'<tr><td>'+Math.floor(B/10)+'</td><td class="units">'+(B%10)+'</td></tr>'
+        +'<tr><td></td><td>?</td><td class="units">?</td></tr></table><div class="col-arrow">⬆ mình tính cột Đơn vị (màu vàng) trước, rồi mới tới cột Chục</div>';
+      return {html:ct+'<div style="margin-top:12px">'+bundleHTML(Math.floor(A/10),A%10)+'</div>',guide:"Hình bó chục vẽ số đầu tiên. Con tính từng cột từ phải sang trái: đơn vị trước, chục sau nhé."};
+    }
+  }
+  if(key==="qua10"){
+    var mq=text.match(/(\d+)\s*([\+\-])\s*(\d+)/);
+    if(mq){ var X=+mq[1],Y=+mq[3];
+      if(mq[2]==="+"){ var need=10-X, cells="";
+        for(var i2=0;i2<10;i2++){ if(i2<X) cells+='<div class="tfcell"><span class="tfdot" style="animation-delay:'+(i2*0.13)+'s"></span></div>'; else if(i2<X+need) cells+='<div class="tfcell need"></div>'; else cells+='<div class="tfcell"></div>'; }
+        var out=""; for(var j2=0;j2<Y;j2++) out+='<span class="tfdot mover" style="animation-delay:'+(0.5+j2*0.15)+'s"></span>';
+        return {html:'<div class="tenframe">'+cells+'</div><div class="outside-dots">'+out+'</div><div class="blabel">Chấm xanh lá là các chấm đang chờ được chuyển vào khung</div>',
+          guide:"Khung có 10 ô. Con đếm xem khung còn trống mấy ô, chuyển đúng bấy nhiêu chấm vào cho đầy khung trước, rồi đếm phần chấm còn ở ngoài nhé."};
+      }
+      var total=X, cells2=""; var crossedFrom=total-Y;
+      for(var i3=0;i3<10;i3++){ var idx3=i3; var cr= idx3>=crossedFrom && idx3<10 && (total<=10||true); var isCross= i3>=Math.max(crossedFrom, total-(total-10)-Y) && false; cells2+='<div class="tfcell"><span class="tfdot"></span></div>'; }
+      /* simpler: build total dots list: 10 in frame + rest outside, cross last Y */
+      var dotsHtml='<div class="tenframe">'; var pos=0;
+      for(var f=0;f<10;f++){ var crossF = (total-Y<=f); dotsHtml+='<div class="tfcell"><span class="tfdot'+(crossF&&f>=total-Y?' cross':'')+'" style="animation-delay:'+(f*0.1)+'s"></span></div>'; }
+      dotsHtml+='</div><div class="outside-dots">';
+      for(var o2=0;o2<total-10;o2++){ var crossO=(total-10-o2)<=Y-(10-(total-Y)) && false; var shouldCross = o2 >= (total-10) - Math.min(Y,total-10); dotsHtml+='<span class="tfdot'+(shouldCross?' cross':'')+'" style="animation-delay:'+(0.4+o2*0.12)+'s"></span>'; }
+      dotsHtml+='</div>';
+      return {html:dotsHtml,guide:"Hình có một khung đầy 10 chấm và phần chấm lẻ ở ngoài. Con gạch bớt từ phần lẻ trước cho về tròn chục, rồi gạch tiếp trong khung và đếm chấm chưa bị gạch nhé."};
+    }
+  }
+  if(key==="loivan"){
+    var em="🔵", objName="";
+    THINGS.forEach(function(t){ if(text.indexOf(t[0])>-1){ em=t[1]; objName=t[0]; } });
+    if(text.indexOf("quả cam")>-1) em="🍊";
+    var lv=numsIn(text);
+    if(lv.length>=2){ var A1=lv[0],B1=lv[1];
+      var isAdd= text.indexOf("thêm")>-1||text.indexOf("nhiều hơn")>-1||text.indexOf("tất cả")>-1;
+      var isLess= text.indexOf("ít hơn")>-1||text.indexOf("cho bạn")>-1||text.indexOf("còn lại")>-1;
+      if(isAdd && !isLess){
+        return {html:objRowHTML(em,A1,null,0)+'<div class="obj-plus">➕ thêm vào</div>'+objRowHTML(em,B1,function(){return "added";},0.3),
+          guide:"Con nhìn hình: nhóm đồ vật đầu tiên, rồi có thêm một nhóm nữa bay vào. Được thêm vào thì số lượng tăng lên - con đếm tất cả hoặc cộng hai nhóm nhé."};
+      }
+      if(isLess){
+        if(text.indexOf("ít hơn")>-1){
+          return {html:'<div class="bars"><div class="barrow"><span class="barlab">Bạn đầu</span><div class="bartrack"><div class="barseg" style="width:100%"></div></div></div><div class="barrow"><span class="barlab">Bạn sau</span><div class="bartrack"><div class="barseg known" style="width:'+Math.round((A1-B1)/A1*100)+'%"></div><div class="barseg unknown" style="width:'+Math.round(B1/A1*100)+'%"></div></div></div></div>',
+            guide:"Bạn sau ít hơn nên thanh của bạn sau ngắn hơn. Con lấy số của bạn đầu trừ đi phần ít hơn nhé."};
+        }
+        return {html:objRowHTML(em,A1,function(i){ return i>=A1-B1?"cross":""; },0),
+          guide:"Con nhìn hình: một số đồ vật bị gạch đi là phần đã cho bạn. Con đếm số đồ vật chưa bị gạch còn lại nhé."};
+      }
+    }
+    return {html:objRowHTML(em,lv[0]||5,null,0),guide:"Con đếm đồ vật trong hình và nghĩ xem số lượng tăng lên hay giảm đi nhé."};
+  }
+  if(key==="kg"){
+    var kv=numsIn(q.visual||text);
+    if(text.indexOf("Vật nào nặng hơn")>-1 && kv.length>=2){
+      var items=[]; KG_THINGS.forEach(function(t){ if((q.visual||"").indexOf(t[0])>-1) items.push(t); });
+      var e1=items[0]?items[0][1]:"📦", n1=items[0]?items[0][0]:"Vật 1", e2=items[1]?items[1][1]:"📦", n2=items[1]?items[1][0]:"Vật 2";
+      var heavier= kv[0]>kv[1]? -1: 1;
+      return {html:scaleHTML(e1,n1+": "+kv[0]+" kg",e2,n2+": "+kv[1]+" kg",heavier),
+        guide:"Con nhìn đĩa cân: đĩa nào bị kéo xuống thấp hơn thì vật ở đĩa đó nặng hơn. Số ki-lô-gam lớn hơn cũng cho con biết điều đó nhé."};
+    }
+    if(text.indexOf("Điền dấu")>-1 && kv.length>=2){
+      return {html:scaleHTML("⚖️",kv[0]+" kg","⚖️",kv[1]+" kg", kv[0]>kv[1]?-1:1),
+        guide:"Hai số đo cùng đơn vị ki-lô-gam. Đĩa cân nghiêng xuống phía số đo lớn hơn - con so hai số rồi chọn dấu nhé."};
+    }
+    if(text.indexOf("cả hai túi")>-1 && kv.length>=2){
+      var t3="🎒";
+      return {html:'<div class="obj-plus">Hai túi cùng đặt lên một đĩa cân</div>'+scaleHTML(t3,"Túi 1: "+kv[0]+" kg",t3,"Túi 2: "+kv[1]+" kg",0),
+        guide:"Cả hai túi cùng được cân chung nên khối lượng gộp lại. Con cộng hai số đo ki-lô-gam với nhau nhé."};
+    }
+    var w1=kv[0]||0;
+    return {html:scaleHTML("⚖️",w1+" kg","","",0),guide:"Số ghi trên cân cho biết khối lượng, đơn vị là ki-lô-gam, viết tắt là kg. Con đọc số đo kèm tên đơn vị nhé."};
+  }
+  return {html:"",guide:"Con nhìn lại hình trong câu hỏi và thử suy nghĩ từng bước nhé."};
+}
+
+/* Bao dam tuyet doi: khong cau Tieng Viet nao co 2 lua chon giong het nhau.
+   Loc bo lua chon trung (chi giu ban dau tien), dap an dung luon duoc giu lai dung 1 lan. */
+function dedupTvOpts(q){
+  if(!q || !q.options) return q;
+  var seen={}, out=[];
+  q.options.forEach(function(o){ var k=String(o); if(!seen[k]){ seen[k]=1; out.push(o); } });
+  if(out.indexOf(q.answer)===-1) out.push(q.answer);
+  q.options=out;
+  return q;
+}
+function tvGen(g){ return function(){ return dedupTvOpts(g()); }; }
+
+var GENS={so100:genSo100,tiaso:genTiaSo,thanhphan:genThanhPhan,khongnho:genKhongNho,qua10:genQua10,loivan:genLoiVan,kg:genKg,tvdoc:tvGen(genTvDoc),tvnghe:tvGen(genTvNghe),tvviet:tvGen(genTvViet),tvtu:tvGen(genTvTu)};
+
+/* ---------- thong ke tich luy (luu tren chinh may dang choi) ---------- */
+var LS_KEY="toan2-ghk1-thongke-v1";
+var MIN_RANK=10; /* moi dang can lam du 10 cau tich luy moi duoc xep hang phan yeu */
+var CATKEY={}; Object.keys(CAT).forEach(function(k){CATKEY[CAT[k]]=k;});
+function loadHist(){ try{ var raw=localStorage.getItem(LS_KEY); if(!raw) return {}; var h=JSON.parse(raw); return (h && typeof h==="object") ? h : {}; }catch(e){ return {}; } }
+function saveHist(h){ try{ localStorage.setItem(LS_KEY, JSON.stringify(h)); }catch(e){} }
+function addToHistory(roundStats){
+  var h=loadHist();
+  Object.keys(roundStats).forEach(function(cat){
+    var key=CATKEY[cat]||cat; if(!h[key]) h[key]={ok:0,total:0};
+    h[key].ok+=roundStats[cat].ok; h[key].total+=roundStats[cat].total;
+  });
+  saveHist(h);
+}
+var statsSubject="toan";
+var SUBJ_KEYS={toan:["so100","tiaso","thanhphan","khongnho","qua10","loivan","kg"],tv:["tvdoc","tvnghe","tvviet","tvtu"]};
+function rankedCats(hist){
+  var allow=SUBJ_KEYS[statsSubject]||Object.keys(CAT);
+  var arr=[];
+  Object.keys(CAT).forEach(function(k){
+    if(allow.indexOf(k)===-1) return;
+    var s=hist[k];
+    if(s && s.total>0) arr.push({key:k,cat:CAT[k],ok:s.ok,total:s.total,wrong:s.total-s.ok,rate:(s.total-s.ok)/s.total,ranked:s.total>=MIN_RANK});
+  });
+  arr.sort(function(a,b){
+    if(a.ranked!==b.ranked) return a.ranked?-1:1;
+    if(b.rate!==a.rate) return b.rate-a.rate;
+    return b.total-a.total;
+  });
+  return arr;
+}
+/* cac dang yeu nhat: uu tien ti le sai tich luy (du 10 cau), chua du thi lay theo luot vua lam */
+function weakEntries(){
+  var arr=rankedCats(loadHist()).filter(function(e){return e.ranked && e.wrong>0;});
+  if(arr.length) return arr.slice(0,3);
+  var cur=[];
+  Object.keys(state.stats).forEach(function(cat){
+    var s=state.stats[cat];
+    if(CATKEY[cat] && s.total-s.ok>0) cur.push({key:CATKEY[cat],cat:cat,ok:s.ok,total:s.total,wrong:s.total-s.ok,rate:(s.total-s.ok)/s.total});
+  });
+  cur.sort(function(a,b){ return b.rate!==a.rate ? b.rate-a.rate : b.wrong-a.wrong; });
+  return cur.slice(0,3);
+}
+function buildWeakQueue(){
+  var es=weakEntries(); if(!es.length) return [];
+  var weights=es.map(function(e){return Math.max(1,e.wrong);});
+  var W=weights.reduce(function(a,b){return a+b;},0);
+  var counts=weights.map(function(w){return Math.max(1,Math.round(10*w/W));});
+  var sum=counts.reduce(function(a,b){return a+b;},0), i=0, guard=0;
+  while(sum>10 && guard<50){ guard++; if(counts[i%counts.length]>1){counts[i%counts.length]--; sum--;} i++; }
+  while(sum<10){ counts[0]++; sum++; }
+  var q=[];
+  es.forEach(function(e,idx){ for(var j=0;j<counts[idx];j++) q.push(GENS[e.key]()); });
+  return shuffle(q);
+}
+var WEAK_MODE={id:"weak",icon:"🎯",title:"Luyện thêm phần yếu",gen:"weak"};
+function startWeakRound(){
+  var q=buildWeakQueue(); if(!q.length) return;
+  state.mode=WEAK_MODE; state.lastMode=WEAK_MODE; state.queue=q; state.idx=0; state.stars=0; state.stats={};
+  state.queue.forEach(function(qu){ if(!state.stats[qu.cat]) state.stats[qu.cat]={ok:0,total:0}; state.stats[qu.cat].total++; });
+  show("view-game"); renderQ();
+}
+function renderStatsSections(){
+  var arr=rankedCats(loadHist()); var has=arr.length>0;
+  [["home-stats","home-rows","home-concl"],["result-stats","res-rows","res-concl"]].forEach(function(ids){
+    var sec=$(ids[0]); if(!sec) return;
+    sec.classList.toggle("hidden",!has);
+    if(!has) return;
+    var rows="";
+    arr.forEach(function(e){
+      var pill= !e.ranked ? '<span class="pill mid">Chưa đủ 10 câu</span>'
+        : e.rate===0 ? '<span class="pill good">Chưa sai câu nào</span>'
+        : e.rate>=0.4 ? '<span class="pill low">Rất hay sai</span>' : '<span class="pill mid">Hay sai</span>';
+      rows+="<tr><td>"+e.cat+"</td><td>Đúng "+e.ok+"/"+e.total+" - Sai "+e.wrong+" câu</td><td>"+pill+"</td></tr>";
+    });
+    $(ids[1]).innerHTML=rows;
+    var top=null; arr.forEach(function(e){ if(!top && e.ranked && e.wrong>0) top=e; });
+    var anyRanked=arr.some(function(e){return e.ranked;});
+    $(ids[2]).textContent= top
+      ? "Phần con hay sai nhất: "+top.cat+" - đã sai "+top.wrong+"/"+top.total+" câu, tỉ lệ sai "+Math.round(top.rate*100)+"%."
+      : anyRanked ? "Các dạng đã làm đủ 10 câu, con đều chưa sai câu nào - giỏi lắm!"
+      : "Con cứ chơi thêm nhé - mỗi dạng làm đủ 10 câu là web xếp hạng được phần con hay sai nhất.";
+  });
+}
+function updateWeakBtn(){
+  var b=$("btn-weak"); if(!b) return;
+  var es=weakEntries();
+  b.classList.toggle("hidden",es.length===0);
+  if(es.length) $("btn-weak-sub").textContent="10 câu mới, tập trung vào: "+es.map(function(e){return e.cat;}).join(", ");
+}
+
+var MODES=[
+  {id:"so100",icon:"🔢",title:"Chặng 1 - Ôn tập các số đến 100",desc:"Cấu tạo số, chục và đơn vị, so sánh và tìm số lớn nhất - bé nhất.",tag:"Bài 1 - trang 6",gen:"so100"},
+  {id:"tiaso",icon:"🌈",title:"Chặng 2 - Tia số, liền trước - liền sau",desc:"Số liền trước, số liền sau và số còn thiếu trên tia số.",tag:"Bài 2 - trang 10",gen:"tiaso"},
+  {id:"thanhphan",icon:"🧩",title:"Chặng 3 - Thành phần phép tính, hơn - kém",desc:"Số hạng - tổng, số bị trừ - số trừ - hiệu, tìm số còn thiếu và hơn - kém nhau bao nhiêu.",tag:"Bài 3 - trang 13 và Bài 4 - trang 16",gen:"thanhphan"},
+  {id:"khongnho",icon:"✏️",title:"Chặng 4 - Đặt tính trong 100",desc:"Cộng, trừ không nhớ trong phạm vi 100, đặt tính rồi tính.",tag:"Bài 5 - trang 19 và Bài 6 - trang 23",gen:"khongnho"},
+  {id:"qua10",icon:"⭐",title:"Chặng 5 - Qua 10 trong 20",desc:"Cộng, trừ qua 10 bằng cách tách cho tròn chục, vận dụng bảng cộng và bảng trừ.",tag:"Bài 7, 8, 11, 12 - trang 26 đến 47",gen:"qua10"},
+  {id:"loivan",icon:"📖",title:"Chặng 6 - Toán có lời văn",desc:"Bài toán thêm - bớt, nhiều hơn - ít hơn và chọn phép tính đúng.",tag:"Bài 9 - trang 36 và Bài 13 - trang 50",gen:"loivan"},
+  {id:"kg",icon:"⚖️",title:"Chặng 7 - Ki-lô-gam",desc:"Nặng hơn - nhẹ hơn, nhận biết ki-lô-gam, đọc và so sánh số đo khối lượng.",tag:"Bài 15 - trang 57",gen:"kg"},
+  {id:"mixed",icon:"🏆",title:"Lượt tổng hợp - Chơi vui cùng thỏ",desc:"12 câu trộn đủ các dạng để con ôn lại nhẹ nhàng, gồm cả luyện tập chung Bài 6, 10 và 14.",tag:"12 câu trộn",gen:"mixed",mixed:true}
+];
+
+/* ---------- game state ---------- */
+var state={mode:null,queue:[],idx:0,stars:0,stats:{},answered:false,current:null,lastMode:null,tries:0};
+var TV_MODES=[
+  {id:"tvdoc",icon:"📖",title:"Chặng 1 - Đọc hiểu bài đọc",desc:"Đọc một đoạn văn mới ngắn theo chủ đề trường lớp, thầy cô, bạn bè của Tuần 1 đến 8, rà chuột hoặc chạm vào từng câu để nghe câu đó rồi trả lời câu hỏi - đáp án nằm ngay trong đoạn vừa đọc.",tag:"Đoạn đọc mới - chủ đề Tuần 1 đến 8",gen:"tvdoc",subj:"tv"},
+  {id:"tvnghe",icon:"👂",title:"Chặng 2 - Nghe - viết, chính tả",desc:"Rà chuột hoặc chạm vào câu đề bài để nghe câu, chọn chữ viết đúng (gh - g, ngh - ng, tr - ch, s - x, dấu hỏi - dấu ngã) rồi đối chiếu đoạn gốc.",tag:"Nghe - viết đoạn văn, đoạn thơ",gen:"tvnghe",subj:"tv"},
+  {id:"tvviet",icon:"✏️",title:"Chặng 3 - Viết câu tả đồ dùng",desc:"Chọn đúng câu cho từng phần của đoạn văn 3 đến 4 câu tả một đồ dùng học tập: giới thiệu - hình dáng, màu sắc - công dụng - kết đoạn.",tag:"Viết 3 đến 4 câu tả đồ dùng",gen:"tvviet",subj:"tv"},
+  {id:"tvtu",icon:"🧺",title:"Chặng 4 - Phân loại từ",desc:"Cho thẻ từ bay vào đúng hộp: từ chỉ sự vật, từ chỉ hoạt động hay từ chỉ đặc điểm.",tag:"Sự vật - hoạt động - đặc điểm",gen:"tvtu",subj:"tv"},
+  {id:"tvmixed",icon:"🌈",title:"Lượt tổng hợp - Chơi vui cùng thỏ",desc:"10 câu trộn đủ 4 dạng Tiếng Việt để con ôn lại nhẹ nhàng trước ngày khảo sát 04/11/2026.",tag:"10 câu trộn",gen:"mixed",mixed:true,subj:"tv",count:10,keys:["tvdoc","tvdoc","tvnghe","tvnghe","tvviet","tvviet","tvtu","tvtu","tvdoc","tvtu"]}
+];
+var curSubject="toan";
+var SUBJ_INFO={
+  toan:{title:"Dory, Chữ và Số",sub:"Cùng thỏ con chơi và luyện toán thật nhẹ nhàng - từng chút một, không vội nhé!",note:"Theo SGK Toán 2 Tập 1 - Kết nối tri thức với cuộc sống (NXB Giáo dục Việt Nam): Bài 1 đến Bài 15, từ trang 6 đến trang 57. Mỗi lần chơi, câu hỏi lại thay số mới nên con luyện bao nhiêu lần cũng không chán.",chips:["Số đến 100","Tia số","Cộng - trừ qua 10","Toán có lời văn","Ki-lô-gam"],foot:"Mẹ bấm chọn một chặng để con luyện riêng từng dạng, hoặc chơi lượt tổng hợp trộn nhiều dạng cho vui."},
+  tv:{title:"Dory, Chữ và Số",sub:"Cùng thỏ con đọc truyện, nghe - viết và chơi với các từ thật nhẹ nhàng nhé!",note:"Theo SGK Tiếng Việt 2 Tập 1 - Kết nối tri thức với cuộc sống: bài đọc Tuần 1 đến Tuần 8 (Bài 1 đến Bài 16, trang 10 đến 69), phần Ôn tập giữa học kì 1 ở Tuần 9 - trang 71. Nội dung đúng 4 mục trường bé dặn cho ngày khảo sát 04/11/2026.",chips:["Đọc hiểu Tuần 1 đến 8","Nghe - viết 45 đến 50 chữ","Viết câu tả đồ dùng","Từ chỉ sự vật - hoạt động - đặc điểm"],foot:"Mẹ bấm chọn một chặng Tiếng Việt để con luyện riêng từng dạng, hoặc chơi lượt tổng hợp trộn cả 4 dạng cho vui."}
+};
+var grid=document.getElementById("mode-grid");
+function renderModes(){
+  grid.innerHTML="";
+  var list= curSubject==="tv" ? TV_MODES : MODES;
+  list.forEach(function(m){
+    var b=document.createElement("button"); b.type="button"; b.className="mode"+(m.mixed?" mixed":"");
+    b.innerHTML='<span class="ic" aria-hidden="true">'+m.icon+'</span><span><h3>'+m.title+'</h3><p>'+m.desc+'</p><span class="tag"></span></span>';
+    b.querySelector(".tag").textContent= m.mixed ? ((m.count||12)+" câu - đủ các dạng") : (m.tag+" - 10 câu");
+    b.addEventListener("click",function(){startMode(m);});
+    grid.appendChild(b);
+  });
+}
+function setSubject(s){
+  curSubject=s; statsSubject=s;
+  var info=SUBJ_INFO[s];
+  document.getElementById("hero-title").innerHTML=info.title;
+  document.getElementById("hero-sub").textContent=info.sub;
+  document.getElementById("hero-note").textContent=info.note;
+  document.getElementById("hero-scope").innerHTML=info.chips.map(function(c){return "<span>"+c+"</span>";}).join("");
+  document.getElementById("foot-note").textContent=info.foot;
+  document.getElementById("tab-toan").classList.toggle("active",s==="toan");
+  document.getElementById("tab-tv").classList.toggle("active",s==="tv");
+  renderModes(); renderStatsSections(); updateWeakBtn();
+}
+document.getElementById("tab-toan").addEventListener("click",function(){setSubject("toan");});
+document.getElementById("tab-tv").addEventListener("click",function(){setSubject("tv");});
+renderModes();
+
+function $(id){return document.getElementById(id);}
+function show(view){
+  ["view-home","view-game","view-result"].forEach(function(v){$(v).classList.toggle("hidden",v!==view);});
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function buildQueue(mode){
+  var q=[];
+  if(mode.mixed){
+    var keys=mode.keys||["so100","so100","tiaso","thanhphan","khongnho","khongnho","qua10","qua10","loivan","loivan","kg","kg"];
+    keys.forEach(function(k){q.push(GENS[k]());});
+    return shuffle(q);
+  }
+  for(var i=0;i<10;i++) q.push(GENS[mode.gen]());
+  return q;
+}
+function startMode(mode){
+  statsSubject=mode.subj||"toan";
+  state.mode=mode; state.lastMode=mode; state.queue=buildQueue(mode); state.idx=0; state.stars=0; state.stats={};
+  state.queue.forEach(function(q){ if(!state.stats[q.cat]) state.stats[q.cat]={ok:0,total:0}; state.stats[q.cat].total++; });
+  show("view-game"); renderQ();
+}
+function renderQ(){
+  stopSpeech();
+  var q=state.queue[state.idx]; state.current=q; state.answered=false; state.tries=0;
+  $("buddy-msg").textContent=pick(["Thỏ con đồng hành cùng con - cứ từ từ suy nghĩ nhé!","Mình làm từng bước một, không vội đâu!","Sai cũng không sao, mình nhìn hình gợi ý là hiểu ngay!"]);
+  $("q-cat").textContent="Câu "+(state.idx+1)+"/"+state.queue.length+" - "+q.cat;
+  $("q-text").textContent=q.text;
+  splitIntoSentences($("q-text"));
+  $("q-visual").innerHTML=q.visual||"";
+  var passages=$("q-visual").querySelectorAll(".passage");
+  for(var pi=0;pi<passages.length;pi++) splitIntoSentences(passages[pi]);
+  $("star-box").textContent="⭐ "+state.stars;
+  $("prog-fill").style.width=Math.round(state.idx/state.queue.length*100)+"%";
+  var feed=$("q-feed"); feed.className="feedback"; feed.innerHTML="";
+  var next=$("btn-next"); next.classList.remove("show");
+  next.textContent= state.idx===state.queue.length-1 ? "Xem kết quả 🏆" : "Câu tiếp theo →";
+  var box=$("q-opts"); box.innerHTML="";
+  q.options.forEach(function(op){
+    var b=document.createElement("button"); b.type="button"; b.className="opt"; b.textContent=op;
+    b.addEventListener("click",function(){ answer(b,op); });
+    box.appendChild(b);
+  });
+}
+/* ---------- giong doc dung chung cho toan web ----------
+   CHI CON mot giong duy nhat: giong tieng Viet ONLINE cua Google (dich vu
+   doc text-to-speech tl=vi) - giong nu mien Nam quen thuoc, may nao mo web
+   cung nghe dung giong nay. Khong con giong may, khong con nut gat chon
+   giong, khong co duong phat du phong bang giong may.
+   GHI CHU VE GIONG NEURAL MICROSOFT EDGE (da thu nghiem 2026-11-02):
+   kenh websocket speech.platform.bing.com (giong vi-VN-HoaiMyNeural) bi
+   dich vu tu choi ket noi HTTP 403 trong moi cach goi thu tu moi truong
+   build (co/khong ma Sec-MS-GEC, ca 2 kieu header trinh duyet va Edge;
+   khong kem token thi 401) nen khong kiem chung duoc tieng phat trong
+   trang tu day, va ban than giong HoaiMy la giong chuan am huong Bac -
+   mau thuan voi yeu cau giong mien Nam da chot. Vi vay GIU giong Google
+   mien Nam lam giong duy nhat va lam mem bang nhip doc: doc thuong dung
+   muc toc do 0.9 (cham hon muc nhanh nhat mot bac, gan nhip ke chuyen),
+   giua cac doan am thanh chen mot khoang nghi ngan nhu lay hoi, va van
+   ban dai duoc gop theo tung cau de dich vu giu ngu dieu theo dau cau.
+   LUU Y KY THUAT QUAN TRONG (da kiem chung bang curl): dich vu nay TRA LOI
+   404 - khong phat tieng - neu request kem header Referer cua trang, ma
+   trinh duyet/webview tren dien thoai luon tu gui kem. Vi vay trang dat
+   <meta name="referrer" content="no-referrer"> va moi the Audio cung dat
+   referrerPolicy="no-referrer".
+   Loi phat (khong co mang / tai loi): thu lai 1 lan bang cach goi du phong
+   cua cung dich vu (host googleapis + client=gtx), van loi thi chi hien
+   dong bao ngan ve giong online. Phat thanh cong thi xoa dong bao cu ngay. */
+function splitSentences(t){
+  var m=String(t).match(/[^.!?…]+[.!?…]*/g)||[];
+  var out=[]; m.forEach(function(s){ s=s.replace(/\s+/g," ").trim(); if(s) out.push(s); });
+  return out;
+}
+var speakToken=0, curAudio=null, curSentEl=null, voiceNoteTimer=null;
+function clearReadingMark(){ if(curSentEl){ curSentEl.classList.remove("reading"); curSentEl=null; } }
+function stopSpeech(){
+  speakToken++;
+  if(curAudio){ try{ curAudio.pause(); }catch(e){} curAudio=null; }
+  clearReadingMark();
+}
+var VOICE_NOTE_ONLINE_FAIL="Giọng online chưa tải được, con kiểm tra mạng rồi nghe lại nhé.";
+function showVoiceNote(msg){
+  var el=document.getElementById("voice-note"); if(!el) return;
+  el.textContent=msg; el.classList.add("show");
+  clearTimeout(voiceNoteTimer);
+  voiceNoteTimer=setTimeout(function(){ el.classList.remove("show"); },7000);
+}
+function hideVoiceNote(){
+  var el=document.getElementById("voice-note"); if(!el) return;
+  clearTimeout(voiceNoteTimer); el.classList.remove("show"); el.textContent="";
+}
+function packChunks(parts){ /* gop cac cau thanh tung doan duoi 200 ky tu cho dich vu online */
+  var chunks=[], cur="";
+  parts.forEach(function(p){
+    if(p.length>180){ if(cur){ chunks.push(cur); cur=""; }
+      var rest=p;
+      while(rest.length>180){ var cut=rest.lastIndexOf(" ",180); if(cut<60) cut=180; chunks.push(rest.slice(0,cut).trim()); rest=rest.slice(cut).trim(); }
+      if(rest) cur=rest;
+      return;
+    }
+    if(cur && (cur+" "+p).length>180){ chunks.push(cur); cur=p; }
+    else cur= cur? cur+" "+p : p;
+  });
+  if(cur) chunks.push(cur);
+  return chunks;
+}
+function onlineTtsUrl(chunk,speed,variant){
+  var q=encodeURIComponent(chunk);
+  if(variant===1) /* cach goi du phong cua CUNG dich vu: host googleapis, client=gtx, khong kem ttsspeed */
+    return "https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=vi&q="+q;
+  return "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&ttsspeed="+speed+"&q="+q;
+}
+function speakOnlineParts(parts,rate,onDone,onFail){
+  /* Dich vu chi nhan cac bac toc do roi rac (da kiem chung: 0.95 va 1 cho
+     cung mot am thanh, 0.9 va 0.8 la hai bac cham hon rieng): doc thuong
+     dung bac 0.9 cho mem va gan nhip noi tu nhien, phan doc cham (Nghe
+     phan biet) dung bac 0.8 */
+  var speed= rate>=0.95 ? "1" : rate>=0.85 ? "0.9" : "0.8";
+  var chunks=packChunks(parts), i=0, dead=false;
+  function fail(){ if(dead) return; dead=true; onFail(); }
+  /* Phat 1 doan: thu cach goi chinh (variant 0), loi thi thu lai 1 lan bang
+     cach goi du phong (variant 1) roi moi tinh la loi. Ca hai lan deu phai
+     tat Referer (referrerPolicy) - co Referer la dich vu tra 404, khong phat
+     duoc tieng tren dien thoai/webview du may co mang. */
+  function playChunk(chunk,variant,done,err){
+    var a=new Audio(), settled=false, watchdog=null;
+    a.preload="auto"; curAudio=a;
+    try{ a.referrerPolicy="no-referrer"; }catch(e){}
+    try{ a.setAttribute("referrerpolicy","no-referrer"); }catch(e){}
+    function ok(){ if(settled) return; settled=true; clearTimeout(watchdog); done(); }
+    function bad(){ if(settled) return; settled=true; clearTimeout(watchdog); try{ a.pause(); }catch(e){} err(); }
+    a.onplaying=function(){ hideVoiceNote(); /* phat online thanh cong: xoa dong bao cu */ };
+    a.onended=ok;
+    a.onerror=bad;
+    watchdog=setTimeout(function(){ if(!a.ended && a.readyState<3) bad(); },9000); /* treo mang: 9 giay chua phat duoc thi coi nhu loi */
+    a.src=onlineTtsUrl(chunk,speed,variant);
+    try{ var pr=a.play(); if(pr&&pr.catch) pr.catch(function(){ bad(); }); }
+    catch(e){ bad(); }
+  }
+  function next(){
+    if(dead) return;
+    if(i>=chunks.length){ onDone(); return; }
+    var chunk=chunks[i];
+    playChunk(chunk,0,function(){ i++; stepNext(); },function(){
+      if(dead) return;
+      playChunk(chunk,1,function(){ i++; stepNext(); },fail);
+    });
+  }
+  function stepNext(){
+    /* nghi ngan giua hai doan nhu lay hoi truoc cau moi, cho giong doc
+       thoai mai hon la doc lien mot mach */
+    if(i>=chunks.length){ next(); return; }
+    setTimeout(next,170);
+  }
+  next();
+}
+function speakText(txt,rate,sentEl){
+  var clean= (txt===null||txt===undefined)? "" : String(txt).replace(/\s+/g," ").trim();
+  stopSpeech(); /* dang doc ma cham cau khac thi dung cau cu, doc cau moi */
+  var token=speakToken;
+  if(!clean) return;
+  if(sentEl){ curSentEl=sentEl; sentEl.classList.add("reading"); }
+  var parts=splitSentences(clean); if(!parts.length) parts=[clean];
+  var r=rate||0.92;
+  var finish=function(){ if(token===speakToken) clearReadingMark(); };
+  /* Chi phat bang giong nu mien Nam online. Loi (da thu ca cach goi du
+     phong) thi chi bao ngan ve giong online - khong lui ve bat ky giong
+     may nao. Phat thanh cong thi onplaying tu xoa bao cu. */
+  speakOnlineParts(parts,r,finish,function(){
+    if(token!==speakToken) return;
+    showVoiceNote(VOICE_NOTE_ONLINE_FAIL);
+    finish();
+  });
+}
+/* ---------- chia tung cau: doc theo CAU cho ca Toan va Tieng Viet ----------
+   - May tinh: ra chuot toi mot cau thi khung cau do sang len (.sent:hover va
+     .reading) va doc dung cau do; ra sang cau khac thi dung cau cu, doc cau moi.
+   - Dien thoai: cham vao cau thi khung cau sang len va doc cau do.
+   - Dang keo chuot de tu boi den tu/cum tu thi KHONG doc cau (buttons>0).
+   Cham va ra chuot tren dien thoai co the cung kich hoat mot cau - speakSentence
+   chong doc trung trong 700ms.
+   Ap dung cho doan doc, de bai, toan loi van, cau hoi va loi giai thich.
+   Bo qua nut bam va cac hinh truc quan (tia so, khung 10 o, can...) */
+function speakSentence(sp){
+  var now=Date.now();
+  if(sp._lastSpeak && now-sp._lastSpeak<700) return;
+  sp._lastSpeak=now;
+  speakText(sp.textContent,0.92,sp);
+}
+var SENT_SKIP="button,.hintbox,.nline,.hline,.vcalc,.kgbox,.bundles,.tenframe,.diagram,.bars,.scale,.objrow,.sortsteps,.boxes3,.pvtable,.coltable,.wordchips,.bigem,.step-chips";
+function splitIntoSentences(root){
+  if(!root) return;
+  var nodes=[];
+  try{
+    var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+      if(!n.nodeValue||!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      var p=n.parentElement; if(!p) return NodeFilter.FILTER_REJECT;
+      if(p.closest&&p.closest(SENT_SKIP)) return NodeFilter.FILTER_REJECT;
+      if(p.closest&&p.closest(".sent")) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }});
+    var nd; while((nd=walker.nextNode())) nodes.push(nd);
+  }catch(e){ return; }
+  nodes.forEach(function(node){
+    var parts=splitSentences(node.nodeValue);
+    if(!parts.length||!node.parentNode) return;
+    var frag=document.createDocumentFragment();
+    parts.forEach(function(s,i){
+      var sp=document.createElement("span"); sp.className="sent"; sp.textContent=s;
+      sp.addEventListener("mouseenter",function(e){ if(e.buttons&&e.buttons>0) return; speakSentence(sp); });
+      sp.addEventListener("click",function(){ speakSentence(sp); });
+      frag.appendChild(sp);
+      if(i<parts.length-1) frag.appendChild(document.createTextNode(" "));
+    });
+    node.parentNode.replaceChild(frag,node);
+  });
+}
+/* ---------- lop phan biet chinh ta (chi dung trong Nghe - viet) ----------
+   Doc bang CHINH giong nu mien Nam online nhu moi phan khac trong web,
+   phat cham khoang 0.7 - khong dung giong Bac o bat ky cho nao.
+   Giong mien Nam tu nhien von nhap cac cap hoi - nga, en - enh, it - ic,
+   iet - iec..., nen do chinh xac cua cac cap nay nam o phan NHIN va GOI TEN:
+   to sang phan chu khac nhau giua 2 phuong an, doc ro TEN phan khac nhau do
+   (vd "dau nga", "am to-ro") va kem meo luat chinh ta cua cap do. */
+var TONE_NGA="ãẵẫẽễĩõỗỡũữỹ", TONE_HOI="ảẳẩẻểỉỏổởủửỷ";
+var LETTER_NAME={"tr":"tờ rờ","ch":"chờ","ngh":"ngờ gờ hát","ng":"ngờ","gh":"gờ hát","gi":"giê","g":"gờ","d":"dê","đ":"đê","x":"xờ","s":"sờ","h":"hát","n":"nờ","t":"tờ","r":"rờ","c":"xê","k":"ca","l":"lờ","m":"mờ","p":"pê","v":"vê","b":"bê"};
+function diffParts(a,b){
+  a=String(a); b=String(b);
+  var i=0; while(i<a.length&&i<b.length&&a.charAt(i)===b.charAt(i)) i++;
+  var j=0; while(j<a.length-i&&j<b.length-i&&a.charAt(a.length-1-j)===b.charAt(b.length-1-j)) j++;
+  var pre=a.slice(0,i), suf=a.slice(a.length-j);
+  return {pre:pre,suf:suf,m1:a.slice(i,a.length-j),m2:b.slice(i,b.length-j)};
+}
+function diffWordHTML(w,other){
+  var d=diffParts(w,other);
+  return d.pre+'<span class="diff">'+(d.m1||"_")+'</span>'+d.suf; /* chu ngan hon thi gach duoi o dung cho thieu chu */
+}
+function focusName(mid){
+  if(!mid) return "không có chữ nào ở chỗ đó";
+  if(mid.length===1&&TONE_NGA.indexOf(mid)>-1) return "dấu ngã";
+  if(mid.length===1&&TONE_HOI.indexOf(mid)>-1) return "dấu hỏi";
+  if(LETTER_NAME[mid]) return "âm "+LETTER_NAME[mid];
+  return "phần chữ \""+mid+"\"";
+}
+function contrastOrder(q){
+  if(!q._co) q._co=shuffle([String(q.answer),String(q.spellVs)]);
+  return q._co;
+}
+function contrastHTML(q){
+  var ord=contrastOrder(q);
+  return '<div class="contrastbox"><div class="cgrp">Phân biệt: '+q.spellGrp+'</div>'
+    +'<div class="crow"><span class="cword">'+diffWordHTML(ord[0],ord[1])+'</span><span class="cvs">và</span><span class="cword">'+diffWordHTML(ord[1],ord[0])+'</span></div>'
+    +'<div class="ctip">Phần chữ khác nhau được tô vàng - con nhìn kĩ phần đó và nghe cô đọc chậm từng chữ nhé.</div></div>';
+}
+function speakContrast(q){
+  if(!q||!q.spellVs) return;
+  var ord=contrastOrder(q), d=diffParts(ord[0],ord[1]);
+  var lines=["Con nghe cô đọc chậm để phân biệt hai chữ này nhé.",
+             "Chữ một: "+ord[0]+".",
+             "Chữ hai: "+ord[1]+".",
+             "Phần khác nhau: chữ một có "+focusName(d.m1)+", chữ hai có "+focusName(d.m2)+". Con nhìn phần chữ được tô vàng trên màn hình nhé."];
+  stopSpeech();
+  var token=speakToken;
+  var joined=lines.join(" ");
+  /* Doc cham 0.7 bang giong nu mien Nam online, cung quy tac bao loi nhu
+     speakText. Phan phan biet nam o cho GOI TEN phan chu khac nhau trong cau
+     doc tren, kem to sang + meo luat tren man hinh. */
+  speakOnlineParts([joined],0.7,function(){},function(){
+    if(token!==speakToken) return;
+    showVoiceNote(VOICE_NOTE_ONLINE_FAIL);
+  });
+}
+function playContrast(){
+  var q=state.current; if(!q||!q.spellVs) return;
+  var box=document.getElementById("cbox");
+  if(box) box.innerHTML=contrastHTML(q)+'<div class="ctip" style="margin-top:10px">'+q.spellTip+'</div>';
+  speakContrast(q);
+}
+var actx=null;
+function tone(ok){
+  try{
+    if(!actx) actx=new (window.AudioContext||window.webkitAudioContext)();
+    if(actx.state==="suspended") actx.resume();
+    var o=actx.createOscillator(), g=actx.createGain(); o.connect(g); g.connect(actx.destination);
+    o.frequency.value= ok?880:220; g.gain.value=0.08; o.start();
+    if(ok){ setTimeout(function(){o.frequency.value=1320;},110); }
+    setTimeout(function(){o.stop();}, ok?260:200);
+  }catch(e){}
+}
+function answer(btn,op){
+  if(state.answered) return;
+  var q=state.current; var ok= String(op)===String(q.answer);
+  if(ok){
+    var firstTry= state.tries===0;
+    state.answered=true;
+    if(firstTry){ state.stars++; state.stats[q.cat].ok++; }
+    var buttons=document.querySelectorAll("#q-opts .opt");
+    buttons.forEach(function(b){ b.disabled=true; if(String(b.textContent)===String(q.answer)) b.classList.add("good"); else b.classList.add("dim"); });
+    var feed=$("q-feed");
+    feed.className="feedback show ok";
+    feed.innerHTML= firstTry
+      ? '<span class="big">'+pick(["Đúng rồi, giỏi lắm! 🎉","Chính xác! Con làm tốt lắm! 🌟","Tuyệt vời! ⭐","Đúng rồi! Thỏ con vỗ tay nào! 👏"])+'</span><br>'+q.explain
+      : '<span class="big">Đúng rồi! Con đã tự tìm ra nhờ nhìn hình - giỏi lắm! 🌟</span><br>'+q.explain;
+    splitIntoSentences(feed);
+    var burst=document.createElement("div"); burst.className="burst"; burst.textContent="⭐";
+    $("qcard").appendChild(burst); setTimeout(function(){burst.remove();},900);
+    tone(true);
+    $("star-box").textContent="⭐ "+state.stars;
+    $("prog-fill").style.width=Math.round((state.idx+1)/state.queue.length*100)+"%";
+    $("btn-next").classList.add("show");
+    return;
+  }
+  /* sai lan dau: hien hinh goi y, cho chon lai, khong hien dap an */
+  if(state.tries===0){
+    state.tries=1;
+    btn.disabled=true; btn.classList.add("bad");
+    var feed2=$("q-feed");
+    feed2.className="feedback show hint";
+    if(q.spellVs){ /* cau chinh ta: goi y bang chinh bo phan biet - giong mien Nam online doc cham + goi ten phan chu khac nhau, to sang, meo luat */
+      feed2.innerHTML='<span class="big">Suýt đúng rồi - mình nghe cô đọc phân biệt hai chữ này rồi chọn lại nhé 🔍</span>'
+        + '<div class="hintbox">'+contrastHTML(q)+'</div>'
+        + '<div class="hint-guide">'+q.spellTip+'</div>';
+      splitIntoSentences(feed2);
+      speakContrast(q);
+      return;
+    }
+    var hint=buildHint(q);
+    feed2.innerHTML='<span class="big">Suýt đúng rồi - mình nhìn hình gợi ý rồi chọn lại nhé 🔍</span>'
+      + (hint.html? '<div class="hintbox">'+hint.html+'</div>' : '')
+      + '<div class="hint-guide">'+hint.guide+'</div>';
+    splitIntoSentences(feed2);
+    requestAnimationFrame(function(){ animateHint(); });
+    return;
+  }
+  /* sai lan hai: moi giai thich ngan gon nhu cu */
+  state.answered=true;
+  var buttons2=document.querySelectorAll("#q-opts .opt");
+  buttons2.forEach(function(b){
+    b.disabled=true;
+    if(String(b.textContent)===String(q.answer)) b.classList.add("good");
+    else if(b===btn) b.classList.add("bad");
+    else b.classList.add("dim");
+  });
+  var feed3=$("q-feed");
+  feed3.className="feedback show no";
+  feed3.innerHTML='<span class="big">Không sao đâu, mình cùng xem cách làm nhé 🌱</span><br>Đáp án đúng là: <b>'+q.answer+'</b><br>'+q.explain;
+  splitIntoSentences(feed3);
+  tone(false);
+  $("star-box").textContent="⭐ "+state.stars;
+  $("prog-fill").style.width=Math.round((state.idx+1)/state.queue.length*100)+"%";
+  $("btn-next").classList.add("show");
+}
+$("btn-next").addEventListener("click",function(){
+  state.idx++;
+  if(state.idx>=state.queue.length) renderResult(); else renderQ();
+});
+$("btn-back").addEventListener("click",function(){stopSpeech();show("view-home");});
+$("btn-home").addEventListener("click",function(){stopSpeech();show("view-home");});
+$("btn-again").addEventListener("click",function(){ if(!state.lastMode) return; if(state.lastMode.id==="weak") startWeakRound(); else startMode(state.lastMode); });
+$("btn-weak").addEventListener("click",function(){ startWeakRound(); });
+function openClear(){$("modal-clear").classList.remove("hidden");}
+function closeClear(){$("modal-clear").classList.add("hidden");}
+$("btn-clear-home").addEventListener("click",openClear);
+$("btn-clear-res").addEventListener("click",openClear);
+$("btn-clear-no").addEventListener("click",closeClear);
+$("modal-clear").addEventListener("click",function(e){ if(e.target===this) closeClear(); });
+$("btn-clear-yes").addEventListener("click",function(){
+  try{ localStorage.removeItem(LS_KEY); }catch(e){}
+  closeClear(); renderStatsSections(); updateWeakBtn();
+});
+
+function renderResult(){
+  stopSpeech();
+  show("view-result");
+  var total=state.queue.length, ok=state.stars;
+  var starStr= ok>=Math.ceil(total*0.9) ? "⭐⭐⭐" : ok>=Math.ceil(total*0.6) ? "⭐⭐☆" : "⭐☆☆";
+  $("r-stars").textContent=starStr;
+  $("r-score").textContent="Đúng "+ok+"/"+total+" câu - Sai "+(total-ok)+" câu";
+  $("r-title").textContent= ok===total ? "Xuất sắc! Đúng hết rồi!" : ok>=total*0.6 ? "Hoàn thành rồi, tốt lắm!" : "Hoàn thành rồi, mình ôn thêm nhé!";
+  var weak=[];
+  var rows="";
+  Object.keys(state.stats).forEach(function(cat){
+    var s=state.stats[cat]; var pct=s.total? s.ok/s.total : 0;
+    var pill= pct===1? '<span class="pill good">Làm tốt</span>' : pct>=0.6? '<span class="pill mid">Khá tốt</span>' : '<span class="pill low">Cần ôn thêm</span>';
+    if(pct<0.6) weak.push(cat);
+    rows+="<tr><td>"+cat+"</td><td>Đúng "+s.ok+"/"+s.total+" - Sai "+(s.total-s.ok)+" câu</td><td>"+pill+"</td></tr>";
+  });
+  $("r-rows").innerHTML=rows;
+  $("r-total").textContent="Đúng "+ok+"/"+total+" - Sai "+(total-ok)+" câu";
+  addToHistory(state.stats);
+  renderStatsSections();
+  updateWeakBtn();
+  $("r-msg").textContent= weak.length===0
+    ? "Con nắm khá chắc các dạng trong lượt này. Mẹ cho con chơi thêm lượt tổng hợp cho vui để con nhớ lâu hơn nhé."
+    : "Phần con cần ôn thêm: "+weak.join(", ")+". Mẹ bấm nút \"Luyện thêm phần yếu\" ngay bên dưới để con luyện riêng đúng các phần đó - câu hỏi vẫn là số mới tinh, làm xong vẫn cộng vào thống kê nhé.";
+}
+/* ---------- doc theo TU / CUM TU: chi khi nguoi dung TU boi den ----------
+   Ap dung cho ca Toan va Tieng Viet:
+   - Chi khi con tu quet chon (boi den) mot tu hay cum tu thi web moi doc
+     dung phan da boi den do.
+   - Bam thuong vao mot tu, hay ra chuot qua tu, KHONG tu doc, va web cung
+     KHONG tu boi den / tu chon tu giup (khong con co che cham-la-chon-tu,
+     ra-chuot-la-doc-tu, hay nhan lau doc dap an nhu truoc).
+   - Khong chan contextmenu nua de viec boi den tren dien thoai dien ra tu nhien. */
+var selTimer=null, lastSelTxt="", lastSelAt=0;
+document.addEventListener("selectionchange",function(){
+  clearTimeout(selTimer);
+  selTimer=setTimeout(function(){
+    var sel=window.getSelection(); if(!sel||sel.isCollapsed) return;
+    var txt=String(sel).replace(/\s+/g," ").trim();
+    if(txt.length<2||!/[\wÀ-ỹ]/.test(txt)) return;
+    var an=sel.anchorNode, anEl= an? (an.nodeType===3? an.parentElement: an):null;
+    if(anEl&&anEl.closest&&anEl.closest("button")) return;
+    var now=Date.now();
+    if(txt===lastSelTxt && now-lastSelAt<1200) return; /* chong doc lai cung mot vung chon */
+    lastSelTxt=txt; lastSelAt=now;
+    speakText(txt,0.88);
+  },650);
+});
+
+renderStatsSections();
+</script>
+<script>
+"use strict";
+/* ---------- PWA: dang ky service worker + nut "Cai app" o trang chu ----------
+   - Service worker (data:application/javascript;base64,LyogU2VydmljZSB3b3JrZXIgLSBPbiB0YXAgVG9hbiAyLCBHaXVhIGhvYyBraSAxIChQV0EpCiAgIEx1dSB0cmFuZyB2YSBjYWMgdGVwIGN1YSB3ZWIgdmFvIG1heSBkZSBtbyBuaGFuaCBvIGNhYyBsYW4gc2F1LgogICBHaW9uZyBkb2Mgb25saW5lIChHb29nbGUgVFRTKSBLSE9ORyBkaSBxdWEgY2FjaGUgbmF5IC0gdmFuIHBoYXQgdHJ1YwogICB0aWVwIHF1YSBtYW5nIG5odSBiaW5oIHRodW9uZywgZHVuZyBuZ3V5ZW4gaGFuaCB2aSBoaWVuIHRhaSBjdWEgd2ViLiAqLwoidXNlIHN0cmljdCI7Cgp2YXIgQ0FDSEUgPSAib250YXAtbG9wMi12MSI7CnZhciBTSEVMTCA9IFsKICAiLi4vaW5kZXguaHRtbCIsCiAgIi4uLyIsCiAgIm1hbmlmZXN0LndlYm1hbmlmZXN0IiwKICAiaWNvbi0xOTIucG5nIiwKICAiaWNvbi01MTIucG5nIiwKICAiaWNvbi1tYXNrYWJsZS01MTIucG5nIiwKICAiYXBwbGUtdG91Y2gtaWNvbi5wbmciLAogICJmYXZpY29uLTMyLnBuZyIKXTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcigiaW5zdGFsbCIsIGZ1bmN0aW9uIChlKSB7CiAgZS53YWl0VW50aWwoCiAgICBjYWNoZXMub3BlbihDQUNIRSkudGhlbihmdW5jdGlvbiAoYykgewogICAgICAvKiBhZGRBbGwgdHVuZyB0ZXAgcmllbmcgbGUgZGUgMSB0ZXAgbG9pIGtob25nIGxhbSBob25nIGNhIGx1b3QgY2FpICovCiAgICAgIHJldHVybiBQcm9taXNlLmFsbChTSEVMTC5tYXAoZnVuY3Rpb24gKHUpIHsKICAgICAgICByZXR1cm4gYy5hZGQodSkuY2F0Y2goZnVuY3Rpb24gKCkge30pOwogICAgICB9KSk7CiAgICB9KS50aGVuKGZ1bmN0aW9uICgpIHsgcmV0dXJuIHNlbGYuc2tpcFdhaXRpbmcoKTsgfSkKICApOwp9KTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcigiYWN0aXZhdGUiLCBmdW5jdGlvbiAoZSkgewogIGUud2FpdFVudGlsKAogICAgY2FjaGVzLmtleXMoKS50aGVuKGZ1bmN0aW9uIChrZXlzKSB7CiAgICAgIHJldHVybiBQcm9taXNlLmFsbChrZXlzLm1hcChmdW5jdGlvbiAoaykgewogICAgICAgIHJldHVybiBrID09PSBDQUNIRSA/IG51bGwgOiBjYWNoZXMuZGVsZXRlKGspOwogICAgICB9KSk7CiAgICB9KS50aGVuKGZ1bmN0aW9uICgpIHsgcmV0dXJuIHNlbGYuY2xpZW50cy5jbGFpbSgpOyB9KQogICk7Cn0pOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCJmZXRjaCIsIGZ1bmN0aW9uIChlKSB7CiAgdmFyIHJlcSA9IGUucmVxdWVzdDsKICBpZiAocmVxLm1ldGhvZCAhPT0gIkdFVCIpIHJldHVybjsKICB2YXIgdXJsOwogIHRyeSB7IHVybCA9IG5ldyBVUkwocmVxLnVybCk7IH0gY2F0Y2ggKGVycikgeyByZXR1cm47IH0KCiAgLyogR2lvbmcgZG9jIHZhIG1vaSBkaWNoIHZ1IGRvYyB0cnVjIHR1eWVuOiBsdW9uIGxheSB0aGFuZyB0dSBtYW5nLAogICAgIGtob25nIGNhY2hlLCBraG9uZyBjYW4gdGhpZXAgKGdpdSBuZ3V5ZW4gY2FjaCBkb2MgaGllbiB0YWkpLiAqLwogIGlmICh1cmwuaG9zdG5hbWUuaW5kZXhPZigidHJhbnNsYXRlLmdvb2dsZSIpICE9PSAtMSB8fAogICAgICB1cmwuaG9zdG5hbWUuaW5kZXhPZigiZ29vZ2xlYXBpcy5jb20iKSAhPT0gLTEpIHJldHVybjsKCiAgLyogTW8gdHJhbmcgKGRpZXUgaHVvbmcpOiB1dSB0aWVuIGJhbiBkYSBsdXUgZGUgbW8gbmhhbmgsIGNoYXkgbmVuIGNhcAogICAgIG5oYXQgYmFuIG1vaTsgbWF0IG1hbmcgdGhpIHZhbiBtbyBkdW9jIGJhbiBkYSBsdXUuICovCiAgaWYgKHJlcS5tb2RlID09PSAibmF2aWdhdGUiKSB7CiAgICBlLnJlc3BvbmRXaXRoKAogICAgICBjYWNoZXMubWF0Y2goIi4uL2luZGV4Lmh0bWwiLCB7IGlnbm9yZVNlYXJjaDogdHJ1ZSB9KS50aGVuKGZ1bmN0aW9uIChoaXQpIHsKICAgICAgICB2YXIgbmV0ID0gZmV0Y2gocmVxKS50aGVuKGZ1bmN0aW9uIChyZXMpIHsKICAgICAgICAgIGlmIChyZXMgJiYgcmVzLm9rKSB7CiAgICAgICAgICAgIHZhciBjb3B5ID0gcmVzLmNsb25lKCk7CiAgICAgICAgICAgIGNhY2hlcy5vcGVuKENBQ0hFKS50aGVuKGZ1bmN0aW9uIChjKSB7IGMucHV0KCIuLi9pbmRleC5odG1sIiwgY29weSk7IH0pOwogICAgICAgICAgfQogICAgICAgICAgcmV0dXJuIHJlczsKICAgICAgICB9KS5jYXRjaChmdW5jdGlvbiAoKSB7IHJldHVybiBoaXQ7IH0pOwogICAgICAgIHJldHVybiBoaXQgfHwgbmV0OwogICAgICB9KQogICAgKTsKICAgIHJldHVybjsKICB9CgogIC8qIFRlcCB0aW5oIGN1bmcgbmd1b24gKGljb24sIG1hbmlmZXN0KSB2YSBmb250IEdvb2dsZTogc3RhbGUtd2hpbGUtcmV2YWxpZGF0ZSAqLwogIGlmICh1cmwub3JpZ2luID09PSBzZWxmLmxvY2F0aW9uLm9yaWdpbiB8fAogICAgICB1cmwuaG9zdG5hbWUgPT09ICJmb250cy5nb29nbGVhcGlzLmNvbSIgfHwKICAgICAgdXJsLmhvc3RuYW1lID09PSAiZm9udHMuZ3N0YXRpYy5jb20iKSB7CiAgICBlLnJlc3BvbmRXaXRoKAogICAgICBjYWNoZXMubWF0Y2gocmVxLCB7IGlnbm9yZVNlYXJjaDogdHJ1ZSB9KS50aGVuKGZ1bmN0aW9uIChoaXQpIHsKICAgICAgICB2YXIgbmV0ID0gZmV0Y2gocmVxKS50aGVuKGZ1bmN0aW9uIChyZXMpIHsKICAgICAgICAgIGlmIChyZXMgJiYgKHJlcy5vayB8fCByZXMudHlwZSA9PT0gIm9wYXF1ZSIpKSB7CiAgICAgICAgICAgIHZhciBjb3B5ID0gcmVzLmNsb25lKCk7CiAgICAgICAgICAgIGNhY2hlcy5vcGVuKENBQ0hFKS50aGVuKGZ1bmN0aW9uIChjKSB7IGMucHV0KHJlcSwgY29weSk7IH0pOwogICAgICAgICAgfQogICAgICAgICAgcmV0dXJuIHJlczsKICAgICAgICB9KS5jYXRjaChmdW5jdGlvbiAoKSB7IHJldHVybiBoaXQ7IH0pOwogICAgICAgIHJldHVybiBoaXQgfHwgbmV0OwogICAgICB9KQogICAgKTsKICB9Cn0pOwo=) luu trang va icon vao may de mo nhanh;
+     giong doc online khong di qua service worker, van can mang nhu hien nay.
+   - Android/Chrome: bam nut la goi hop cai dat cua trinh duyet
+     (beforeinstallprompt). iPhone/iPad: bam nut la hien dong huong dan
+     Safari - Chia se - Them vao man hinh chinh.
+   - Da mo tu icon app (standalone) thi an nut han. */
+(function(){
+  if("serviceWorker" in navigator){
+    window.addEventListener("load",function(){
+      navigator.serviceWorker.register("sw.js").catch(function(){});
+    });
+  }
+  var row=document.getElementById("install-row");
+  var btn=document.getElementById("btn-install");
+  var hint=document.getElementById("install-hint");
+  if(!row||!btn) return;
+  function isStandalone(){
+    return (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches)
+      || window.navigator.standalone===true;
+  }
+  if(isStandalone()) return; /* dang mo tu icon app: khong hien nut cai nua */
+  var deferred=null;
+  var ua=navigator.userAgent||"";
+  var isIOS= /iphone|ipad|ipod/i.test(ua)
+    || (/Macintosh/.test(ua) && navigator.maxTouchPoints>1); /* iPadOS bao danh Mac */
+  window.addEventListener("beforeinstallprompt",function(e){
+    e.preventDefault();
+    deferred=e;
+    row.classList.add("show");
+  });
+  window.addEventListener("appinstalled",function(){
+    deferred=null;
+    row.classList.remove("show");
+    if(hint) hint.classList.remove("show");
+  });
+  if(isIOS) row.classList.add("show"); /* iOS khong co beforeinstallprompt: hien nut de xem huong dan */
+  btn.addEventListener("click",function(){
+    if(deferred){
+      var d=deferred; deferred=null;
+      d.prompt();
+      if(d.userChoice && d.userChoice.then){
+        d.userChoice.then(function(c){
+          if(c && c.outcome==="accepted") row.classList.remove("show");
+          else row.classList.add("show");
+        }).catch(function(){});
+      }
+      return;
+    }
+    if(hint) hint.classList.toggle("show"); /* iPhone: mo dong huong dan cai */
+  });
+})();
+</script>
+</body>
+</html>
