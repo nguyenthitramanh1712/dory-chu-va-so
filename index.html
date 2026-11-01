@@ -20,6 +20,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
+  color-scheme:light only;
   --navy:#123a7d; --navy2:#1c56b8; --sky:#7ec8f7; --sky-soft:#e8f6ff; --ink:#17335e;
   --yellow:#ffc93c; --pink:#ff8fab; --green:#2fbf71; --red:#ef476f; --card:#ffffff;
   --line:#bfe3fb; --shadow:0 10px 24px rgba(18,58,125,.14);
@@ -86,9 +87,10 @@ h1{font-family:"Baloo 2",cursive;font-size:clamp(30px,6vw,46px);color:var(--navy
 .btn-next{margin-top:16px;width:100%;background:var(--navy);color:#fff;border:none;border-radius:18px;padding:16px;font-size:21px;font-weight:900;display:none}
 .btn-next.show{display:block}
 /* number line */
-.nline{display:flex;align-items:flex-end;justify-content:space-between;background:#f2faff;border:2px dashed #9fd4f8;border-radius:16px;padding:14px 10px 10px;gap:2px;overflow:hidden}
-.nline .cell{flex:1;text-align:center}
-.nline .dot{width:14px;height:14px;border-radius:50%;background:var(--navy2);margin:0 auto 6px}
+.nline{position:relative;display:flex;align-items:flex-end;justify-content:space-between;background:#f2faff;border:2px dashed #9fd4f8;border-radius:16px;padding:14px 10px 10px;gap:2px;overflow:hidden}
+.nline:before{content:"";position:absolute;top:21px;left:calc(10px + (100% - 20px)/12);right:calc(10px + (100% - 20px)/12);height:2px;background:var(--navy2);border-radius:2px;opacity:.85}
+.nline .cell{flex:1;text-align:center;position:relative;z-index:1}
+.nline .dot{width:14px;height:14px;border-radius:50%;background:var(--navy2);margin:0 auto 6px;position:relative;z-index:1}
 .nline .miss .dot{background:var(--red);animation:pulse 1s infinite}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
 .nline .num{font-size:19px;font-weight:900;color:var(--navy)}
@@ -296,7 +298,7 @@ img,svg,video{max-width:100%}
 }
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
-<style id="force-light">:root{color-scheme:light only}</style></head>
+</head>
 <body>
 <div class="wrap">
   <div class="cloud c1"></div><div class="cloud c2"></div>
@@ -1029,7 +1031,7 @@ var MODES=[
   {id:"qua10",icon:"⭐",title:"Chặng 5 - Qua 10 trong 20",desc:"Cộng, trừ qua 10 bằng cách tách cho tròn chục, vận dụng bảng cộng và bảng trừ.",tag:"Bài 7, 8, 11, 12 - trang 26 đến 47",gen:"qua10"},
   {id:"loivan",icon:"📖",title:"Chặng 6 - Toán có lời văn",desc:"Bài toán thêm - bớt, nhiều hơn - ít hơn và chọn phép tính đúng.",tag:"Bài 9 - trang 36 và Bài 13 - trang 50",gen:"loivan"},
   {id:"kg",icon:"⚖️",title:"Chặng 7 - Ki-lô-gam",desc:"Nặng hơn - nhẹ hơn, nhận biết ki-lô-gam, đọc và so sánh số đo khối lượng.",tag:"Bài 15 - trang 57",gen:"kg"},
-  {id:"mixed",icon:"🏆",title:"Lượt tổng hợp - Chơi vui cùng thỏ",desc:"12 câu trộn đủ các dạng để con ôn lại nhẹ nhàng, gồm cả luyện tập chung Bài 6, 10 và 14.",tag:"12 câu trộn",gen:"mixed",mixed:true}
+  {id:"mixed",icon:"🏆",title:"Lượt tổng hợp - Chơi vui cùng thỏ",desc:"20 câu trộn đủ các dạng để con ôn lại nhẹ nhàng, gồm cả luyện tập chung Bài 6, 10 và 14.",tag:"20 câu trộn",gen:"mixed",mixed:true,count:20,keys:["so100","so100","so100","tiaso","tiaso","thanhphan","thanhphan","khongnho","khongnho","khongnho","qua10","qua10","qua10","loivan","loivan","loivan","kg","kg","tiaso","thanhphan"]}
 ];
 
 /* ---------- game state ---------- */
@@ -1039,7 +1041,7 @@ var TV_MODES=[
   {id:"tvnghe",icon:"👂",title:"Chặng 2 - Nghe - viết, chính tả",desc:"Rà chuột hoặc chạm vào câu đề bài để nghe câu, chọn chữ viết đúng (gh - g, ngh - ng, tr - ch, s - x, dấu hỏi - dấu ngã) rồi đối chiếu đoạn gốc.",tag:"Nghe - viết đoạn văn, đoạn thơ",gen:"tvnghe",subj:"tv"},
   {id:"tvviet",icon:"✏️",title:"Chặng 3 - Viết câu tả đồ dùng",desc:"Chọn đúng câu cho từng phần của đoạn văn 3 đến 4 câu tả một đồ dùng học tập: giới thiệu - hình dáng, màu sắc - công dụng - kết đoạn.",tag:"Viết 3 đến 4 câu tả đồ dùng",gen:"tvviet",subj:"tv"},
   {id:"tvtu",icon:"🧺",title:"Chặng 4 - Phân loại từ",desc:"Cho thẻ từ bay vào đúng hộp: từ chỉ sự vật, từ chỉ hoạt động hay từ chỉ đặc điểm.",tag:"Sự vật - hoạt động - đặc điểm",gen:"tvtu",subj:"tv"},
-  {id:"tvmixed",icon:"🌈",title:"Lượt tổng hợp - Chơi vui cùng thỏ",desc:"10 câu trộn đủ 4 dạng Tiếng Việt để con ôn lại nhẹ nhàng trước ngày khảo sát 04/11/2026.",tag:"10 câu trộn",gen:"mixed",mixed:true,subj:"tv",count:10,keys:["tvdoc","tvdoc","tvnghe","tvnghe","tvviet","tvviet","tvtu","tvtu","tvdoc","tvtu"]}
+  {id:"tvmixed",icon:"🌈",title:"Lượt tổng hợp - Chơi vui cùng thỏ",desc:"20 câu trộn đủ 4 dạng Tiếng Việt để con ôn lại nhẹ nhàng trước ngày khảo sát 04/11/2026.",tag:"20 câu trộn",gen:"mixed",mixed:true,subj:"tv",count:20,keys:["tvdoc","tvdoc","tvnghe","tvnghe","tvviet","tvviet","tvtu","tvtu","tvdoc","tvtu","tvdoc","tvnghe","tvviet","tvtu","tvdoc","tvnghe","tvviet","tvtu","tvdoc","tvtu"]}
 ];
 var curSubject="toan";
 var SUBJ_INFO={
@@ -1053,7 +1055,7 @@ function renderModes(){
   list.forEach(function(m){
     var b=document.createElement("button"); b.type="button"; b.className="mode"+(m.mixed?" mixed":"");
     b.innerHTML='<span class="ic" aria-hidden="true">'+m.icon+'</span><span><h3>'+m.title+'</h3><p>'+m.desc+'</p><span class="tag"></span></span>';
-    b.querySelector(".tag").textContent= m.mixed ? ((m.count||12)+" câu - đủ các dạng") : (m.tag+" - 10 câu");
+    b.querySelector(".tag").textContent= m.mixed ? ((m.count||20)+" câu - đủ các dạng") : (m.tag+" - 20 câu");
     b.addEventListener("click",function(){startMode(m);});
     grid.appendChild(b);
   });
@@ -1082,11 +1084,11 @@ function show(view){
 function buildQueue(mode){
   var q=[];
   if(mode.mixed){
-    var keys=mode.keys||["so100","so100","tiaso","thanhphan","khongnho","khongnho","qua10","qua10","loivan","loivan","kg","kg"];
+    var keys=mode.keys||["so100","so100","so100","tiaso","tiaso","thanhphan","thanhphan","khongnho","khongnho","khongnho","qua10","qua10","qua10","loivan","loivan","loivan","kg","kg","tiaso","thanhphan"];
     keys.forEach(function(k){q.push(GENS[k]());});
     return shuffle(q);
   }
-  for(var i=0;i<10;i++) q.push(GENS[mode.gen]());
+  for(var i=0;i<20;i++) q.push(GENS[mode.gen]());
   return q;
 }
 function startMode(mode){
