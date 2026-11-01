@@ -4,7 +4,7 @@
    tiep qua mang nhu binh thuong, dung nguyen hanh vi hien tai cua web. */
 "use strict";
 
-var CACHE = "dory-chu-va-so-v2";
+var CACHE = "dory-chu-va-so-v3";
 var SHELL = [
   "../index.html",
   "../",
@@ -48,19 +48,19 @@ self.addEventListener("fetch", function (e) {
   if (url.hostname.indexOf("translate.google") !== -1 ||
       url.hostname.indexOf("googleapis.com") !== -1) return;
 
-  /* Mo trang (dieu huong): uu tien ban da luu de mo nhanh, chay nen cap
-     nhat ban moi; mat mang thi van mo duoc ban da luu. */
+  /* Mo trang (dieu huong): uu tien MANG truoc de luon thay ban moi nhat
+     khi co mang; chi khi mat mang moi dung ban da luu (offline van hoc
+     duoc). Cach nay tranh thay ban cu o lan mo dau tien sau moi cap nhat. */
   if (req.mode === "navigate") {
     e.respondWith(
-      caches.match("../index.html", { ignoreSearch: true }).then(function (hit) {
-        var net = fetch(req).then(function (res) {
-          if (res && res.ok) {
-            var copy = res.clone();
-            caches.open(CACHE).then(function (c) { c.put("../index.html", copy); });
-          }
-          return res;
-        }).catch(function () { return hit; });
-        return hit || net;
+      fetch(req).then(function (res) {
+        if (res && res.ok) {
+          var copy = res.clone();
+          caches.open(CACHE).then(function (c) { c.put("../index.html", copy); });
+        }
+        return res;
+      }).catch(function () {
+        return caches.match("../index.html", { ignoreSearch: true });
       })
     );
     return;
