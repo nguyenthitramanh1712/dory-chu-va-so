@@ -276,6 +276,13 @@ table.sum tfoot td{font-weight:900;color:var(--navy);border-bottom:none;border-t
 .ctip{margin-top:10px;font-size:16px;font-weight:800;color:#7a4b00;line-height:1.5;text-align:center}
 ::selection{background:#ffe08a}
 .opt{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+/* Mon Toan: tat han chon van ban trong khu vuc choi (the cau hoi, banner tho,
+   cac nut o man choi) de be khong boi den duoc chu va trinh duyet khong bat
+   menu Copy / Select all / Web search cua he thong nua. Mon Tieng Viet khong
+   dung quy tac nay: be van tu boi den tu/cum tu de nghe doc nhu cu. */
+#view-game.math-mode .topbar,#view-game.math-mode .topbar *,
+#view-game.math-mode .qcard,#view-game.math-mode .qcard *{
+  -webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
 /* PWA: nut Cai app o trang chu + dong huong dan cai tren iPhone */
 .installrow{display:none;justify-content:center;margin-top:14px;position:relative;z-index:1}
 .installrow.show{display:flex}
@@ -1057,7 +1064,8 @@ function buildWeakQueue(){
 var WEAK_MODE={id:"weak",icon:"🎯",title:"Luyện thêm phần yếu",gen:"weak"};
 function startWeakRound(){
   var q=buildWeakQueue(); if(!q.length) return;
-  state.mode=WEAK_MODE; state.lastMode=WEAK_MODE; state.queue=q; state.idx=0; state.stars=0; state.stats={};
+  state.mode=WEAK_MODE; state.lastMode=WEAK_MODE; state.isMath=(statsSubject!=="tv");
+  state.queue=q; state.idx=0; state.stars=0; state.stats={};
   state.queue.forEach(function(qu){ if(!state.stats[qu.cat]) state.stats[qu.cat]={ok:0,total:0}; state.stats[qu.cat].total++; });
   show("view-game"); renderQ();
 }
@@ -1102,7 +1110,7 @@ var MODES=[
 ];
 
 /* ---------- game state ---------- */
-var state={mode:null,queue:[],idx:0,stars:0,stats:{},answered:false,current:null,lastMode:null,tries:0};
+var state={mode:null,queue:[],idx:0,stars:0,stats:{},answered:false,current:null,lastMode:null,tries:0,isMath:true};
 var TV_MODES=[
   {id:"tvdoc",icon:"📖",title:"Chặng 1 - Đọc hiểu bài đọc",desc:"Đọc một đoạn văn mới ngắn theo chủ đề trường lớp, thầy cô, bạn bè của Tuần 1 đến 8, rà chuột hoặc chạm vào từng câu để nghe câu đó rồi trả lời câu hỏi - đáp án nằm ngay trong đoạn vừa đọc.",tag:"Đoạn đọc mới - chủ đề Tuần 1 đến 8",gen:"tvdoc",subj:"tv"},
   {id:"tvnghe",icon:"👂",title:"Chặng 2 - Nghe - viết, chính tả",desc:"Rà chuột hoặc chạm vào câu đề bài để nghe câu, chọn chữ viết đúng (gh - g, ngh - ng, tr - ch, s - x, dấu hỏi - dấu ngã) rồi đối chiếu đoạn gốc.",tag:"Nghe - viết đoạn văn, đoạn thơ",gen:"tvnghe",subj:"tv"},
@@ -1169,14 +1177,17 @@ function buildQueue(mode){
 }
 function startMode(mode){
   statsSubject=mode.subj||"toan";
-  state.mode=mode; state.lastMode=mode; state.queue=buildQueue(mode); state.idx=0; state.stars=0; state.stats={};
+  state.mode=mode; state.lastMode=mode; state.isMath=(mode.subj!=="tv");
+  state.queue=buildQueue(mode); state.idx=0; state.stars=0; state.stats={};
   state.queue.forEach(function(q){ if(!state.stats[q.cat]) state.stats[q.cat]={ok:0,total:0}; state.stats[q.cat].total++; });
   show("view-game"); renderQ();
 }
 function renderQ(){
   stopSpeech();
   var q=state.queue[state.idx]; state.current=q; state.answered=false; state.tries=0;
+  $("view-game").classList.toggle("math-mode",!!state.isMath);
   $("buddy-msg").textContent=pick(["Thỏ con đồng hành cùng con - cứ từ từ suy nghĩ nhé!","Mình làm từng bước một, không vội đâu!","Sai cũng không sao, mình nhìn hình gợi ý là hiểu ngay!"]);
+  splitIntoSentences($("buddy-msg"));
   $("q-cat").textContent="Câu "+(state.idx+1)+"/"+state.queue.length+" - "+q.cat;
   $("q-text").textContent=q.text;
   splitIntoSentences($("q-text"));
@@ -1220,8 +1231,12 @@ function renderQ(){
    cua cung dich vu (host googleapis + client=gtx), van loi thi chi hien
    dong bao ngan ve giong online. Phat thanh cong thi xoa dong bao cu ngay. */
 function splitSentences(t){
-  var m=String(t).match(/[^.!?…]+[.!?…]*/g)||[];
-  var out=[]; m.forEach(function(s){ s=s.replace(/\s+/g," ").trim(); if(s) out.push(s); });
+  /* Dau "..." (cho trong trong de bai Toan, vd "42 ... 98") KHONG phai dau
+     ket thuc cau: bao ve truoc khi tach cau de ca cau "Dien dau thich hop:
+     42 ... 98" van la MOT cau, doc tron mot luot khi cham/ra vao. */
+  var s=String(t).replace(/\.\.\./g,"\u0001").replace(/…/g,"\u0001");
+  var m=s.match(/[^.!?]+[.!?]*/g)||[];
+  var out=[]; m.forEach(function(x){ x=x.replace(/\u0001/g,"...").replace(/\s+/g," ").trim(); if(x) out.push(x); });
   return out;
 }
 var speakToken=0, curAudio=null, curSentEl=null, voiceNoteTimer=null;
@@ -1548,21 +1563,31 @@ function renderResult(){
     : "Phần con cần ôn thêm: "+weak.join(", ")+". Mẹ bấm nút \"Luyện thêm phần yếu\" ngay bên dưới để con luyện riêng đúng các phần đó - câu hỏi vẫn là số mới tinh, làm xong vẫn cộng vào thống kê nhé.";
 }
 /* ---------- doc theo TU / CUM TU: chi khi nguoi dung TU boi den ----------
-   Ap dung cho ca Toan va Tieng Viet:
-   - Chi khi con tu quet chon (boi den) mot tu hay cum tu thi web moi doc
-     dung phan da boi den do.
+   CHI ap dung cho mon Tieng Viet. Mon Toan da BO HAN co che nay (yeu cau
+   cua me Dory 2026-11-03): ben Toan chi con doc theo CAU khi cham / ra vao
+   cau, va khu vuc choi Toan con tat chon van ban bang CSS (.math-mode) nen
+   be khong boi den duoc va trinh duyet khong bat menu Copy / Web search.
+   - Ben Tieng Viet: chi khi con tu quet chon (boi den) mot tu hay cum tu
+     thi web moi doc dung phan da boi den do.
    - Bam thuong vao mot tu, hay ra chuot qua tu, KHONG tu doc, va web cung
      KHONG tu boi den / tu chon tu giup (khong con co che cham-la-chon-tu,
      ra-chuot-la-doc-tu, hay nhan lau doc dap an nhu truoc).
    - Khong chan contextmenu nua de viec boi den tren dien thoai dien ra tu nhien. */
+function isMathContext(el){
+  if(!el||!el.closest) return false;
+  if(el.closest("#view-game")||el.closest("#view-result")) return !!state.isMath;
+  if(el.closest("#view-home")) return curSubject!=="tv";
+  return false;
+}
 var selTimer=null, lastSelTxt="", lastSelAt=0;
 document.addEventListener("selectionchange",function(){
   clearTimeout(selTimer);
   selTimer=setTimeout(function(){
     var sel=window.getSelection(); if(!sel||sel.isCollapsed) return;
+    var an=sel.anchorNode, anEl= an? (an.nodeType===3? an.parentElement: an):null;
+    if(isMathContext(anEl)) return; /* mon Toan: khong doc theo tu khi boi den nua */
     var txt=String(sel).replace(/\s+/g," ").trim();
     if(txt.length<2||!/[\wÀ-ỹ]/.test(txt)) return;
-    var an=sel.anchorNode, anEl= an? (an.nodeType===3? an.parentElement: an):null;
     if(anEl&&anEl.closest&&anEl.closest("button")) return;
     var now=Date.now();
     if(txt===lastSelTxt && now-lastSelAt<1200) return; /* chong doc lai cung mot vung chon */
