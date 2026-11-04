@@ -283,6 +283,11 @@ table.sum tfoot td{font-weight:900;color:var(--navy);border-bottom:none;border-t
 #view-game.math-mode .topbar,#view-game.math-mode .topbar *,
 #view-game.math-mode .qcard,#view-game.math-mode .qcard *{
   -webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+/* Mon Tieng Viet: tat voice toan bo - khong con cau nao duoc boc .sent de doc,
+   quy tac nay chi la lop phong thu neu con sot the .sent: khong khung sang doc,
+   khong con tro doc khi cham/ra chuot. */
+#view-game.tv-mode .sent{cursor:default}
+#view-game.tv-mode .sent:hover,#view-game.tv-mode .sent.reading{background:transparent;box-shadow:none}
 /* PWA: nut Cai app o trang chu + dong huong dan cai tren iPhone */
 .installrow{display:none;justify-content:center;margin-top:14px;position:relative;z-index:1}
 .installrow.show{display:flex}
@@ -749,7 +754,7 @@ var SPELLMETA={
 SPELL.forEach(function(s){ var m=SPELLMETA[s.a]; if(m){ s.vs=m.vs; s.grp=m.grp; s.tip=m.tip; } });
 function genTvNghe(){
   var s=pick(SPELL);
-  return {cat:CAT.tvnghe,text:"Điền chữ viết đúng vào chỗ trống: "+s.sent,visual:'<button type="button" class="btn-contrast" onclick="playContrast()">🔍 Nghe phân biệt</button><div id="cbox"></div>',options:shuffle(s.o),answer:s.a,explain:s.rule+" Đoạn gốc để con đối chiếu: \""+s.full+"\"",spellVs:s.vs,spellGrp:s.grp,spellTip:s.tip};
+  return {cat:CAT.tvnghe,text:"Điền chữ viết đúng vào chỗ trống: "+s.sent,visual:'<button type="button" class="btn-contrast" onclick="showContrast()">🔍 Xem phân biệt</button><div id="cbox"></div>',options:shuffle(s.o),answer:s.a,explain:s.rule+" Đoạn gốc để con đối chiếu: \""+s.full+"\"",spellVs:s.vs,spellGrp:s.grp,spellTip:s.tip};
 }
 var DESCRIBE=[
   {item:"chiếc bút chì",s:["Em có một chiếc bút chì mới.","Bút chì dài, thân sơn màu vàng, một đầu có cục tẩy nhỏ màu hồng.","Em dùng bút chì để viết bài và vẽ tranh.","Em rất quý chiếc bút chì của mình."]},
@@ -850,10 +855,10 @@ function buildHint(q){
     return {html:'<div class="bigem">'+wem+'</div>'+boxes,guide:"Con nhìn hình của từ rồi nghĩ: từ này gọi tên một người, một vật hay cây cối? Hay là một việc làm đang diễn ra? Hay là màu sắc, hình dáng, tính nết? Nghĩ kĩ rồi cho thẻ từ bay vào đúng hộp nhé."};
   }
   if(key==="tvdoc"){
-    return {html:'<div class="bigem">📖</div><div class="step-chips"><span class="step-chip">Đọc lại đoạn văn</span><span class="step-chip" style="animation-delay:.4s">Tìm câu nói về điều được hỏi</span><span class="step-chip" style="animation-delay:.8s">Đối chiếu rồi chọn</span></div>',guide:"Con rà chuột lên từng câu trong đoạn văn (trên điện thoại thì chạm vào câu) để nghe lại câu đó, hoặc tự đọc thầm một lần nữa, tìm đúng câu nói về điều câu hỏi hỏi tới - câu trả lời nằm ngay trong đoạn văn đó."};
+    return {html:'<div class="bigem">📖</div><div class="step-chips"><span class="step-chip">Đọc lại đoạn văn</span><span class="step-chip" style="animation-delay:.4s">Tìm câu nói về điều được hỏi</span><span class="step-chip" style="animation-delay:.8s">Đối chiếu rồi chọn</span></div>',guide:"Con tự đọc thầm lại đoạn văn một lần nữa, tìm đúng câu nói về điều câu hỏi hỏi tới - câu trả lời nằm ngay trong đoạn văn đó."};
   }
   if(key==="tvnghe"){
-    return {html:'<div class="bigem">👂</div><div class="wordchips"><span class="wchip" style="animation-delay:.1s">g - gh</span><span class="wchip" style="animation-delay:.3s">ng - ngh</span><span class="wchip" style="animation-delay:.5s">ch - tr</span><span class="wchip" style="animation-delay:.7s">s - x</span><span class="wchip" style="animation-delay:.9s">dấu hỏi - dấu ngã</span></div>',guide:"Con rà chuột lên câu đề bài (trên điện thoại thì chạm vào câu) để nghe lại, đọc chậm từng tiếng rồi nhớ quy tắc: đứng trước e, ê, i thì g viết thành gh, ng viết thành ngh. Dấu hỏi cong như dấu móc, dấu ngã cong như con sóng nhỏ."};
+    return {html:'<div class="bigem">👂</div><div class="wordchips"><span class="wchip" style="animation-delay:.1s">g - gh</span><span class="wchip" style="animation-delay:.3s">ng - ngh</span><span class="wchip" style="animation-delay:.5s">ch - tr</span><span class="wchip" style="animation-delay:.7s">s - x</span><span class="wchip" style="animation-delay:.9s">dấu hỏi - dấu ngã</span></div>',guide:"Con đọc chậm câu đề bài từng tiếng, nhìn kĩ phần chữ khác nhau rồi nhớ quy tắc: đứng trước e, ê, i thì g viết thành gh, ng viết thành ngh. Dấu hỏi cong như dấu móc, dấu ngã cong như con sóng nhỏ."};
   }
   if(key==="tvviet"){
     return {html:'<div class="sortsteps"><span class="st">1. 👋 Giới thiệu đồ dùng</span><span class="arw">→</span><span class="st" style="animation-delay:.25s">2. 🎨 Tả hình dáng, màu sắc</span><span class="arw">→</span><span class="st" style="animation-delay:.5s">3. ✋ Nêu công dụng</span><span class="arw">→</span><span class="st" style="animation-delay:.75s">4. ❤️ Tình cảm, kết đoạn</span></div>',guide:"Đoạn tả đồ dùng đi theo đúng 4 bước như trong hình. Con xem câu hỏi đang hỏi bước nào, rồi tìm câu làm đúng vai trò của bước đó nhé."};
@@ -1112,8 +1117,8 @@ var MODES=[
 /* ---------- game state ---------- */
 var state={mode:null,queue:[],idx:0,stars:0,stats:{},answered:false,current:null,lastMode:null,tries:0,isMath:true};
 var TV_MODES=[
-  {id:"tvdoc",icon:"📖",title:"Chặng 1 - Đọc hiểu bài đọc",desc:"Đọc một đoạn văn mới ngắn theo chủ đề trường lớp, thầy cô, bạn bè của Tuần 1 đến 8, rà chuột hoặc chạm vào từng câu để nghe câu đó rồi trả lời câu hỏi - đáp án nằm ngay trong đoạn vừa đọc.",tag:"Đoạn đọc mới - chủ đề Tuần 1 đến 8",gen:"tvdoc",subj:"tv"},
-  {id:"tvnghe",icon:"👂",title:"Chặng 2 - Nghe - viết, chính tả",desc:"Rà chuột hoặc chạm vào câu đề bài để nghe câu, chọn chữ viết đúng (gh - g, ngh - ng, tr - ch, s - x, dấu hỏi - dấu ngã) rồi đối chiếu đoạn gốc.",tag:"Nghe - viết đoạn văn, đoạn thơ",gen:"tvnghe",subj:"tv"},
+  {id:"tvdoc",icon:"📖",title:"Chặng 1 - Đọc hiểu bài đọc",desc:"Đọc một đoạn văn mới ngắn theo chủ đề trường lớp, thầy cô, bạn bè của Tuần 1 đến 8, đọc kĩ từng câu rồi trả lời câu hỏi - đáp án nằm ngay trong đoạn vừa đọc.",tag:"Đoạn đọc mới - chủ đề Tuần 1 đến 8",gen:"tvdoc",subj:"tv"},
+  {id:"tvnghe",icon:"👂",title:"Chặng 2 - Nghe - viết, chính tả",desc:"Đọc kĩ câu đề bài, nhìn phần chữ khác nhau được tô sáng để chọn chữ viết đúng (gh - g, ngh - ng, tr - ch, s - x, dấu hỏi - dấu ngã) rồi đối chiếu đoạn gốc.",tag:"Nghe - viết đoạn văn, đoạn thơ",gen:"tvnghe",subj:"tv"},
   {id:"tvviet",icon:"✏️",title:"Chặng 3 - Viết câu tả đồ dùng",desc:"Chọn đúng câu cho từng phần của đoạn văn 3 đến 4 câu tả một đồ dùng học tập: giới thiệu - hình dáng, màu sắc - công dụng - kết đoạn.",tag:"Viết 3 đến 4 câu tả đồ dùng",gen:"tvviet",subj:"tv"},
   {id:"tvtu",icon:"🧺",title:"Chặng 4 - Phân loại từ",desc:"Cho thẻ từ bay vào đúng hộp: từ chỉ sự vật, từ chỉ hoạt động hay từ chỉ đặc điểm.",tag:"Sự vật - hoạt động - đặc điểm",gen:"tvtu",subj:"tv"},
   {id:"tvmixed",icon:"🌈",title:"Lượt tổng hợp - Chơi vui cùng thỏ",desc:"20 câu trộn đủ 4 dạng Tiếng Việt để con ôn lại nhẹ nhàng trước ngày khảo sát 04/11/2026.",tag:"20 câu trộn",gen:"mixed",mixed:true,subj:"tv",count:20,keys:["tvdoc","tvdoc","tvnghe","tvnghe","tvviet","tvviet","tvtu","tvtu","tvdoc","tvtu","tvdoc","tvnghe","tvviet","tvtu","tvdoc","tvnghe","tvviet","tvtu","tvdoc","tvtu"]}
@@ -1186,6 +1191,8 @@ function renderQ(){
   stopSpeech();
   var q=state.queue[state.idx]; state.current=q; state.answered=false; state.tries=0;
   $("view-game").classList.toggle("math-mode",!!state.isMath);
+  $("view-game").classList.toggle("tv-mode",!state.isMath);
+  if(!state.isMath) hideVoiceNote(); /* mon Tieng Viet khong dung dong bao giong doc */
   $("buddy-msg").textContent=pick(["Thỏ con đồng hành cùng con - cứ từ từ suy nghĩ nhé!","Mình làm từng bước một, không vội đâu!","Sai cũng không sao, mình nhìn hình gợi ý là hiểu ngay!"]);
   splitIntoSentences($("buddy-msg"));
   $("q-cat").textContent="Câu "+(state.idx+1)+"/"+state.queue.length+" - "+q.cat;
@@ -1239,6 +1246,22 @@ function splitSentences(t){
   var out=[]; m.forEach(function(x){ x=x.replace(/\u0001/g,"...").replace(/\s+/g," ").trim(); if(x) out.push(x); });
   return out;
 }
+/* ---------- CHOT CHAN VOICE: mon Tieng Viet TAT TOAN BO giong doc ----------
+   Yeu cau cua me Dory (2026-11-04): tat het voice ben Tieng Viet, chi giu
+   voice doc theo cau ben mon Toan. Moi duong phat giong deu di qua cac ham
+   trung tam duoi day (speakText, speakOnlineParts, speakSentence,
+   splitIntoSentences, speakContrast) va deu bi chan tai day neu ngu canh
+   hien tai la mon Tieng Viet - ke ca khi con sot mot loi goi nao o noi khac. */
+function currentIsTv(){
+  var g=document.getElementById("view-game"), r=document.getElementById("view-result");
+  if(g && !g.classList.contains("hidden")) return !state.isMath;
+  if(r && !r.classList.contains("hidden")) return !state.isMath;
+  if(state.current && state.current.cat){
+    var k=CATKEY[state.current.cat];
+    if(k) return k.indexOf("tv")===0;
+  }
+  return (typeof curSubject!=="undefined" && curSubject==="tv");
+}
 var speakToken=0, curAudio=null, curSentEl=null, voiceNoteTimer=null;
 function clearReadingMark(){ if(curSentEl){ curSentEl.classList.remove("reading"); curSentEl=null; } }
 function stopSpeech(){
@@ -1279,6 +1302,7 @@ function onlineTtsUrl(chunk,speed,variant){
   return "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&ttsspeed="+speed+"&q="+q;
 }
 function speakOnlineParts(parts,rate,onDone,onFail){
+  if(currentIsTv()){ if(onDone) onDone(); return; } /* mon Tieng Viet: khong phat TTS duoi moi hinh thuc */
   /* Dich vu chi nhan cac bac toc do roi rac (da kiem chung: 0.95 va 1 cho
      cung mot am thanh, 0.9 va 0.8 la hai bac cham hon rieng): doc thuong
      dung bac 0.9 cho mem va gan nhip noi tu nhien, phan doc cham (Nghe
@@ -1323,6 +1347,7 @@ function speakOnlineParts(parts,rate,onDone,onFail){
   next();
 }
 function speakText(txt,rate,sentEl){
+  if(currentIsTv()){ stopSpeech(); return; } /* mon Tieng Viet: chan phat giong ngay tai ham trung tam */
   var clean= (txt===null||txt===undefined)? "" : String(txt).replace(/\s+/g," ").trim();
   stopSpeech(); /* dang doc ma cham cau khac thi dung cau cu, doc cau moi */
   var token=speakToken;
@@ -1340,7 +1365,10 @@ function speakText(txt,rate,sentEl){
     finish();
   });
 }
-/* ---------- chia tung cau: doc theo CAU cho ca Toan va Tieng Viet ----------
+/* ---------- chia tung cau: doc theo CAU - CHI MON TOAN ----------
+   Mon Tieng Viet da tat toan bo voice (2026-11-04): splitIntoSentences
+   khong boc cau, khong gan handler doc va khong tao khung sang ben Tieng
+   Viet nua - chi mon Toan moi doc theo cau nhu mo ta duoi day.
    - May tinh: ra chuot toi mot cau thi khung cau do sang len (.sent:hover va
      .reading) va doc dung cau do; ra sang cau khac thi dung cau cu, doc cau moi.
    - Dien thoai: cham vao cau thi khung cau sang len va doc cau do.
@@ -1350,6 +1378,7 @@ function speakText(txt,rate,sentEl){
    Ap dung cho doan doc, de bai, toan loi van, cau hoi va loi giai thich.
    Bo qua nut bam va cac hinh truc quan (tia so, khung 10 o, can...) */
 function speakSentence(sp){
+  if(currentIsTv()) return; /* mon Tieng Viet khong doc cau */
   var now=Date.now();
   if(sp._lastSpeak && now-sp._lastSpeak<700) return;
   sp._lastSpeak=now;
@@ -1358,6 +1387,7 @@ function speakSentence(sp){
 var SENT_SKIP="button,.hintbox,.nline,.hline,.vcalc,.kgbox,.bundles,.tenframe,.diagram,.bars,.scale,.objrow,.sortsteps,.boxes3,.pvtable,.coltable,.wordchips,.bigem,.step-chips";
 function splitIntoSentences(root){
   if(!root) return;
+  if(currentIsTv()) return; /* mon Tieng Viet: giu nguyen van ban, khong boc cau de doc, khong khung sang doc */
   var nodes=[];
   try{
     var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
@@ -1384,12 +1414,9 @@ function splitIntoSentences(root){
   });
 }
 /* ---------- lop phan biet chinh ta (chi dung trong Nghe - viet) ----------
-   Doc bang CHINH giong nu mien Nam online nhu moi phan khac trong web,
-   phat cham khoang 0.7 - khong dung giong Bac o bat ky cho nao.
-   Giong mien Nam tu nhien von nhap cac cap hoi - nga, en - enh, it - ic,
-   iet - iec..., nen do chinh xac cua cac cap nay nam o phan NHIN va GOI TEN:
-   to sang phan chu khac nhau giua 2 phuong an, doc ro TEN phan khac nhau do
-   (vd "dau nga", "am to-ro") va kem meo luat chinh ta cua cap do. */
+   Mon Tieng Viet da tat toan bo voice (2026-11-04) nen lop nay CHI con
+   phan NHIN: to sang phan chu khac nhau giua 2 phuong an va kem meo luat
+   chinh ta cua cap do - khong phat am, khong doc ten phan khac nhau nua. */
 var TONE_NGA="ãẵẫẽễĩõỗỡũữỹ", TONE_HOI="ảẳẩẻểỉỏổởủửỷ";
 var LETTER_NAME={"tr":"tờ rờ","ch":"chờ","ngh":"ngờ gờ hát","ng":"ngờ","gh":"gờ hát","gi":"giê","g":"gờ","d":"dê","đ":"đê","x":"xờ","s":"sờ","h":"hát","n":"nờ","t":"tờ","r":"rờ","c":"xê","k":"ca","l":"lờ","m":"mờ","p":"pê","v":"vê","b":"bê"};
 function diffParts(a,b){
@@ -1418,32 +1445,21 @@ function contrastHTML(q){
   var ord=contrastOrder(q);
   return '<div class="contrastbox"><div class="cgrp">Phân biệt: '+q.spellGrp+'</div>'
     +'<div class="crow"><span class="cword">'+diffWordHTML(ord[0],ord[1])+'</span><span class="cvs">và</span><span class="cword">'+diffWordHTML(ord[1],ord[0])+'</span></div>'
-    +'<div class="ctip">Phần chữ khác nhau được tô vàng - con nhìn kĩ phần đó và nghe cô đọc chậm từng chữ nhé.</div></div>';
+    +'<div class="ctip">Phần chữ khác nhau được tô vàng - con nhìn kĩ phần đó nhé.</div></div>';
 }
 function speakContrast(q){
-  if(!q||!q.spellVs) return;
-  var ord=contrastOrder(q), d=diffParts(ord[0],ord[1]);
-  var lines=["Con nghe cô đọc chậm để phân biệt hai chữ này nhé.",
-             "Chữ một: "+ord[0]+".",
-             "Chữ hai: "+ord[1]+".",
-             "Phần khác nhau: chữ một có "+focusName(d.m1)+", chữ hai có "+focusName(d.m2)+". Con nhìn phần chữ được tô vàng trên màn hình nhé."];
-  stopSpeech();
-  var token=speakToken;
-  var joined=lines.join(" ");
-  /* Doc cham 0.7 bang giong nu mien Nam online, cung quy tac bao loi nhu
-     speakText. Phan phan biet nam o cho GOI TEN phan chu khac nhau trong cau
-     doc tren, kem to sang + meo luat tren man hinh. */
-  speakOnlineParts([joined],0.7,function(){},function(){
-    if(token!==speakToken) return;
-    showVoiceNote(VOICE_NOTE_ONLINE_FAIL);
-  });
+  /* Mon Tieng Viet da tat toan bo voice (2026-11-04): ham nay duoc giu lai
+     chi nhu mot chot chan an toan - bat ky loi goi sot nao cung khong phat
+     tieng. Phan phan biet chinh ta nay chi con hoc bang MAT: to sang phan
+     chu khac nhau + meo luat tren man hinh (xem showContrast). */
+  return;
 }
-function playContrast(){
+function showContrast(){
   var q=state.current; if(!q||!q.spellVs) return;
   var box=document.getElementById("cbox");
   if(box) box.innerHTML=contrastHTML(q)+'<div class="ctip" style="margin-top:10px">'+q.spellTip+'</div>';
-  speakContrast(q);
 }
+function playContrast(){ showContrast(); } /* ten cu giu lai cho an toan: chi hien hinh phan biet, khong phat voice */
 var actx=null;
 function tone(ok){
   try{
@@ -1484,12 +1500,11 @@ function answer(btn,op){
     btn.disabled=true; btn.classList.add("bad");
     var feed2=$("q-feed");
     feed2.className="feedback show hint";
-    if(q.spellVs){ /* cau chinh ta: goi y bang chinh bo phan biet - giong mien Nam online doc cham + goi ten phan chu khac nhau, to sang, meo luat */
-      feed2.innerHTML='<span class="big">Suýt đúng rồi - mình nghe cô đọc phân biệt hai chữ này rồi chọn lại nhé 🔍</span>'
+    if(q.spellVs){ /* cau chinh ta: goi y bang chinh bo phan biet - chi NHIN: to sang phan chu khac nhau + meo luat, khong phat voice */
+      feed2.innerHTML='<span class="big">Suýt đúng rồi - mình nhìn kĩ phần chữ khác nhau được tô vàng rồi chọn lại nhé 🔍</span>'
         + '<div class="hintbox">'+contrastHTML(q)+'</div>'
         + '<div class="hint-guide">'+q.spellTip+'</div>';
       splitIntoSentences(feed2);
-      speakContrast(q);
       return;
     }
     var hint=buildHint(q);
@@ -1562,17 +1577,15 @@ function renderResult(){
     ? "Con nắm khá chắc các dạng trong lượt này. Mẹ cho con chơi thêm lượt tổng hợp cho vui để con nhớ lâu hơn nhé."
     : "Phần con cần ôn thêm: "+weak.join(", ")+". Mẹ bấm nút \"Luyện thêm phần yếu\" ngay bên dưới để con luyện riêng đúng các phần đó - câu hỏi vẫn là số mới tinh, làm xong vẫn cộng vào thống kê nhé.";
 }
-/* ---------- doc theo TU / CUM TU: chi khi nguoi dung TU boi den ----------
-   CHI ap dung cho mon Tieng Viet. Mon Toan da BO HAN co che nay (yeu cau
-   cua me Dory 2026-11-03): ben Toan chi con doc theo CAU khi cham / ra vao
-   cau, va khu vuc choi Toan con tat chon van ban bang CSS (.math-mode) nen
-   be khong boi den duoc va trinh duyet khong bat menu Copy / Web search.
-   - Ben Tieng Viet: chi khi con tu quet chon (boi den) mot tu hay cum tu
-     thi web moi doc dung phan da boi den do.
-   - Bam thuong vao mot tu, hay ra chuot qua tu, KHONG tu doc, va web cung
-     KHONG tu boi den / tu chon tu giup (khong con co che cham-la-chon-tu,
-     ra-chuot-la-doc-tu, hay nhan lau doc dap an nhu truoc).
-   - Khong chan contextmenu nua de viec boi den tren dien thoai dien ra tu nhien. */
+/* ---------- doc theo TU / CUM TU khi boi den: DA TAT O CA HAI MON ----------
+   - Mon Tieng Viet: tat toan bo voice (2026-11-04) nen boi den tu/cum tu
+     khong con phat tieng nua.
+   - Mon Toan: chi con doc theo CAU khi cham / ra vao cau (yeu cau cua me
+     Dory 2026-11-03), va khu vuc choi Toan tat chon van ban bang CSS
+     (.math-mode) nen be khong boi den duoc.
+   Vi vay handler selectionchange duoi day khong phat giong o bat ky mon
+   nao; chua ke ham phat trung tam speakText con co chot chan currentIsTv()
+   chan rieng mon Tieng Viet. */
 function isMathContext(el){
   if(!el||!el.closest) return false;
   if(el.closest("#view-game")||el.closest("#view-result")) return !!state.isMath;
@@ -1585,14 +1598,9 @@ document.addEventListener("selectionchange",function(){
   selTimer=setTimeout(function(){
     var sel=window.getSelection(); if(!sel||sel.isCollapsed) return;
     var an=sel.anchorNode, anEl= an? (an.nodeType===3? an.parentElement: an):null;
-    if(isMathContext(anEl)) return; /* mon Toan: khong doc theo tu khi boi den nua */
-    var txt=String(sel).replace(/\s+/g," ").trim();
-    if(txt.length<2||!/[\wÀ-ỹ]/.test(txt)) return;
-    if(anEl&&anEl.closest&&anEl.closest("button")) return;
-    var now=Date.now();
-    if(txt===lastSelTxt && now-lastSelAt<1200) return; /* chong doc lai cung mot vung chon */
-    lastSelTxt=txt; lastSelAt=now;
-    speakText(txt,0.88);
+    if(currentIsTv()) return; /* mon Tieng Viet: boi den khong phat tieng */
+    if(isMathContext(anEl)) return; /* mon Toan: khong doc theo tu khi boi den, chi doc theo cau */
+    return; /* khong con ngu canh nao doc theo tu nua */
   },650);
 });
 
