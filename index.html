@@ -1679,7 +1679,7 @@ function showBabyName(){
      Email day du (khong cat ngan) nam trong khung tha xuong. */
   var label = $("acct-pill-label"), drop = $("acct-drop-email");
   var n = currentEmail ? getBabyName(currentEmail) : "";
-  if(label) label.textContent = n ? ("Bé: " + n) : (currentEmail || "");
+  if(label) label.textContent = n ? ("Bé " + n) : (currentEmail || "");
   if(drop) drop.textContent = currentEmail || "";
 }
 function closeAcctMenu(){
