@@ -289,6 +289,11 @@ table.sum tfoot td{font-weight:900;color:var(--navy);border-bottom:none;border-t
    dung .sent, di qua speakContrast rieng.) */
 #view-game.tv-mode .sent{cursor:default}
 #view-game.tv-mode .sent:hover,#view-game.tv-mode .sent.reading{background:transparent;box-shadow:none}
+/* Mon Toan: da tat toan bo voice (2026-11-07) - khong con doc theo cau nen
+   cung khong con khung sang doc khi cham/ra chuot, giong het ben Tieng Viet.
+   Lop phong thu neu con sot the .sent o man Toan. */
+#view-game.math-mode .sent{cursor:default}
+#view-game.math-mode .sent:hover,#view-game.math-mode .sent.reading{background:transparent;box-shadow:none}
 /* PWA: nut Cai app o trang chu + dong huong dan cai tren iPhone */
 .installrow{display:none;justify-content:center;margin-top:14px;position:relative;z-index:1}
 .installrow.show{display:flex}
@@ -296,7 +301,7 @@ table.sum tfoot td{font-weight:900;color:var(--navy);border-bottom:none;border-t
 .installhint{display:none;margin:12px auto 0;max-width:560px;background:#fff;border:2px dashed #9fd4f8;border-radius:16px;padding:12px 16px;font-size:15px;font-weight:800;color:var(--ink);line-height:1.55;text-align:center;position:relative;z-index:1}
 .installhint.show{display:block}
 /* cong email + ho so rieng theo tung email */
-.acctbar{display:flex;align-items:center;justify-content:flex-end;gap:8px;position:relative;z-index:2;min-height:38px}
+.acctbar{display:flex;align-items:center;justify-content:flex-end;gap:8px;position:relative;z-index:2;min-height:38px;flex-wrap:wrap}
 .acct-email{font-size:14px;font-weight:900;color:var(--navy);background:rgba(255,255,255,.8);border:2px solid var(--line);border-radius:999px;padding:5px 12px;max-width:62vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .acctbtn{background:#fff;border:2px solid var(--navy2);color:var(--navy);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:900;min-height:38px;box-shadow:var(--shadow)}
 .acctbtn:hover{background:var(--sky-soft)}
@@ -371,6 +376,7 @@ img,svg,video{max-width:100%}
       <p class="login-sub">Ba mẹ gõ email đã được đăng ký để vào học cùng con nhé. Tiến trình học được lưu riêng cho từng email.</p>
       <form id="login-form" novalidate>
         <label class="lfield"><span>Email đã đăng ký</span><input type="email" id="login-email" autocomplete="email" placeholder="me@example.com"></label>
+        <label class="lfield"><span>Tên bé</span><input type="text" id="login-name" autocomplete="name" placeholder="Tên bé"></label>
         <div class="login-err" id="login-err" role="alert"></div>
         <button type="submit" class="btn-login" id="btn-login-submit">Vào học</button>
       </form>
@@ -381,6 +387,7 @@ img,svg,video{max-width:100%}
   <section id="view-home">
     <div class="acctbar" id="acct-bar">
       <span class="acct-email hidden" id="acct-email"></span>
+      <span class="acct-email hidden" id="acct-baby"></span>
       <button type="button" class="acctbtn" id="acct-change">Đổi email</button>
     </div>
     <div class="hero">
@@ -1193,7 +1200,7 @@ function renderQ(){
   var q=state.queue[state.idx]; state.current=q; state.answered=false; state.tries=0;
   $("view-game").classList.toggle("math-mode",!!state.isMath);
   $("view-game").classList.toggle("tv-mode",!state.isMath);
-  if(!state.isMath) hideVoiceNote(); /* mon Tieng Viet: xoa dong bao giong cu khi sang cau moi; rieng chinh ta van dung dong bao nay neu Nghe phan biet tai loi */
+  hideVoiceNote(); /* ca hai mon: xoa dong bao giong cu khi sang cau moi; rieng chinh ta van dung dong bao nay neu Nghe phan biet tai loi */
   $("buddy-msg").textContent=pick(["Thỏ con đồng hành cùng con - cứ từ từ suy nghĩ nhé!","Mình làm từng bước một, không vội đâu!","Sai cũng không sao, mình nhìn hình gợi ý là hiểu ngay!"]);
   splitIntoSentences($("buddy-msg"));
   $("q-cat").textContent="Câu "+(state.idx+1)+"/"+state.queue.length+" - "+q.cat;
@@ -1247,16 +1254,19 @@ function splitSentences(t){
   var out=[]; m.forEach(function(x){ x=x.replace(/\u0001/g,"...").replace(/\s+/g," ").trim(); if(x) out.push(x); });
   return out;
 }
-/* ---------- CHOT CHAN VOICE: mon Tieng Viet TAT voice, TRU phan chinh ta ----------
-   Yeu cau cua me Dory (2026-11-04, cap nhat 2026-11-07): tat het voice ben
-   Tieng Viet, chi giu voice doc theo cau ben mon Toan - NGOAI TRU mot ngoai
-   le duy nhat: phan Nghe phan biet chinh ta (tvnghe) duoc phat giong doc cham
-   hai cach viet khi bam nut Nghe phan biet hoac khi sai lan dau o chang do.
-   Ngoai le chi mo qua co spellVoicePermit do chinh speakContrast bat trong
-   luc goi speakText/speakOnlineParts (dong bo), tat ngay sau khi phat khoi
-   dong - moi duong phat khac o mon Tieng Viet van bi chan tai day. */
+/* ---------- CHOT CHAN VOICE: TAT voice o CA HAI MON, TRU phan chinh ta ----------
+   Yeu cau cua me Dory (cap nhat moi nhat 2026-11-07): tat TOAN BO voice ben
+   mon Toan luon (truoc do da tat het ben Tieng Viet tu 2026-11-04). Nhu vay
+   ca hai mon deu khong phat TTS o bat ky dau: khong doc cau khi cham/ra
+   chuot, khong doc banner tho, goi y va giai thich chi hien chu/hinh.
+   NGOAI LE DUY NHAT cua toan web: phan Nghe phan biet chinh ta (tvnghe)
+   duoc phat giong doc cham hai cach viet khi bam nut Nghe phan biet hoac
+   khi sai lan dau o chang do. Ngoai le chi mo qua co spellVoicePermit do
+   chinh speakContrast bat trong luc goi speakText/speakOnlineParts (dong
+   bo), tat ngay sau khi phat khoi dong - moi duong phat khac, o ca Toan
+   lan Tieng Viet, deu bi chan tai day. */
 var spellVoicePermit=false;
-function tvVoiceBlocked(){ return currentIsTv() && !spellVoicePermit; }
+function tvVoiceBlocked(){ return !spellVoicePermit; }
 function currentIsTv(){
   var g=document.getElementById("view-game"), r=document.getElementById("view-result");
   if(g && !g.classList.contains("hidden")) return !state.isMath;
@@ -1307,7 +1317,7 @@ function onlineTtsUrl(chunk,speed,variant){
   return "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&ttsspeed="+speed+"&q="+q;
 }
 function speakOnlineParts(parts,rate,onDone,onFail){
-  if(tvVoiceBlocked()){ if(onDone) onDone(); return; } /* mon Tieng Viet: chan TTS, tru luc speakContrast dang mo co chinh ta */
+  if(tvVoiceBlocked()){ if(onDone) onDone(); return; } /* ca hai mon: chan TTS, tru luc speakContrast dang mo co chinh ta */
   /* Dich vu chi nhan cac bac toc do roi rac (da kiem chung: 0.95 va 1 cho
      cung mot am thanh, 0.9 va 0.8 la hai bac cham hon rieng): doc thuong
      dung bac 0.9 cho mem va gan nhip noi tu nhien, phan doc cham (Nghe
@@ -1352,7 +1362,7 @@ function speakOnlineParts(parts,rate,onDone,onFail){
   next();
 }
 function speakText(txt,rate,sentEl){
-  if(tvVoiceBlocked()){ stopSpeech(); return; } /* mon Tieng Viet: chan phat giong ngay tai ham trung tam, tru co chinh ta cua speakContrast */
+  if(tvVoiceBlocked()){ stopSpeech(); return; } /* ca hai mon: chan phat giong ngay tai ham trung tam, tru co chinh ta cua speakContrast */
   var clean= (txt===null||txt===undefined)? "" : String(txt).replace(/\s+/g," ").trim();
   stopSpeech(); /* dang doc ma cham cau khac thi dung cau cu, doc cau moi */
   var token=speakToken;
@@ -1370,30 +1380,21 @@ function speakText(txt,rate,sentEl){
     finish();
   });
 }
-/* ---------- chia tung cau: doc theo CAU - CHI MON TOAN ----------
-   Mon Tieng Viet khong doc theo cau (tu 2026-11-04, giu nguyen 2026-11-07):
-   splitIntoSentences khong boc cau, khong gan handler doc va khong tao
-   khung sang ben Tieng Viet - chi mon Toan moi doc theo cau nhu mo ta
-   duoi day. Ngoai le chinh ta di qua speakContrast, khong qua duong nay.
-   - May tinh: ra chuot toi mot cau thi khung cau do sang len (.sent:hover va
-     .reading) va doc dung cau do; ra sang cau khac thi dung cau cu, doc cau moi.
-   - Dien thoai: cham vao cau thi khung cau sang len va doc cau do.
-   - Dang keo chuot de tu boi den tu/cum tu thi KHONG doc cau (buttons>0).
-   Cham va ra chuot tren dien thoai co the cung kich hoat mot cau - speakSentence
-   chong doc trung trong 700ms.
-   Ap dung cho doan doc, de bai, toan loi van, cau hoi va loi giai thich.
-   Bo qua nut bam va cac hinh truc quan (tia so, khung 10 o, can...) */
+/* ---------- chia tung cau de doc: DA VO HIEU HOA O CA HAI MON ----------
+   Tu 2026-11-07 ca mon Toan lan mon Tieng Viet deu khong doc theo cau:
+   splitIntoSentences khong con boc cau, khong gan handler doc (mouseenter/
+   click) va khong tao khung sang doc o bat ky man nao - van ban giu nguyen
+   dang chu/hinh nhu nhau o ca hai mon. speakSentence cung da vo hieu hoa
+   han (lop phong thu neu con sot the .sent nao trong DOM). Ngoai le voice
+   duy nhat - Nghe phan biet chinh ta - di qua speakContrast, khong qua
+   duong nay. */
 function speakSentence(sp){
-  if(currentIsTv()) return; /* mon Tieng Viet khong doc cau */
-  var now=Date.now();
-  if(sp._lastSpeak && now-sp._lastSpeak<700) return;
-  sp._lastSpeak=now;
-  speakText(sp.textContent,0.92,sp);
+  return; /* ca hai mon: khong doc cau khi cham/ra chuot nua */
 }
 var SENT_SKIP="button,.hintbox,.nline,.hline,.vcalc,.kgbox,.bundles,.tenframe,.diagram,.bars,.scale,.objrow,.sortsteps,.boxes3,.pvtable,.coltable,.wordchips,.bigem,.step-chips";
 function splitIntoSentences(root){
   if(!root) return;
-  if(currentIsTv()) return; /* mon Tieng Viet: giu nguyen van ban, khong boc cau de doc, khong khung sang doc */
+  return; /* ca hai mon: giu nguyen van ban, khong boc cau de doc, khong gan handler, khong khung sang doc */
   var nodes=[];
   try{
     var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
@@ -1422,7 +1423,7 @@ function splitIntoSentences(root){
 /* ---------- lop phan biet chinh ta (chi dung trong Nghe - viet) ----------
    Ngoai le voice duy nhat cua mon Tieng Viet (khoi phuc 2026-11-07): lop
    nay vua NHIN vua NGHE - to sang phan chu khac nhau giua 2 phuong an, kem
-   meo luat chinh ta, va phat giong nu mien Nam online (cung giong ben Toan)
+   meo luat chinh ta, va phat giong nu mien Nam online (voice duy nhat con lai cua web)
    doc CHAM (bac 0.8) hai cach viet kem ten phan chu khac nhau. Chi phat khi
    bam nut Nghe phan biet hoac khi sai lan dau o cau chinh ta nay. */
 var TONE_NGA="ãẵẫẽễĩõỗỡũữỹ", TONE_HOI="ảẳẩẻểỉỏổởủửỷ";
@@ -1593,14 +1594,13 @@ function renderResult(){
     : "Phần con cần ôn thêm: "+weak.join(", ")+". Mẹ bấm nút \"Luyện thêm phần yếu\" ngay bên dưới để con luyện riêng đúng các phần đó - câu hỏi vẫn là số mới tinh, làm xong vẫn cộng vào thống kê nhé.";
 }
 /* ---------- doc theo TU / CUM TU khi boi den: DA TAT O CA HAI MON ----------
-   - Mon Tieng Viet: tat toan bo voice (2026-11-04) nen boi den tu/cum tu
-     khong con phat tieng nua.
-   - Mon Toan: chi con doc theo CAU khi cham / ra vao cau (yeu cau cua me
-     Dory 2026-11-03), va khu vuc choi Toan tat chon van ban bang CSS
-     (.math-mode) nen be khong boi den duoc.
+   - Ca hai mon: tat toan bo voice (Tieng Viet tu 2026-11-04, Toan tu
+     2026-11-07) nen boi den tu/cum tu khong con phat tieng nua; khu vuc
+     choi Toan con tat chon van ban bang CSS (.math-mode) nen be khong
+     boi den duoc.
    Vi vay handler selectionchange duoi day khong phat giong o bat ky mon
-   nao; chua ke ham phat trung tam speakText con co chot chan currentIsTv()
-   chan rieng mon Tieng Viet. */
+   nao; chua ke ham phat trung tam speakText con co chot chan chan moi
+   duong phat tru co chinh ta cua speakContrast. */
 function isMathContext(el){
   if(!el||!el.closest) return false;
   if(el.closest("#view-game")||el.closest("#view-result")) return !!state.isMath;
@@ -1614,7 +1614,7 @@ document.addEventListener("selectionchange",function(){
     var sel=window.getSelection(); if(!sel||sel.isCollapsed) return;
     var an=sel.anchorNode, anEl= an? (an.nodeType===3? an.parentElement: an):null;
     if(currentIsTv()) return; /* mon Tieng Viet: boi den khong phat tieng */
-    if(isMathContext(anEl)) return; /* mon Toan: khong doc theo tu khi boi den, chi doc theo cau */
+    if(isMathContext(anEl)) return; /* mon Toan: boi den cung khong phat tieng */
     return; /* khong con ngu canh nao doc theo tu nua */
   },650);
 });
@@ -1698,10 +1698,27 @@ var REGISTERED_EMAILS = [
 ];
 var EMAIL_STORE_KEY = LS_KEY + "-email";
 var currentEmail = "";
+var nameAutofilledValue = "";
 
 function normEmail(v){ return String(v || "").trim().toLowerCase(); }
 function isRegistered(em){ return REGISTERED_EMAILS.indexOf(normEmail(em)) !== -1; }
 function profileKeyFor(em){ return LS_KEY + "::" + normEmail(em); }
+/* Ten be: luu RIENG theo tung email tren may nay, khoa tach khoi du lieu
+   thong ke: LS_KEY + "-name::" + email. De trong ten thi van vao hoc binh
+   thuong va giu nguyen ten da luu truoc do (neu co). */
+function nameKeyFor(em){ return LS_KEY + "-name::" + normEmail(em); }
+function getBabyName(em){ try{ return String(localStorage.getItem(nameKeyFor(em)) || "").trim(); }catch(e){ return ""; } }
+function saveBabyName(em, name){
+  var n = String(name || "").trim();
+  if(!n) return;
+  try{ localStorage.setItem(nameKeyFor(em), n); }catch(e){}
+}
+function showBabyName(){
+  var b = $("acct-baby"); if(!b) return;
+  var n = currentEmail ? getBabyName(currentEmail) : "";
+  if(n){ b.textContent = "Bé: " + n; b.classList.remove("hidden"); }
+  else { b.textContent = ""; b.classList.add("hidden"); }
+}
 
 function activateProfile(em){
   em = normEmail(em);
@@ -1717,6 +1734,7 @@ function activateProfile(em){
   try{ localStorage.setItem(EMAIL_STORE_KEY, em); }catch(e){}
   var el = $("acct-email");
   if(el){ el.textContent = em; el.classList.remove("hidden"); }
+  showBabyName();
 }
 function setGateErr(msg){
   var e = $("login-err"); if(!e) return;
@@ -1726,7 +1744,30 @@ function setGateErr(msg){
 function showGate(){
   show("view-login");
   var inp = $("login-email");
-  if(inp){ inp.value = ""; setTimeout(function(){ try{ inp.focus(); }catch(e){} }, 80); }
+  var nameInp = $("login-name");
+  nameAutofilledValue = "";
+  if(nameInp) nameInp.value = "";
+  if(inp){
+    var remembered = "";
+    try{ remembered = normEmail(localStorage.getItem(EMAIL_STORE_KEY)); }catch(e){}
+    if(remembered && isRegistered(remembered)){
+      inp.value = remembered;
+      var rn = getBabyName(remembered);
+      if(nameInp && rn){ nameInp.value = rn; nameAutofilledValue = rn; }
+    } else inp.value = "";
+    setTimeout(function(){ try{ inp.focus(); }catch(e){} }, 80);
+  }
+}
+function tryAutofillName(){
+  var emInp = $("login-email"), nInp = $("login-name");
+  if(!emInp || !nInp) return;
+  var savedName = getBabyName(normEmail(emInp.value));
+  if(!savedName) return;
+  var cur = nInp.value.trim();
+  if(!cur || cur === nameAutofilledValue){
+    nInp.value = savedName;
+    nameAutofilledValue = savedName;
+  }
 }
 function enterWithEmail(em){
   activateProfile(em);
@@ -1743,12 +1784,18 @@ $("login-form").addEventListener("submit", function(e){
     return;
   }
   setGateErr("");
+  var nameInp2 = $("login-name");
+  if(nameInp2) saveBabyName(em, nameInp2.value);
   enterWithEmail(em);
 });
+$("login-email").addEventListener("input", tryAutofillName);
+$("login-email").addEventListener("change", tryAutofillName);
+$("login-email").addEventListener("blur", tryAutofillName);
 $("acct-change").addEventListener("click", function(){
   stopSpeech();
   try{ localStorage.removeItem(EMAIL_STORE_KEY); }catch(e){}
   currentEmail = "";
+  showBabyName();
   showGate();
 });
 
