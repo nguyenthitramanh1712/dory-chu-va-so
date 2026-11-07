@@ -295,11 +295,17 @@ table.sum tfoot td{font-weight:900;color:var(--navy);border-bottom:none;border-t
 #view-game.math-mode .sent{cursor:default}
 #view-game.math-mode .sent:hover,#view-game.math-mode .sent.reading{background:transparent;box-shadow:none}
 /* cong email + ho so rieng theo tung email */
-.acctbar{display:flex;align-items:center;justify-content:flex-end;gap:8px;position:relative;z-index:2;min-height:38px;flex-wrap:wrap}
-.acct-email{font-size:14px;font-weight:900;color:var(--navy);background:rgba(255,255,255,.8);border:2px solid var(--line);border-radius:999px;padding:5px 12px;max-width:62vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.acctbtn{background:#fff;border:2px solid var(--navy2);color:var(--navy);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:900;min-height:38px;box-shadow:var(--shadow)}
-.acctbtn:hover{background:var(--sky-soft)}
-@media(max-width:640px){.acctbar{justify-content:center}}
+.acctbar{display:flex;align-items:center;justify-content:flex-start;gap:8px;position:relative;z-index:2;min-height:38px}
+.acct-menu{position:relative}
+.acct-pill{display:inline-flex;align-items:center;gap:7px;font-size:15px;font-weight:900;color:var(--navy);background:rgba(255,255,255,.9);border:2px solid var(--line);border-radius:999px;padding:7px 14px;min-height:38px;box-shadow:var(--shadow);max-width:78vw}
+.acct-pill:hover{background:var(--sky-soft)}
+.acct-pill-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.acct-arrow{font-size:12px;line-height:1;flex:0 0 auto;transition:transform .15s ease}
+.acct-pill[aria-expanded="true"] .acct-arrow{transform:rotate(180deg)}
+.acct-drop{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:3px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:14px;min-width:250px;max-width:86vw;z-index:20;text-align:left}
+.acct-drop-email{font-size:15px;font-weight:800;color:var(--ink);line-height:1.45;overflow-wrap:anywhere;margin-bottom:12px}
+.acct-logout{width:100%;background:#fff;border:2px solid var(--navy2);color:var(--navy);border-radius:999px;padding:10px 16px;font-size:15px;font-weight:900;min-height:44px}
+.acct-logout:hover{background:var(--sky-soft)}
 #view-login{position:relative;z-index:1;padding-top:24px}
 .logincard{background:#fff;border:3px solid var(--line);border-radius:26px;box-shadow:var(--shadow);max-width:440px;margin:0 auto;padding:28px 24px 24px;text-align:center}
 .login-bunny{font-size:64px}
@@ -379,9 +385,16 @@ img,svg,video{max-width:100%}
   <!-- HOME -->
   <section id="view-home">
     <div class="acctbar" id="acct-bar">
-      <span class="acct-email hidden" id="acct-email"></span>
-      <span class="acct-email hidden" id="acct-baby"></span>
-      <button type="button" class="acctbtn" id="acct-change">Đổi email</button>
+      <div class="acct-menu">
+        <button type="button" class="acct-pill" id="acct-pill" aria-haspopup="true" aria-expanded="false">
+          <span class="acct-pill-label" id="acct-pill-label"></span>
+          <span class="acct-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="acct-drop hidden" id="acct-drop">
+          <div class="acct-drop-email" id="acct-drop-email"></div>
+          <button type="button" class="acct-logout" id="acct-logout">Đăng xuất</button>
+        </div>
+      </div>
     </div>
     <div class="hero">
       <div class="bunny" aria-hidden="true">🐰</div>
@@ -1662,10 +1675,16 @@ function saveBabyName(em, name){
   try{ localStorage.setItem(nameKeyFor(em), n); }catch(e){}
 }
 function showBabyName(){
-  var b = $("acct-baby"); if(!b) return;
+  /* Pill tren cung: uu tien hien "Be: <ten>", chua co ten thi hien email.
+     Email day du (khong cat ngan) nam trong khung tha xuong. */
+  var label = $("acct-pill-label"), drop = $("acct-drop-email");
   var n = currentEmail ? getBabyName(currentEmail) : "";
-  if(n){ b.textContent = "Bé: " + n; b.classList.remove("hidden"); }
-  else { b.textContent = ""; b.classList.add("hidden"); }
+  if(label) label.textContent = n ? ("Bé: " + n) : (currentEmail || "");
+  if(drop) drop.textContent = currentEmail || "";
+}
+function closeAcctMenu(){
+  var d = $("acct-drop"); if(d) d.classList.add("hidden");
+  var p = $("acct-pill"); if(p) p.setAttribute("aria-expanded", "false");
 }
 
 function activateProfile(em){
@@ -1680,8 +1699,7 @@ function activateProfile(em){
   }catch(e){}
   PROFILE_KEY = key;
   try{ localStorage.setItem(EMAIL_STORE_KEY, em); }catch(e){}
-  var el = $("acct-email");
-  if(el){ el.textContent = em; el.classList.remove("hidden"); }
+  closeAcctMenu();
   showBabyName();
 }
 function setGateErr(msg){
@@ -1739,8 +1757,25 @@ $("login-form").addEventListener("submit", function(e){
 $("login-email").addEventListener("input", tryAutofillName);
 $("login-email").addEventListener("change", tryAutofillName);
 $("login-email").addEventListener("blur", tryAutofillName);
-$("acct-change").addEventListener("click", function(){
+$("acct-pill").addEventListener("click", function(e){
+  e.stopPropagation();
+  var d = $("acct-drop"); if(!d) return;
+  var willOpen = d.classList.contains("hidden");
+  d.classList.toggle("hidden", !willOpen);
+  $("acct-pill").setAttribute("aria-expanded", willOpen ? "true" : "false");
+});
+document.addEventListener("click", function(e){
+  var d = $("acct-drop");
+  if(!d || d.classList.contains("hidden")) return;
+  var menu = d.parentNode;
+  if(menu && !menu.contains(e.target)) closeAcctMenu();
+});
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape") closeAcctMenu();
+});
+$("acct-logout").addEventListener("click", function(){
   stopSpeech();
+  closeAcctMenu();
   try{ localStorage.removeItem(EMAIL_STORE_KEY); }catch(e){}
   currentEmail = "";
   showBabyName();
