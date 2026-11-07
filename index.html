@@ -294,12 +294,6 @@ table.sum tfoot td{font-weight:900;color:var(--navy);border-bottom:none;border-t
    Lop phong thu neu con sot the .sent o man Toan. */
 #view-game.math-mode .sent{cursor:default}
 #view-game.math-mode .sent:hover,#view-game.math-mode .sent.reading{background:transparent;box-shadow:none}
-/* PWA: nut Cai app o trang chu + dong huong dan cai tren iPhone */
-.installrow{display:none;justify-content:center;margin-top:14px;position:relative;z-index:1}
-.installrow.show{display:flex}
-.btn-install{display:inline-flex;align-items:center;gap:8px;background:#fff;border:3px solid var(--navy2);border-radius:999px;padding:11px 20px;font-size:16px;font-weight:900;color:var(--navy);box-shadow:var(--shadow);min-height:48px}
-.installhint{display:none;margin:12px auto 0;max-width:560px;background:#fff;border:2px dashed #9fd4f8;border-radius:16px;padding:12px 16px;font-size:15px;font-weight:800;color:var(--ink);line-height:1.55;text-align:center;position:relative;z-index:1}
-.installhint.show{display:block}
 /* cong email + ho so rieng theo tung email */
 .acctbar{display:flex;align-items:center;justify-content:flex-end;gap:8px;position:relative;z-index:2;min-height:38px;flex-wrap:wrap}
 .acct-email{font-size:14px;font-weight:900;color:var(--navy);background:rgba(255,255,255,.8);border:2px solid var(--line);border-radius:999px;padding:5px 12px;max-width:62vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -353,7 +347,6 @@ img,svg,video{max-width:100%}
   .grid{gap:18px}
   .mixed-wrap{margin-top:18px}
   .mode{padding:18px 18px 16px}
-  .installhint{max-width:720px}
   .foot{max-width:960px;margin-left:auto;margin-right:auto}
   .qcard{padding:26px 28px}
   .rcard{padding:28px}
@@ -403,10 +396,6 @@ img,svg,video{max-width:100%}
       <button type="button" class="subj active" id="tab-toan">🔢 Môn Toán</button>
       <button type="button" class="subj" id="tab-tv">📚 Môn Tiếng Việt</button>
     </div>
-    <div class="installrow" id="install-row">
-      <button type="button" class="btn-install" id="btn-install">📲 Cài app vào điện thoại</button>
-    </div>
-    <p class="installhint" id="install-hint">Trên iPhone: mở web này bằng <b>Safari</b>, bấm nút <b>Chia sẻ</b> (ô vuông có mũi tên hướng lên) rồi chọn <b>"Thêm vào màn hình chính"</b> - icon thỏ con sẽ hiện ngoài màn hình chính như một app riêng cho bé bấm vào học.</p>
     <div class="grid" id="mode-grid"></div>
     <p class="foot" id="foot-note">Mẹ bấm chọn một chặng để con luyện riêng từng dạng, hoặc chơi lượt tổng hợp trộn nhiều dạng cho vui.</p>
     <section class="histcard hidden" id="home-stats">
@@ -1623,58 +1612,17 @@ renderStatsSections();
 </script>
 <script>
 "use strict";
-/* ---------- PWA: dang ky service worker + nut "Cai app" o trang chu ----------
+/* ---------- PWA: dang ky service worker ----------
    - Service worker (data:application/javascript;base64,LyogU2VydmljZSB3b3JrZXIgLSBPbiB0YXAgVG9hbiAyLCBHaXVhIGhvYyBraSAxIChQV0EpCiAgIEx1dSB0cmFuZyB2YSBjYWMgdGVwIGN1YSB3ZWIgdmFvIG1heSBkZSBtbyBuaGFuaCBvIGNhYyBsYW4gc2F1LgogICBHaW9uZyBkb2Mgb25saW5lIChHb29nbGUgVFRTKSBLSE9ORyBkaSBxdWEgY2FjaGUgbmF5IC0gdmFuIHBoYXQgdHJ1YwogICB0aWVwIHF1YSBtYW5nIG5odSBiaW5oIHRodW9uZywgZHVuZyBuZ3V5ZW4gaGFuaCB2aSBoaWVuIHRhaSBjdWEgd2ViLiAqLwoidXNlIHN0cmljdCI7Cgp2YXIgQ0FDSEUgPSAib250YXAtbG9wMi12MSI7CnZhciBTSEVMTCA9IFsKICAiLi4vaW5kZXguaHRtbCIsCiAgIi4uLyIsCiAgIm1hbmlmZXN0LndlYm1hbmlmZXN0IiwKICAiaWNvbi0xOTIucG5nIiwKICAiaWNvbi01MTIucG5nIiwKICAiaWNvbi1tYXNrYWJsZS01MTIucG5nIiwKICAiYXBwbGUtdG91Y2gtaWNvbi5wbmciLAogICJmYXZpY29uLTMyLnBuZyIKXTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcigiaW5zdGFsbCIsIGZ1bmN0aW9uIChlKSB7CiAgZS53YWl0VW50aWwoCiAgICBjYWNoZXMub3BlbihDQUNIRSkudGhlbihmdW5jdGlvbiAoYykgewogICAgICAvKiBhZGRBbGwgdHVuZyB0ZXAgcmllbmcgbGUgZGUgMSB0ZXAgbG9pIGtob25nIGxhbSBob25nIGNhIGx1b3QgY2FpICovCiAgICAgIHJldHVybiBQcm9taXNlLmFsbChTSEVMTC5tYXAoZnVuY3Rpb24gKHUpIHsKICAgICAgICByZXR1cm4gYy5hZGQodSkuY2F0Y2goZnVuY3Rpb24gKCkge30pOwogICAgICB9KSk7CiAgICB9KS50aGVuKGZ1bmN0aW9uICgpIHsgcmV0dXJuIHNlbGYuc2tpcFdhaXRpbmcoKTsgfSkKICApOwp9KTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcigiYWN0aXZhdGUiLCBmdW5jdGlvbiAoZSkgewogIGUud2FpdFVudGlsKAogICAgY2FjaGVzLmtleXMoKS50aGVuKGZ1bmN0aW9uIChrZXlzKSB7CiAgICAgIHJldHVybiBQcm9taXNlLmFsbChrZXlzLm1hcChmdW5jdGlvbiAoaykgewogICAgICAgIHJldHVybiBrID09PSBDQUNIRSA/IG51bGwgOiBjYWNoZXMuZGVsZXRlKGspOwogICAgICB9KSk7CiAgICB9KS50aGVuKGZ1bmN0aW9uICgpIHsgcmV0dXJuIHNlbGYuY2xpZW50cy5jbGFpbSgpOyB9KQogICk7Cn0pOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCJmZXRjaCIsIGZ1bmN0aW9uIChlKSB7CiAgdmFyIHJlcSA9IGUucmVxdWVzdDsKICBpZiAocmVxLm1ldGhvZCAhPT0gIkdFVCIpIHJldHVybjsKICB2YXIgdXJsOwogIHRyeSB7IHVybCA9IG5ldyBVUkwocmVxLnVybCk7IH0gY2F0Y2ggKGVycikgeyByZXR1cm47IH0KCiAgLyogR2lvbmcgZG9jIHZhIG1vaSBkaWNoIHZ1IGRvYyB0cnVjIHR1eWVuOiBsdW9uIGxheSB0aGFuZyB0dSBtYW5nLAogICAgIGtob25nIGNhY2hlLCBraG9uZyBjYW4gdGhpZXAgKGdpdSBuZ3V5ZW4gY2FjaCBkb2MgaGllbiB0YWkpLiAqLwogIGlmICh1cmwuaG9zdG5hbWUuaW5kZXhPZigidHJhbnNsYXRlLmdvb2dsZSIpICE9PSAtMSB8fAogICAgICB1cmwuaG9zdG5hbWUuaW5kZXhPZigiZ29vZ2xlYXBpcy5jb20iKSAhPT0gLTEpIHJldHVybjsKCiAgLyogTW8gdHJhbmcgKGRpZXUgaHVvbmcpOiB1dSB0aWVuIGJhbiBkYSBsdXUgZGUgbW8gbmhhbmgsIGNoYXkgbmVuIGNhcAogICAgIG5oYXQgYmFuIG1vaTsgbWF0IG1hbmcgdGhpIHZhbiBtbyBkdW9jIGJhbiBkYSBsdXUuICovCiAgaWYgKHJlcS5tb2RlID09PSAibmF2aWdhdGUiKSB7CiAgICBlLnJlc3BvbmRXaXRoKAogICAgICBjYWNoZXMubWF0Y2goIi4uL2luZGV4Lmh0bWwiLCB7IGlnbm9yZVNlYXJjaDogdHJ1ZSB9KS50aGVuKGZ1bmN0aW9uIChoaXQpIHsKICAgICAgICB2YXIgbmV0ID0gZmV0Y2gocmVxKS50aGVuKGZ1bmN0aW9uIChyZXMpIHsKICAgICAgICAgIGlmIChyZXMgJiYgcmVzLm9rKSB7CiAgICAgICAgICAgIHZhciBjb3B5ID0gcmVzLmNsb25lKCk7CiAgICAgICAgICAgIGNhY2hlcy5vcGVuKENBQ0hFKS50aGVuKGZ1bmN0aW9uIChjKSB7IGMucHV0KCIuLi9pbmRleC5odG1sIiwgY29weSk7IH0pOwogICAgICAgICAgfQogICAgICAgICAgcmV0dXJuIHJlczsKICAgICAgICB9KS5jYXRjaChmdW5jdGlvbiAoKSB7IHJldHVybiBoaXQ7IH0pOwogICAgICAgIHJldHVybiBoaXQgfHwgbmV0OwogICAgICB9KQogICAgKTsKICAgIHJldHVybjsKICB9CgogIC8qIFRlcCB0aW5oIGN1bmcgbmd1b24gKGljb24sIG1hbmlmZXN0KSB2YSBmb250IEdvb2dsZTogc3RhbGUtd2hpbGUtcmV2YWxpZGF0ZSAqLwogIGlmICh1cmwub3JpZ2luID09PSBzZWxmLmxvY2F0aW9uLm9yaWdpbiB8fAogICAgICB1cmwuaG9zdG5hbWUgPT09ICJmb250cy5nb29nbGVhcGlzLmNvbSIgfHwKICAgICAgdXJsLmhvc3RuYW1lID09PSAiZm9udHMuZ3N0YXRpYy5jb20iKSB7CiAgICBlLnJlc3BvbmRXaXRoKAogICAgICBjYWNoZXMubWF0Y2gocmVxLCB7IGlnbm9yZVNlYXJjaDogdHJ1ZSB9KS50aGVuKGZ1bmN0aW9uIChoaXQpIHsKICAgICAgICB2YXIgbmV0ID0gZmV0Y2gocmVxKS50aGVuKGZ1bmN0aW9uIChyZXMpIHsKICAgICAgICAgIGlmIChyZXMgJiYgKHJlcy5vayB8fCByZXMudHlwZSA9PT0gIm9wYXF1ZSIpKSB7CiAgICAgICAgICAgIHZhciBjb3B5ID0gcmVzLmNsb25lKCk7CiAgICAgICAgICAgIGNhY2hlcy5vcGVuKENBQ0hFKS50aGVuKGZ1bmN0aW9uIChjKSB7IGMucHV0KHJlcSwgY29weSk7IH0pOwogICAgICAgICAgfQogICAgICAgICAgcmV0dXJuIHJlczsKICAgICAgICB9KS5jYXRjaChmdW5jdGlvbiAoKSB7IHJldHVybiBoaXQ7IH0pOwogICAgICAgIHJldHVybiBoaXQgfHwgbmV0OwogICAgICB9KQogICAgKTsKICB9Cn0pOwo=) luu trang va icon vao may de mo nhanh;
      giong doc online khong di qua service worker, van can mang nhu hien nay.
-   - Android/Chrome: bam nut la goi hop cai dat cua trinh duyet
-     (beforeinstallprompt). iPhone/iPad: bam nut la hien dong huong dan
-     Safari - Chia se - Them vao man hinh chinh.
-   - Da mo tu icon app (standalone) thi an nut han. */
+   - Manifest va service worker van giu nguyen de trinh duyet tu ho tro
+     cai app nhu binh thuong; trang khong con nut cai app rieng nua. */
 (function(){
   if("serviceWorker" in navigator){
     window.addEventListener("load",function(){
       navigator.serviceWorker.register("sw.js").catch(function(){});
     });
   }
-  var row=document.getElementById("install-row");
-  var btn=document.getElementById("btn-install");
-  var hint=document.getElementById("install-hint");
-  if(!row||!btn) return;
-  function isStandalone(){
-    return (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches)
-      || window.navigator.standalone===true;
-  }
-  if(isStandalone()) return; /* dang mo tu icon app: khong hien nut cai nua */
-  var deferred=null;
-  var ua=navigator.userAgent||"";
-  var isIOS= /iphone|ipad|ipod/i.test(ua)
-    || (/Macintosh/.test(ua) && navigator.maxTouchPoints>1); /* iPadOS bao danh Mac */
-  window.addEventListener("beforeinstallprompt",function(e){
-    e.preventDefault();
-    deferred=e;
-    row.classList.add("show");
-  });
-  window.addEventListener("appinstalled",function(){
-    deferred=null;
-    row.classList.remove("show");
-    if(hint) hint.classList.remove("show");
-  });
-  if(isIOS) row.classList.add("show"); /* iOS khong co beforeinstallprompt: hien nut de xem huong dan */
-  btn.addEventListener("click",function(){
-    if(deferred){
-      var d=deferred; deferred=null;
-      var showInstallPrompt=d.prompt;
-      if(showInstallPrompt) showInstallPrompt.call(d);
-      if(d.userChoice && d.userChoice.then){
-        d.userChoice.then(function(c){
-          if(c && c.outcome==="accepted") row.classList.remove("show");
-          else row.classList.add("show");
-        }).catch(function(){});
-      }
-      return;
-    }
-    if(hint) hint.classList.toggle("show"); /* iPhone: mo dong huong dan cai */
-  });
 })();
 </script>
 <script>
